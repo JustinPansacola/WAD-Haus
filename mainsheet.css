@@ -1,3 +1,7 @@
+*{
+    padding: 0;
+    margin: 0;
+}
 .header{
     background-color: green;
 }
@@ -25,6 +29,9 @@ body{
 background-color: #ffffff26; 
 color: black;
 } 
+.sidelink{
+    margin-top: 40px;
+}
 .my-container { 
 transition: 0.4s; 
 } 
