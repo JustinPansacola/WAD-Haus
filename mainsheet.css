@@ -2,9 +2,6 @@
     padding: 0;
     margin: 0;
 }
-.header{
-    background-color: green;
-}
 body{
     font-family: 'Gilda Display';
 }
@@ -42,3 +39,6 @@ margin-left: 0;
 .active-cont { 
 margin-left: 180px; 
 } 
+=======
+    background-color: #00704A;
+}
