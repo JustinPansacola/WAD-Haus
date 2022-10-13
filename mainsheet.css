@@ -1,3 +1,37 @@
 .header{
     background-color: green;
 }
+body{
+    font-family: 'Gilda Display';
+}
+
+.navbar{
+    background-color: #C8FFD4;
+}
+
+.side-navbar { 
+    width: 180px; 
+    height: 100%; 
+    position: fixed; 
+    margin-left: -300px; 
+    background-color: white; 
+    transition: 0.5s; 
+    } 
+
+.nav-link,
+.nav-link:active, 
+.nav-link:focus, 
+.nav-link:hover { 
+background-color: #ffffff26; 
+color: black;
+} 
+.my-container { 
+transition: 0.4s; 
+} 
+.active-nav { 
+margin-left: 0; 
+} 
+/* for main section */ 
+.active-cont { 
+margin-left: 180px; 
+} 

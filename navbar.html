@@ -8,33 +8,78 @@
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Gilda Display' rel='stylesheet'>
+    <link rel="stylesheet" href="mainsheet.css">
 
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-success rounded-bottom">
+    <nav class="navbar navbar-expand-xxl rounded-bottom">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Haus</a>
-            <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button> -->
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <div class="justify-content-start">
+                <button id="menu-btn" class="navbar-toggler" type="button">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand text-dark justify-content-start" href="#">haus</a>
+            </div>
+
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="...">login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="...">register</a>
+                </li>
+            </ul>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">login</a>
+                        <a class="nav-link active" aria-current="page" href="#">page1</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">register</a>
+                        <a class="nav-link active" aria-current="page" href="#">page2</a>
                     </li>
                 </ul>
             </div>
+
         </div>
     </nav>
+    <div class="side-navbar active-nav d-flex justify-content-between flex-wrap flex-column" id="sidebar"> 
+              <ul class="nav flex-column text-white w-100"> 
+                <a href="#" class="nav-link h3 text-white my-2"> 
+                  Side Nav 
+                </a> 
+                <li href="#" class="nav-link"> 
+                  <span class="mx-2">browse listings</span> 
+                </li> 
+                <li href="#" class="nav-link"> 
+                  <span class="mx-2">favourites</span> 
+                </li> 
+                <li href="#" class="nav-link"> 
+                  <span class="mx-2">chat</span> 
+                </li> 
+                <li href="#" class="nav-link"> 
+                  <span class="mx-2">contract</span> 
+                </li> 
+                <li href="#" class="nav-link"> 
+                  <span class="mx-2"></span> 
+                </li> 
+              </ul> 
+            </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"></script>
+    <script> 
+      var menu_btn = document.querySelector("#menu-btn"); 
+      var sidebar = document.querySelector("#sidebar"); 
+      var container = document.querySelector(".my-container"); 
+      menu_btn.addEventListener("click", () => { 
+      sidebar.classList.toggle("active-nav"); 
+      container.classList.toggle("active-cont"); 
+      }); 
+    </script>
 </body>
 
 </html>
