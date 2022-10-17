@@ -1,0 +1,53 @@
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-analytics.js";
+    import { doc, getDoc, collection, getDocs, getFirestore } from 'https://www.gstatic.com/firebasejs/9.12.1/firebase-firestore.js'
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+        apiKey: "AIzaSyBwZmQ55hE15jSogV2yvl6s3leWv_qHC2E",
+        authDomain: "zy-test-544be.firebaseapp.com",
+        projectId: "zy-test-544be",
+        storageBucket: "zy-test-544be.appspot.com",
+        messagingSenderId: "179453049610",
+        appId: "1:179453049610:web:cb12d832227353f91918f3",
+        measurementId: "G-65MBZLCP8E"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+
+    const db = getFirestore();
+
+    // TO GET A SPECIFIC DOCUMENT
+    // const docRef = doc(db, "projects", "5g6m35D9Zmv71vMHb4Hw");
+    // const docSnap = await getDoc(docRef);
+
+    // if (docSnap.exists()) {
+    //     console.log("Document data:", docSnap.data());
+    // } else {
+    //     // doc.data() will be undefined in this case
+    //     console.log("No such document!");
+    // }
+
+    // TO GET ALL DOCUMENTS IN A COLLECTION
+    const colRef = collection(db, "stuff");
+    const docsSnap = await getDocs(colRef);
+    
+    try {
+        const docsSnap = await getDocs(colRef);
+        if (docsSnap.docs.length > 0) {
+            docsSnap.forEach(doc => {
+                console.log(doc.data());
+                console.log(doc.id);
+            })
+        }
+    } catch (error) {
+        console.log(error);
+    }
+</script>
