@@ -8,6 +8,7 @@ body{
 
 .navbar{
     background-color: #C8FFD4;
+    z-index: 1000;
 }
 
 .side-navbar { 
@@ -17,6 +18,7 @@ body{
     margin-left: -300px; 
     background-color: white; 
     transition: 0.5s; 
+    z-index: 1000;
     } 
 
 .nav-link,
