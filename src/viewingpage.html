@@ -156,9 +156,29 @@
         crossorigin="anonymous"></script>
 
     <script>
+        $(document).ready(function ($) { //wait for the document to load
+            $('#content').css({
+                'margin-top': $('.navbar').outerHeight() + 0 + 'px' //adjust the css rule for margin-top to equal the element height - 10px and add the measurement unit "px" for valid CSS
+            });
+        });
+
+        $(window).resize(function () {
+            //$("#log").append("<div>Handler for .resize() called.</div>");
+            $('#content').css({
+                'margin-top': $('.navbar').outerHeight() + 0 + 'px' //adjust the css rule for margin-top to equal the element height - 10px and add the measurement unit "px" for valid CSS
+            });
+        });
+
+        // $("#menu-btn").click(function () {
+        //     $('#content').css({
+        //         'margin-top': $('.navbar').outerHeight() + 0 + 'px' //adjust the css rule for margin-top to equal the element height - 10px and add the measurement unit "px" for valid CSS
+        //     });
+        // });
+
         var menu_btn = document.querySelector("#menu-btn");
         var sidebar = document.querySelector("#sidebar");
         var container = document.querySelector(".my-container");
+
         menu_btn.addEventListener("click", () => {
             sidebar.classList.toggle("active-nav");
             // container.classList.toggle("active-cont");
@@ -171,12 +191,7 @@
             }
         });
 
-        $(document).ready(function ($) { //wait for the document to load
-            $('#content').css({
-                'margin-top': $('.navbar').outerHeight() + 0 + 'px' //adjust the css rule for margin-top to equal the element height - 10px and add the measurement unit "px" for valid CSS
-            });
 
-        });
     </script>
 </body>
 
