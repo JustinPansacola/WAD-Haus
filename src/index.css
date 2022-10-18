@@ -3,7 +3,7 @@
     margin: 0;
 }
 
-body {
+#landingbody {
     font-family: 'Gilda Display';
     background: url("images/mainbg.jpeg") no-repeat center center fixed;
     -webkit-background-size: cover;
