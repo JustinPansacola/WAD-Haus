@@ -1,0 +1,23 @@
+{
+  "name": "wad-haus",
+  "version": "1.0.0",
+  "description": "HI",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JustinPansacola/WAD-Haus.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JustinPansacola/WAD-Haus/issues"
+  },
+  "homepage": "https://github.com/JustinPansacola/WAD-Haus#readme",
+  "dependencies": {
+    "firebase": "^9.12.1"
+  }
+}
