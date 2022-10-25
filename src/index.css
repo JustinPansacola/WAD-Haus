@@ -9,7 +9,7 @@
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;
+    background-size: cover; 
 }
 
 .navbar {
@@ -36,6 +36,10 @@
 .nav-link:hover {
     background-color: #ffffff26;
     color: black;
+}
+
+#loginform {
+    background-color: rgb(211,211,211, 0.5);
 }
 
 .sidelink {
