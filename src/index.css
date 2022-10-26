@@ -41,3 +41,24 @@ margin-left: 0;
 .active-cont { 
 margin-left: 180px; 
 } 
+
+.large-box{
+    border: 1px black solid;
+    padding: 10px; 
+    margin-top: 20px; 
+    height: 200px; 
+    border-radius: 6%;
+}
+.medium-box, .small-box{
+    border: 1px black solid;
+    padding: 10px; 
+    margin-top: 20px; 
+    height: 200px; 
+    border-radius: 10%;
+}
+.amenities-box{
+    border: 1px black solid;
+    padding: 10px; 
+    margin-top: 20px; 
+    border-radius: 10%;
+}
