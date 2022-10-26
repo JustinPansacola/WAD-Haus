@@ -41,10 +41,12 @@ const main = Vue.createApp({
     methods: {
 
         // disallow user to click chat button if not logged in
-        goChat() {
-            if (uid == null) {
-                alert("Login first!")
-            }
+        goChat(val) {
+            // if (uid == null) {
+            //     alert("Login first!")
+            // }
+            console.log(val);
+            window.location = "chat.html?address=" + val;
         }
 
     },

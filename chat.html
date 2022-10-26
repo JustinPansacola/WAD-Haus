@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>haus</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <!-- Vue 3 CDN -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <link href='https://fonts.googleapis.com/css?family=Gilda Display' rel='stylesheet'>
+    <link rel="stylesheet" href="index.css">
+    <!-- <script type="module" src="index.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar py-3 rounded-bottom">
+        <div class="container-fluid py-0 ">
+            <div class="justify-content-start">
+                <button id="menu-btn" class="navbar-toggler" type="button">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand ms-4 text-dark justify-content-start" href="index.html">haus</a>
+            </div>
+
+            <ul class="nav align-middle justify-content-center p-0">
+                <li class="nav-item">
+                    <a class="nav-link text-dark" style="background-color:#C8FFD4;" href="login.html">login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" style="background-color:#C8FFD4;" href="register.html">register</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <!--style="margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px;">-->
+    <div class="side-navbar d-flex justify-content-between flex-wrap flex-column" id="sidebar">
+        <ul class="nav flex-column text-white w-100">
+            <li class="nav-link sidelink">
+                <span class="mx-2"><a href="viewingpage.html" style="text-decoration: none; color: black;">browse
+                        listings</a></span>
+            </li>
+            <li class="nav-link sidelink">
+                <span class="mx-2"><a href="#" style="text-decoration: none; color: black;">favourites</a></span>
+            </li>
+            <li class="nav-link sidelink">
+                <span class="mx-2"><a href="#" style="text-decoration: none; color: black;">chat</a></span>
+            </li>
+            <li class="nav-link sidelink">
+                <span class="mx-2"><a href="#" style="text-decoration: none; color: black;">contract</a></span>
+            </li>
+            <li href="#" class="nav-link sidelink">
+                <span class="mx-2"></span>
+            </li>
+        </ul>
+    </div>
+
+
+
+
+    <div id="content">
+
+        <div class="container p-3">
+            <!-- add your stuff here :D -->
+
+            <select class="form-select mb-3" aria-label="Default select example">
+                <option selected>Peter</option>
+                <option value="1">Jason</option>
+                <option value="2">Kyong</option>
+                <option value="3">JK</option>
+            </select>
+
+            <div class="d-flex flex-column border rounded-5" style="height: 500px;background-color: #D9D9D9;">
+                <div class="p-2">
+                    <h3 class="text-center p-3">{{Address}}</h3>
+                </div>
+                <div class="p-2">
+                    <!-- text bubbles go here -->
+                    <div class="container">
+
+                    </div>
+                </div>
+                <div class="mt-auto p-2 text-center">
+                    <button type="button" class="btn my-3" style="background-color:#C8FFD4">Make Offer</button>
+                    <div class="input-group mb-3">
+                        <span class="btn btn-secondary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-paperclip" viewBox="0 0 16 16">
+                            <path d="M4.5 3a2.5 2.5 0 0 1 5 0v9a1.5 1.5 0 0 1-3 0V5a.5.5 0 0 1 1 0v7a.5.5 0 0 0 1 0V3a1.5 1.5 0 1 0-3 0v9a2.5 2.5 0 0 0 5 0V5a.5.5 0 0 1 1 0v7a3.5 3.5 0 1 1-7 0V3z"/>
+                          </svg></span>
+                        <input type="text" class="form-control" placeholder="Enter Message..."
+                            aria-label="Recipient's username" aria-describedby="button-addon2" style="box-shadow:none;">
+                        <button class="btn btn-primary" type="button" id="button-addon2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send-fill" viewBox="0 0 16 16">
+                            <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z"/>
+                          </svg></button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function ($) { //wait for the document to load
+            $('#content').css({
+                'margin-top': $('.navbar').outerHeight() + 0 + 'px' //adjust the css rule for margin-top to equal the element height - 10px and add the measurement unit "px" for valid CSS
+            });
+        });
+
+        $(window).resize(function () {
+            //$("#log").append("<div>Handler for .resize() called.</div>");
+            $('#content').css({
+                'margin-top': $('.navbar').outerHeight() + 0 + 'px' //adjust the css rule for margin-top to equal the element height - 10px and add the measurement unit "px" for valid CSS
+            });
+        });
+
+        // $("#menu-btn").click(function () {
+        //     $('#content').css({
+        //         'margin-top': $('.navbar').outerHeight() + 0 + 'px' //adjust the css rule for margin-top to equal the element height - 10px and add the measurement unit "px" for valid CSS
+        //     });
+        // });
+
+        var menu_btn = document.querySelector("#menu-btn");
+        var sidebar = document.querySelector("#sidebar");
+        var container = document.querySelector(".my-container");
+
+        menu_btn.addEventListener("click", () => {
+            sidebar.classList.toggle("active-nav");
+            // container.classList.toggle("active-cont");
+        });
+
+
+        $(document).mousedown(function (e) {
+            if (!$(e.target).closest('#sidebar').length && !$(e.target).closest('.navbar').length) {
+                sidebar.classList.remove("active-nav");
+            }
+        });
+    </script>
+
+    <!-- <script>
+        // Initialize and add the map
+        function initMap() {
+            // The location of Uluru
+            var uluru = { lat: 1.304833, lng: 103.831833 };
+            // The map, centered at Uluru
+            var map = new google.maps.Map(
+                document.getElementById('map'), { zoom: 14, center: uluru });
+            // The marker, positioned at Uluru
+            var marker = new google.maps.Marker({ position: uluru, map: map });
+
+
+            console.log(initMap);
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaO7dcyKs4biX1nmInftecJWjf8py7mRM&callback=initMap"
+        async defer></script> -->
+
+    <script type="module" src="chat.js"></script>
+
+</body>
+
+</html>

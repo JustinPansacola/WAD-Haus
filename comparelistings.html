@@ -275,7 +275,7 @@
                             </div>
 
                             <div class="container my-2">
-                                <button type="button" @click="goChat()" class="btn"
+                                <button type="button" @click="goChat(listings[firstselected].listingAddress)" class="btn"
                                     style="background-color:#C8FFD4">Chat</button>
                             </div>
 
@@ -478,7 +478,8 @@
                             </div>
 
                             <div class="container my-2">
-                                <button type="button" class="btn" style="background-color:#C8FFD4">Chat</button>
+                                <button type="button" @click="goChat(listings[secondselected].listingAddress)" class="btn"
+                                    style="background-color:#C8FFD4">Chat</button>
                             </div>
 
 
