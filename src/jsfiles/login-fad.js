@@ -58,7 +58,7 @@ const main = Vue.createApp({
                 // https://firebase.google.com/docs/reference/js/firebase.User
                 const uid = user.uid;
                 console.log(user);
-                window.location = "comparelistings.html";
+                window.location = "index.html";
             } else {
                 // User is signed out
                 // ...
