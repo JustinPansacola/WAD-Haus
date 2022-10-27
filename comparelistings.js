@@ -126,6 +126,7 @@ const main = Vue.createApp({
                 // User is signed out
                 // ...
 
+                // redirect to errorpage.html if user is not logged in
                 window.location = "errorpage.html";
 
             }
