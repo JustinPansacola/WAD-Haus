@@ -16,21 +16,57 @@
 </head>
 
 <body id = "landingbody">
+    <!-- Navbar -->
     <nav class="navbar py-3 rounded-bottom">
         <div class="container-fluid py-0 ">
             <div class="justify-content-start">
-                <a class="navbar-brand ms-4 text-dark justify-content-start" href="landingpage.html">haus</a>
+                <button id="menu-btn" class="navbar-toggler" type="button" hidden>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand ms-4 text-dark justify-content-start" href="index.html">haus</a>
             </div>
+
+            <ul class="nav align-middle justify-content-center p-0">
+                <li class="nav-item">
+                    <a class="nav-link text-dark" style="background-color:#C8FFD4;" href="login.html" hidden>login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" style="background-color:#C8FFD4;" href="register.html" hidden>register</a>
+                </li>
+            </ul>
         </div>
     </nav>
 
+    <!-- Sidebar -->
+        <div class="side-navbar d-flex justify-content-between flex-wrap flex-column" id="sidebar" hidden>
+            <ul class="nav flex-column text-white w-100">
+                <li class="nav-link sidelink">
+                    <span class="mx-2"><a href="viewingpage.html" style="text-decoration: none; color: black;">browse
+                            listings</a></span>
+                </li>
+                <li class="nav-link sidelink">
+                    <span class="mx-2"><a href="#" style="text-decoration: none; color: black;">favourites</a></span>
+                </li>
+                <li class="nav-link sidelink">
+                    <span class="mx-2"><a href="#" style="text-decoration: none; color: black;">chat</a></span>
+                </li>
+                <li class="nav-link sidelink">
+                    <span class="mx-2"><a href="#" style="text-decoration: none; color: black;">contract</a></span>
+                </li>
+                <li href="#" class="nav-link sidelink">
+                    <span class="mx-2"></span>
+                </li>
+            </ul>
+        </div>
+
     <div id = "content" style = "display: flex; justify-content: center; align-items: center; height: 90vh">
-        <form id = "loginform" action = "index.html">
-            <div class="container">   
+        <div class="container">
+            <h1>Login</h1>   
+            <form id = "login" @submit.prevent="onSubmit">
                 <label>email address</label></br>   
-                <input type="email" size = "40" placeholder="Enter Username" name="username" required></br> 
+                <input v-model = "email" type="email" size = "40" id = "exampleInputEmail1" required></br> 
                 <label>password</label></br> 
-                <input type="password" size = "40" placeholder="Enter Password" name="password" required>
+                <input v-model = "password" type="password" size = "40" name="password" required>
                 </br></br>
                 <div style = "display:flex; justify-content: space-between">
                     <button type="submit">Login</button>
@@ -38,8 +74,8 @@
                 </div> 
                 <a href = "register.html"> New to haus? Register here </a> <span>&nbsp &nbsp</span>
                 <a href= "#"> Forget password? </a>   
-            </div>   
-        </form>
+            </form>
+        </div>   
     </div>   
 
     <script>
@@ -48,11 +84,34 @@
                 'margin-top': $('.navbar').outerHeight() + 0 + 'px' //adjust the css rule for margin-top to equal the element height - 10px and add the measurement unit "px" for valid CSS
             });
         });
+
         $(window).resize(function () {
             //$("#log").append("<div>Handler for .resize() called.</div>");
             $('#content').css({
                 'margin-top': $('.navbar').outerHeight() + 0 + 'px' //adjust the css rule for margin-top to equal the element height - 10px and add the measurement unit "px" for valid CSS
             });
+        });
+
+        // $("#menu-btn").click(function () {
+        //     $('#content').css({
+        //         'margin-top': $('.navbar').outerHeight() + 0 + 'px' //adjust the css rule for margin-top to equal the element height - 10px and add the measurement unit "px" for valid CSS
+        //     });
+        // });
+
+        var menu_btn = document.querySelector("#menu-btn");
+        var sidebar = document.querySelector("#sidebar");
+        var container = document.querySelector(".my-container");
+
+        menu_btn.addEventListener("click", () => {
+            sidebar.classList.toggle("active-nav");
+            // container.classList.toggle("active-cont");
+        });
+
+
+        $(document).mousedown(function (e) {
+            if (!$(e.target).closest('#sidebar').length && !$(e.target).closest('.navbar').length) {
+                sidebar.classList.remove("active-nav");
+            }
         });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
