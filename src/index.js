@@ -11,15 +11,15 @@ import {getDatabase, ref, set} from "https://www.gstatic.com/firebasejs/9.12.1/f
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = initializeApp({
-  apiKey: "AIzaSyBpfCmk9rSs6B6XETYCJcjOyz9qKqKU6Vw",
-  authDomain: "haus-e1dc4.firebaseapp.com",
-  projectId: "haus-e1dc4",
-  storageBucket: "haus-e1dc4.appspot.com",
-  messagingSenderId: "1021237511460",
-  appId: "1:1021237511460:web:7c2a7974f7799ee0a79fb1",
-  measurementId: "G-NMREBXS3VT"
-});
+const firebaseConfig = {
+    apiKey: "AIzaSyArV04a4S8V0wGmhYuFbo4-kXLjmrxLJc8",
+    authDomain: "haus-testing.firebaseapp.com",
+    projectId: "haus-testing",
+    storageBucket: "haus-testing.appspot.com",
+    messagingSenderId: "397764373658",
+    appId: "1:397764373658:web:f662c290beee1f4a640323",
+    measurementId: "G-15BEF38096"
+};
 
 
 // Initialize Firebase
