@@ -11,7 +11,8 @@
 
     <link href='https://fonts.googleapis.com/css?family=Gilda Display' rel='stylesheet'>
     <link rel="stylesheet" href="index.css">
-    <script type="module" src="index.js"></script>
+    <script type="module" src="jsfiles/page.js"></script>
+    <script type="module" src="jsfiles/navbar.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -40,33 +41,31 @@
             </ul>
         </div>
     </nav>
+    <div class="side-navbar d-flex justify-content-between flex-wrap flex-column" id="sidebar">
+        <ul class="nav flex-column text-white w-100">
+            <li class="nav-link sidelink">
+                <span class="mx-2"><a href="viewingpage.html" style="text-decoration: none; color: black;">browse
+                        listings</a></span>
+            </li>
+            <li class="nav-link sidelink">
+                <span class="mx-2"><a href="#" style="text-decoration: none; color: black;">favourites</a></span>
+            </li>
+            <li class="nav-link sidelink">
+                <span class="mx-2"><a href="#" style="text-decoration: none; color: black;">chat</a></span>
+            </li>
+            <li class="nav-link sidelink">
+                <span class="mx-2"><a href="#" style="text-decoration: none; color: black;">contract</a></span>
+            </li>
+            <li href="#" class="nav-link sidelink">
+                <span class="mx-2"></span>
+            </li>
+        </ul>
+    </div>
 
 
 
     <div id="content">
         <!--style="margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px;">-->
-        <div class="side-navbar d-flex justify-content-between flex-wrap flex-column" id="sidebar">
-            <ul class="nav flex-column text-white w-100">
-                <li class="nav-link sidelink">
-                    <span class="mx-2"><a href="viewingpage.html" style="text-decoration: none; color: black;">browse
-                            listings</a></span>
-                </li>
-                <li class="nav-link sidelink">
-                    <span class="mx-2"><a href="#" style="text-decoration: none; color: black;">favourites</a></span>
-                </li>
-                <li class="nav-link sidelink">
-                    <span class="mx-2"><a href="#" style="text-decoration: none; color: black;">chat</a></span>
-                </li>
-                <li class="nav-link sidelink">
-                    <span class="mx-2"><a href="#" style="text-decoration: none; color: black;">contract</a></span>
-                </li>
-                <li href="#" class="nav-link sidelink">
-                    <span class="mx-2"></span>
-                </li>
-            </ul>
-        </div>
-
-
 
         <div class="container d-flex justify-content-center" id="selection">
             <form class="row row-cols-auto">
@@ -182,70 +181,6 @@
 
     <script type="module" src="page.js"></script>
 
-    <script>
-        $(document).ready(function ($) { //wait for the document to load
-            $('#content').css({
-                'margin-top': $('.navbar').outerHeight() + 0 + 'px' //adjust the css rule for margin-top to equal the element height - 10px and add the measurement unit "px" for valid CSS
-            });
-
-            $('#map').css({
-                'height': $(window).height() - $('#selection').outerHeight() - $('.navbar').outerHeight() - 10 + "px"
-            });
-        });
-
-        $(window).resize(function () {
-            $('#content').css({
-                'margin-top': $('.navbar').outerHeight() + 0 + 'px' //adjust the css rule for margin-top to equal the element height - 10px and add the measurement unit "px" for valid CSS
-            });
-
-            $('#map').css({
-                'height': $(window).height() - $('#selection').outerHeight() - $('.navbar').outerHeight() - 10 + "px"
-            });
-
-            var width = $(window).innerWidth();
-            if (width < 768) {
-                document.getElementById("map-box").style.display = "none"
-                document.getElementById("listings-box").style.width = "100vw";
-
-            } else {
-                document.getElementById("map-box").style.display = "block"
-                document.getElementById("listings-box").style.width = "50vw";
-            }
-        });
-
-        var menu_btn = document.querySelector("#menu-btn");
-        var sidebar = document.querySelector("#sidebar");
-
-        menu_btn.addEventListener("click", () => {
-            sidebar.classList.toggle("active-nav");
-        });
-
-        $(document).mousedown(function (e) {
-            if (!$(e.target).closest('#sidebar').length && !$(e.target).closest('.navbar').length) {
-                sidebar.classList.remove("active-nav");
-            }
-        });
-
-        var selection_height = $('#selection').outerHeight()
-        // console.log(selection_height)
-
-        $(window).on("scroll", function () {
-
-            var x_scroll = window.scrollY
-
-            if (x_scroll > selection_height) {
-                $('#map').css({
-                    'height': $(window).height() - $('.navbar').outerHeight() + "px"
-                });
-
-            } else {
-                $('#map').css({
-                    'height': $(window).height() - $('#selection').outerHeight() - $('.navbar').outerHeight() - 10 + "px"
-                });
-            }
-        })
-
-    </script>
 
     <script>
         // Initialize and add the map
