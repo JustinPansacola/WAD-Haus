@@ -3,6 +3,15 @@
     margin: 0;
 }
 
+body {
+    font-family: 'Montserrat';
+    background-color: rgb(55, 32, 40)
+}
+
+.playfair {
+    font-family: 'Playfair Display'
+}
+
 #landingbody {
     font-family: 'Gilda Display';
     background: url("images/mainbg.jpeg") no-repeat center center fixed;
@@ -13,7 +22,7 @@
 }
 
 .navbar {
-    background-color: #C8FFD4;
+    background-color: rgb(55, 32, 40);
     z-index: 1000;
     position: fixed;
     width: 100%;
@@ -39,7 +48,10 @@
 }
 
 #loginform {
-    background-color: rgb(211,211,211, 0.5);
+    background-color: rgb(55, 32, 40);
+    border-radius: 25px;
+    color: white;
+
 }
 
 .sidelink {
