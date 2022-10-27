@@ -1,0 +1,60 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Gilda Display';
+}
+
+#body {
+    font-family: 'Gilda Display';
+    background: url("images/mainbg.jpeg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.navbar {
+    background-color: #C8FFD4;
+    z-index: 1000;
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+.side-navbar {
+    width: 180px;
+    height: 100%;
+    position: fixed;
+    margin-left: -300px;
+    background-color: white;
+    transition: 0.5s;
+    z-index: 1000;
+}
+
+.nav-link,
+.nav-link:active,
+.nav-link:focus,
+.nav-link:hover {
+    background-color: #ffffff26;
+    color: black;
+}
+
+.sidelink {
+    margin-top: 40px;
+}
+
+.my-container {
+    transition: 0.4s;
+}
+
+.active-nav {
+    margin-left: 0;
+}
+
+/* for main section */
+.active-cont {
+    margin-left: 180px;
+}
