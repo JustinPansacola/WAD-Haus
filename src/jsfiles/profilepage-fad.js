@@ -88,7 +88,7 @@ const main = Vue.createApp({
 
                 // if there is a user logged in, change navbar login and register to profile and logout
                 loginnav.innerText = user.displayName;
-                loginnav.href = "profilepage.html";
+                loginnav.href = "profilepage-fad.html";
                 registernav.innerText = "Logout";
 
                 // if user clicks logout, sign them out

@@ -52,7 +52,7 @@ const main = Vue.createApp({
 
             console.log("er")
             console.log("data set")
-            window.location = "profilepage.html";
+            window.location = "profilepage-fad.html";
         }
     },
 
