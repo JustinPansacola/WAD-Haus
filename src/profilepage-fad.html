@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>haus</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <!-- Vue 3 CDN -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <link href='https://fonts.googleapis.com/css?family=Gilda Display' rel='stylesheet'>
+    <link rel="stylesheet" href="index.css">
+    <!-- <script type="module" src="index.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar py-3 ">
+        <div class="container-fluid py-0 ">
+            <div class="justify-content-start">
+                <button id="menu-btn" class="navbar-toggler" type="button">
+                    <span class="navbar-toggler-icon navbar-dark"></span>
+                </button>
+                <a class="navbar-brand ms-4 text-dark justify-content-start text-white" href="index.html">haus</a>
+            </div>
+
+            <ul class="nav align-middle justify-content-center p-0">
+                <li class="nav-item">
+                    <a class="nav-link text-dark text-white" style="background-color:rgb(55, 32, 40);" href="...">login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark text-white" style="background-color:rgb(55, 32, 40);" href="...">register</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="side-navbar d-flex justify-content-between flex-wrap flex-column" id="sidebar">
+        <ul class="nav flex-column text-white w-100">
+            <li class="nav-link sidelink">
+                <span class="mx-2"><a href="viewingpage.html" style="text-decoration: none; color: black;">browse
+                        listings</a></span>
+            </li>
+            <li class="nav-link sidelink">
+                <span class="mx-2"><a href="#" style="text-decoration: none; color: black;">favourites</a></span>
+            </li>
+            <li class="nav-link sidelink">
+                <span class="mx-2"><a href="#" style="text-decoration: none; color: black;">chat</a></span>
+            </li>
+            <li class="nav-link sidelink">
+                <span class="mx-2"><a href="#" style="text-decoration: none; color: black;">contract</a></span>
+            </li>
+            <li href="#" class="nav-link sidelink">
+                <span class="mx-2"></span>
+            </li>
+        </ul>
+    </div>
+
+
+
+    <div id="content">
+        <div class="container">
+            <!-- add your stuff here :D -->
+
+            <div class="d-flex flex-column min-vh-100" v-if="!dataLoaded">
+                <div
+                    class="d-flex flex-grow-1 justify-content-center align-items-center text-center"
+                >
+                    <h1>Loading Profile...</h1>
+                </div>
+            </div>
+
+            <div
+                class="container bg-white mx-auto p-5 rounded"
+                v-if="dataLoaded"
+            >
+            
+    <div class="container-xl px-4 mt-4">
+        <div class="row">
+            <div class="col-xl-4">
+                <!-- Profile picture card-->
+                <div class="card mb-4 mb-xl-0">
+                    <div class="card-header">Profile Picture</div>
+                    <div class="card-body text-center">
+                        <!-- Profile picture image-->
+                        <img
+                            class="img-account-profile rounded-circle mb-2"
+                            src="http://bootdey.com/img/Content/avatar/avatar1.png"
+                            alt=""
+                        />
+                        <!-- Profile picture help block-->
+                        <div class="small font-italic text-muted mb-4">
+                            JPG or PNG no larger than 5 MB
+                        </div>
+                        <!-- Profile picture upload button-->
+                        <button class="btn btn-primary" type="button">
+                            Upload new image
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-8">
+                <!-- Account details card-->
+                <div class="card mb-4">
+                    <div class="card-header">Account Details</div>
+                    <div class="card-body">
+                        <form>
+                            <!-- Form Group (username)-->
+                            <div class="mb-3">
+                                <label
+                                    class="small mb-1"
+                                    for="inputUsername"
+                                    >Username (how your name will appear to
+                                    other users on the site)</label
+                                >
+                                <input
+                                    class="form-control"
+                                    id="inputUsername"
+                                    type="text"
+                                    placeholder="Enter your username"
+                                    value={{username}}
+                                />
+                            </div>
+                            <div class="row gx-3 mb-3">
+                                <!-- Form Group (race)-->
+                                <div class="col-md-6">
+                                    <label
+                                        class="small mb-1"
+                                        for="inputRace"
+                                        >Race</label
+                                    >
+                                    <input
+                                        class="form-control"
+                                        id="inputRace"
+                                        type="text"
+                                        placeholder="Enter your race"
+                                        value="{{race}}"
+                                    />
+                                </div>
+                                <!-- Form Group (nationality)-->
+                                <div class="col-md-6">
+                                    <label
+                                        class="small mb-1"
+                                        for="inputNationality"
+                                        >Nationality</label
+                                    >
+                                    <input
+                                        class="form-control"
+                                        id="inputNationality"
+                                        type="text"
+                                        placeholder="Enter your  nationality"
+                                        value="{{nationality}}"
+                                    />
+                                </div>
+                            </div>
+                            <!-- Form Group (school)-->
+                            <div class="mb-3">
+                                <label
+                                    class="small mb-1"
+                                    for="inputSchool"
+                                    >School</label
+                                >
+                                <input
+                                    class="form-control"
+                                    id="inputSchool"
+                                    type="text"
+                                    placeholder="Enter your school"
+                                    value="{{school}}"
+                                />
+                            </div>
+                            <!-- Save changes button-->
+                            <button class="btn btn-primary" type="button">
+                                Save changes
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function ($) { //wait for the document to load
+            $('#content').css({
+                'margin-top': $('.navbar').outerHeight() + 0 + 'px' //adjust the css rule for margin-top to equal the element height - 10px and add the measurement unit "px" for valid CSS
+            });
+        });
+
+        $(window).resize(function () {
+            //$("#log").append("<div>Handler for .resize() called.</div>");
+            $('#content').css({
+                'margin-top': $('.navbar').outerHeight() + 0 + 'px' //adjust the css rule for margin-top to equal the element height - 10px and add the measurement unit "px" for valid CSS
+            });
+        });
+
+        // $("#menu-btn").click(function () {
+        //     $('#content').css({
+        //         'margin-top': $('.navbar').outerHeight() + 0 + 'px' //adjust the css rule for margin-top to equal the element height - 10px and add the measurement unit "px" for valid CSS
+        //     });
+        // });
+
+        var menu_btn = document.querySelector("#menu-btn");
+        var sidebar = document.querySelector("#sidebar");
+        var container = document.querySelector(".my-container");
+
+        menu_btn.addEventListener("click", () => {
+            sidebar.classList.toggle("active-nav");
+            // container.classList.toggle("active-cont");
+        });
+
+
+        $(document).mousedown(function (e) {
+            if (!$(e.target).closest('#sidebar').length && !$(e.target).closest('.navbar').length) {
+                sidebar.classList.remove("active-nav");
+            }
+        });
+    </script>
+
+    <!-- <script>
+        // Initialize and add the map
+        function initMap() {
+            // The location of Uluru
+            var uluru = { lat: 1.304833, lng: 103.831833 };
+            // The map, centered at Uluru
+            var map = new google.maps.Map(
+                document.getElementById('map'), { zoom: 14, center: uluru });
+            // The marker, positioned at Uluru
+            var marker = new google.maps.Marker({ position: uluru, map: map });
+
+
+            console.log(initMap);
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaO7dcyKs4biX1nmInftecJWjf8py7mRM&callback=initMap"
+        async defer></script> -->
+
+    <script type="module" src="jsfiles/profilepage-fad.js"></script>
+
+</body>
+
+</html>
