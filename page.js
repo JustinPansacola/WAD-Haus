@@ -26,17 +26,13 @@ const analytics = getAnalytics(app);
 const db = getFirestore();
 
 // Vue instance
-const main = Vue.createApp({
-
+var selection = Vue.createApp({
     data() {
         return {
-            firstselected: "0", // show first listing from db as default selected value
-            secondselected: "1", // show second listing from db as default selected value
             location_listings: ["North", "South", "East", "West", "Central"], // initialize listings array to store all listings from db once created method is called
             room_type_listings: ["Studio", "1 Bedroom Apartment", "Bedroom (Private Bathroom)", "Bedroom (Common Bathroom)"],
             occupancy_listings: ["Single", "Double"],
             price_listings: ["<$800/month", "<$1000/month", "<$1200/month", "<$1500/month"],
-
             listings_dict: {}
         }
     },
@@ -46,15 +42,15 @@ const main = Vue.createApp({
     // created method to call db and store all the data before mounting to vue
     async created() {
         const colRef = collection(db, "listings");
-        const docsSnap = await getDocs(colRef);
+        // const docsSnap = await getDocs(colRef);
 
         try {
             const docsSnap = await getDocs(colRef);
+
             if (docsSnap.docs.length > 0) {
                 docsSnap.forEach(doc => {
-                    console.log(doc.data());
-                    console.log(doc.id);
-
+                    // console.log(doc.data());
+                    // console.log(doc.id);
                     this.listings_dict[doc.id] = doc.data()
                     console.log(this.listings_dict)
                 })
@@ -62,21 +58,40 @@ const main = Vue.createApp({
         } catch (error) {
             console.log(error);
         }
-
     }
 })
-main.mount("#content"); // mount vue to html
+selection.mount("#selection")
 
 
+var listings = Vue.createApp({
+    data() {
+        return {
+            listings_dict: {}
+        }
+    },
 
-// function map_details(current_id) {
-//     const docRef = doc(db, "projects", current_id);
-//     const docSnap = getDoc(docRef);
+    methods: {},
 
-//     if (docSnap.exists()) {
-//         console.log("Document data:", docSnap.data());
-//     } else {
-//         // doc.data() will be undefined in this case
-//         console.log("No such document!");
-//     }
-// }
+    // created method to call db and store all the data before mounting to vue
+    async created() {
+        const colRef = collection(db, "listings");
+        // const docsSnap = await getDocs(colRef);
+
+        try {
+            const docsSnap = await getDocs(colRef);
+
+            if (docsSnap.docs.length > 0) {
+                docsSnap.forEach(doc => {
+                    // console.log(doc.data());
+                    // console.log(doc.id);
+                    this.listings_dict[doc.id] = doc.data()
+                    console.log(this.listings_dict)
+                })
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+})
+listings.mount('#listings-box-id')
+
