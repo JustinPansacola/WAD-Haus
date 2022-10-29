@@ -62,17 +62,31 @@
     </div>
 
 
-    
-    <div id="content">
-        
 
-        <div class="container">
+    <div id="content">
+
+        <div class="container" >
             <!-- add your stuff here :D -->
 
             <div class="d-flex flex-column min-vh-100" v-if="!dataLoaded">
                 <div class="d-flex flex-grow-1 justify-content-center align-items-center text-center">
-                    <h1>404 You do not have access to this page.</h1>
+                    <h1>Loading Profile...</h1>
                 </div>
+            </div>
+
+            <div class="container bg-white mx-auto p-5 rounded" v-if="dataLoaded">
+
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h1 class="card-title">Name: {{username}}</h1>
+                        <p class="card-text">Race: {{race}}</p>
+                        <p class="card-text">Religion: {{religion}}</p>
+                        <p class="card-text">Nationality: {{nationality}}</p>
+                        <p class="card-text">School: {{school}}</p>
+                        <a href="#" class="btn btn-primary">Edit Profile</a>
+                    </div>
+                </div>
+
             </div>
 
         </div>
@@ -138,6 +152,9 @@
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaO7dcyKs4biX1nmInftecJWjf8py7mRM&callback=initMap"
         async defer></script> -->
+
+    <script type="module" src="jsfiles/profilepage-fad.js"></script>
+
 </body>
 
 </html>

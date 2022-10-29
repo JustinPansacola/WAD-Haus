@@ -1,5 +1,3 @@
-
-
 $(document).ready(function ($) { //wait for the document to load
     $('#content').css({
         'margin-top': $('.navbar').outerHeight() + 0 + 'px' //adjust the css rule for margin-top to equal the element height - 10px and add the measurement unit "px" for valid CSS

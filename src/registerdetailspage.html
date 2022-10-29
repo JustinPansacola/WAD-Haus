@@ -12,7 +12,7 @@
     <!-- Vue 3 CDN -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
-    <link href='https://fonts.googleapis.com/css?family=Gilda Display' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <link rel="stylesheet" href="index.css">
     <!-- <script type="module" src="index.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -62,17 +62,38 @@
     </div>
 
 
-    
     <div id="content">
-        
+
 
         <div class="container">
             <!-- add your stuff here :D -->
 
-            <div class="d-flex flex-column min-vh-100" v-if="!dataLoaded">
-                <div class="d-flex flex-grow-1 justify-content-center align-items-center text-center">
-                    <h1>404 You do not have access to this page.</h1>
-                </div>
+            <div class="container bg-white mx-auto p-5 rounded">
+
+                <h1>hey!</h1>
+                <h5>Tell us more about you</h5>
+                <form @submit.prevent="onSubmit">
+                    <div class="mb-3">
+                        <label for="race" class="form-label">race</label>
+                        <input v-model="race" type="text" class="form-control" id="race" aria-describedby="race"
+                            required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="religion" class="form-label">religion</label>
+                        <input v-model="religion" type="text" class="form-control" id="religion"
+                            aria-describedby="religion" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="nationality" class="form-label">nationality</label>
+                        <input v-model="nationality" type="text" class="form-control" id="nationality" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="school" class="form-label">school</label>
+                        <input v-model="school" type="text" class="form-control" id="school" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Next</button>
+                </form>
+
             </div>
 
         </div>
@@ -138,6 +159,9 @@
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaO7dcyKs4biX1nmInftecJWjf8py7mRM&callback=initMap"
         async defer></script> -->
+
+    <script type="module" src="jsfiles/registerdetailspage.js"></script>
+
 </body>
 
 </html>
