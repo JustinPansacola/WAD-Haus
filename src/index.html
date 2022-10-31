@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,88 +10,70 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
-    <link href='https://fonts.googleapis.com/css?family=Gilda Display' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <link rel="stylesheet" href="index.css">
-    <script type="module" src="index.js"></script>
+    <script type="module" src="jsfiles/index.js"></script>
+    <script type="module" src="jsfiles/navbar.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
 <body id="landingbody">
-    <nav class="navbar py-3 rounded-bottom">
+    <nav class="navbar py-3 ">
         <div class="container-fluid py-0 ">
             <div class="justify-content-start">
                 <button id="menu-btn" class="navbar-toggler" type="button">
-                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon navbar-dark"></span>
                 </button>
-                <a class="navbar-brand ms-4 text-dark justify-content-start" href="#">haus</a>
+                <a class="navbar-brand ms-4 text-dark justify-content-start text-white" href="index.html">haus</a>
             </div>
 
             <ul class="nav align-middle justify-content-center p-0">
                 <li class="nav-item">
-                    <a class="nav-link text-dark" style="background-color:#C8FFD4;" href="...">login</a>
+                    <a class="nav-link text-dark text-white" style="background-color:rgb(55, 32, 40);" href="login-fad.html">login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" style="background-color:#C8FFD4;" href="...">register</a>
+                    <a class="nav-link text-dark text-white" style="background-color:rgb(55, 32, 40);" href="register-fad.html">register</a>
                 </li>
             </ul>
         </div>
     </nav>
 
-    <div class="side-navbar d-flex justify-content-between flex-wrap flex-column" id="sidebar">
-        <ul class="nav flex-column text-white w-100">
-            <li class="nav-link sidelink">
-                <span class="mx-2"><a href="viewingpage.html" style="text-decoration: none; color: black;">browse
-                        listings</a></span>
-            </li>
-            <li class="nav-link sidelink">
-                <span class="mx-2"><a href="#" style="text-decoration: none; color: black;">favourites</a></span>
-            </li>
-            <li class="nav-link sidelink">
-                <span class="mx-2"><a href="#" style="text-decoration: none; color: black;">chat</a></span>
-            </li>
-            <li class="nav-link sidelink">
-                <span class="mx-2"><a href="#" style="text-decoration: none; color: black;">contract</a></span>
-            </li>
-            <li href="#" class="nav-link sidelink">
-                <span class="mx-2"></span>
-            </li>
-        </ul>
+
+
+    <div id="content">
+        <!--style="margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px;">-->
+        <div class="side-navbar d-flex justify-content-between flex-wrap flex-column" id="sidebar">
+            <ul class="nav flex-column text-white w-100">
+                <li class="nav-link sidelink">
+                    <span class="mx-2"><a href="viewingpage.html" style="text-decoration: none; color: black;">browse
+                            listings</a></span>
+                </li>
+                <li class="nav-link sidelink">
+                    <span class="mx-2"><a href="#" style="text-decoration: none; color: black;">favourites</a></span>
+                </li>
+                <li class="nav-link sidelink">
+                    <span class="mx-2"><a href="#" style="text-decoration: none; color: black;">chat</a></span>
+                </li>
+                <li class="nav-link sidelink">
+                    <span class="mx-2"><a href="#" style="text-decoration: none; color: black;">contract</a></span>
+                </li>
+                <li href="#" class="nav-link sidelink">
+                    <span class="mx-2"></span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="container">
+            <!-- add your stuff here :D -->
+        </div>
     </div>
 
-    <div>
-        <!-- <img src="./images/mainbg.jpeg" alt="" width="100%" style="max-height: 100%; position: relative;"> -->
-        <h2 style="z-index: 999; margin:auto; text-align: center; position: absolute; top: 20%; left: 40%;">putting a
-            roof above you</h2>
-    </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"></script>
 
-    <script>
-        var menu_btn = document.querySelector("#menu-btn");
-        var sidebar = document.querySelector("#sidebar");
-        var container = document.querySelector(".my-container");
-        menu_btn.addEventListener("click", () => {
-            sidebar.classList.toggle("active-nav");
-            // container.classList.toggle("active-cont");
-        }); 
-
-        
-        $(document).mousedown(function (e) {
-            if (!$(e.target).closest('#sidebar').length && !$(e.target).closest('.navbar').length) {
-                sidebar.classList.remove("active-nav");
-            }
-        });
-
-        $(document).ready(function ($) { //wait for the document to load
-            $('.side-navbar').css({
-                'margin-top': $('.navbar').outerHeight() + 0 + 'px' //adjust the css rule for margin-top to equal the element height - 10px and add the measurement unit "px" for valid CSS
-            });
-
-        });
-    </script>
 </body>
 
 </html>

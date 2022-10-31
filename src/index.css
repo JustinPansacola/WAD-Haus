@@ -1,10 +1,19 @@
 * {
     padding: 0;
     margin: 0;
+    font-family: 'Montserrat';
+}
+
+body {
+    font-family: 'Montserrat';
+    background-color: beige
+}
+
+.playfair {
+    font-family: 'Playfair Display'
 }
 
 #landingbody {
-    font-family: 'Gilda Display';
     background: url("images/mainbg.jpeg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -13,7 +22,7 @@
 }
 
 .navbar {
-    background-color: #C8FFD4;
+    background-color: rgb(55, 32, 40);
     z-index: 1000;
     position: fixed;
     width: 100%;
@@ -45,16 +54,39 @@
 .sidelink {
     margin-top: 40px;
 }
+.my-container { 
+transition: 0.4s; 
+} 
+.active-nav { 
+margin-left: 0; 
+} 
+/* for main section */ 
+.active-cont { 
+margin-left: 180px; 
+} 
 
-.my-container {
-    transition: 0.4s;
+.large-box{
+    border: 1px black solid;
+    padding: 10px; 
+    margin-top: 20px; 
+    height: 200px; 
+    border-radius: 6%;
 }
-
-.active-nav {
-    margin-left: 0;
+.medium-box, .small-box{
+    border: 1px black solid;
+    padding: 10px; 
+    margin-top: 20px; 
+    height: 200px; 
+    border-radius: 10%;
 }
-
-/* for main section */
-.active-cont {
-    margin-left: 180px;
+.amenities-box{
+    border: 1px black solid;
+    padding: 10px; 
+    margin-top: 20px; 
+    border-radius: 10%;
+}
+.searchbg{
+    width: 100%;
+    background-color: #86502F;
+    padding: 10px;
 }
