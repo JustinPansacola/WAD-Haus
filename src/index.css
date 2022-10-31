@@ -13,7 +13,15 @@ body {
     font-family: 'Playfair Display'
 }
 
-#landingbody {
+#landingbody{
+    background: url("images/mainbg.jpeg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; 
+}
+
+#loginbody{
     background: url("images/mainbg.jpeg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -49,6 +57,20 @@ body {
 
 .formbox {
     background-color: rgb(211,211,211, 0.5);
+}
+
+#loginbox {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 90vh;
+}
+
+#loginbox > div {
+    width: 40%;
+    background-color: rgb(55, 32, 40);
+    border-radius: 20px;
+    color: #E7E4CA;
 }
 
 .sidelink {
@@ -89,4 +111,41 @@ margin-left: 180px;
     width: 100%;
     background-color: #86502F;
     padding: 10px;
+}
+
+/* for viewingpage.html */
+.card{
+    border-radius: 20px;
+}
+
+.cardimage{
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.card-title{
+    font-weight: 800;   
+    font-size: 18px;
+}
+
+.card-text{
+    font-size: 12px;
+    font-weight: 700;
+    color: #666666;
+}
+
+.distance{
+    font-size: 10px;
+    font-weight: 700;
+    color: #666666;
+}
+
+.final-details{
+    font-size: 10px;
+    font-weight: 700;
+    color: #666666;
+}
+
+.listing-price{
+    color: #372028;
 }

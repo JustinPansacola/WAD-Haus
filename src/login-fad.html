@@ -19,7 +19,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
-<body>
+<body id = "loginbody">
 
     <!-- Navbar -->
     <nav class="navbar py-3 ">
@@ -34,10 +34,10 @@
             <ul class="nav align-middle justify-content-center p-0">
                 <li class="nav-item">
 
-                    <a class="nav-link text-dark text-white" style="background-color:rgb(55, 32, 40);" href="login-fad.html">login</a>
+                    <a class="nav-link text-dark text-white" style="background-color:rgb(55, 32, 40);" href="login-fad.html" hidden>login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark text-white" style="background-color:rgb(55, 32, 40);" href="register-fad.html">register</a>
+                    <a class="nav-link text-dark text-white" style="background-color:rgb(55, 32, 40);" href="register-fad.html" hidden>register</a>
 
                 </li>
             </ul>
@@ -67,36 +67,62 @@
 
 
 
-    <div id="content">
-        
-        <div class="container">
-            <!-- add your stuff here :D -->
-
-            <div class="container bg-white mx-auto p-5 rounded">
-
-                <h1>Login</h1>
-                <form id="login" @submit.prevent="onSubmit">
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email address</label>
-                        <input v-model="email" type="email" class="form-control" id="exampleInputEmail1"
-                            aria-describedby="emailHelp" required>
-                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input v-model="password" type="password" class="form-control" id="exampleInputPassword1" required>
-                    </div>
+    <div id = "loginbox">
+        <div class="container">   
+            <h1 class="text-center">Login</h1>
+            <form id="login" @submit.prevent="onSubmit">
+                <label >email address</label></br>   
+                <input v-model="email" type="email" class="form-control" id="exampleInputEmail1"
+                size = "40" aria-describedby="emailHelp" required></br> 
+                <label>password</label></br> 
+                <input v-model="password" type="password" class="form-control" id="exampleInputPassword1" size = "40" required>
+                </br></br>
+                <div style = "display:flex; justify-content: space-between">
                     <button type="submit" class="btn btn-primary">Login</button>
-                </form>
-
-            </div>
-            
-            
-
-        </div>
+                    <div><input type="checkbox"> Remember me</div>
+                </div> 
+                <a href = "register-fad.html"> New to haus? Register here </a> <span>&nbsp &nbsp</span>
+                <a href= "#"> Forget password? </a>   
+            </form>
+        </div>   
     </div>
 
+    <script>
+        $(document).ready(function ($) { //wait for the document to load
+            $('#content').css({
+                'margin-top': $('.navbar').outerHeight() + 0 + 'px' //adjust the css rule for margin-top to equal the element height - 10px and add the measurement unit "px" for valid CSS
+            });
+        });
 
+        $(window).resize(function () {
+            //$("#log").append("<div>Handler for .resize() called.</div>");
+            $('#content').css({
+                'margin-top': $('.navbar').outerHeight() + 0 + 'px' //adjust the css rule for margin-top to equal the element height - 10px and add the measurement unit "px" for valid CSS
+            });
+        });
+
+        // $("#menu-btn").click(function () {
+        //     $('#content').css({
+        //         'margin-top': $('.navbar').outerHeight() + 0 + 'px' //adjust the css rule for margin-top to equal the element height - 10px and add the measurement unit "px" for valid CSS
+        //     });
+        // });
+
+        var menu_btn = document.querySelector("#menu-btn");
+        var sidebar = document.querySelector("#sidebar");
+        var container = document.querySelector(".my-container");
+
+        menu_btn.addEventListener("click", () => {
+            sidebar.classList.toggle("active-nav");
+            // container.classList.toggle("active-cont");
+        });
+
+
+        $(document).mousedown(function (e) {
+            if (!$(e.target).closest('#sidebar').length && !$(e.target).closest('.navbar').length) {
+                sidebar.classList.remove("active-nav");
+            }
+        });
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"

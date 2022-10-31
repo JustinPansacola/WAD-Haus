@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
-    <link href='https://fonts.googleapis.com/css?family=Gilda Display' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <link rel="stylesheet" href="index.css">
     <script type="module" src="jsfiles/page.js"></script>
     <script type="module" src="jsfiles/index.js"></script>
@@ -17,6 +17,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -104,6 +106,11 @@
                             Search
                         </button>
                     </div>
+                    <div class ="col">
+                        <button type="button" class="btn" style="background-color: #EEE9D2;;">
+                            Clear All
+                        </button>
+                    </div>
                 </form>
     
             </div>
@@ -120,15 +127,15 @@
                             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
-                                        <img src="./images/cozyrm.jpeg" class="d-block w-100" alt="..."
+                                        <img src="./images/cozyrm.jpeg" class="d-block w-100 cardimage" alt="..."
                                             style="max-height: 200px;">
                                     </div>
                                     <div class="carousel-item">
-                                        <img src="images/images.jpeg" class="d-block w-100" alt="..."
+                                        <img src="images/images.jpeg" class="d-block w-100 cardimage" alt="..."
                                             style="max-height: 200px;">
                                     </div>
                                     <div class="carousel-item">
-                                        <img src="./images/cozyrm.jpeg" class="d-block w-100" alt="..."
+                                        <img src="./images/cozyrm.jpeg" class="d-block w-100 cardimage" alt="..."
                                             style="max-height: 200px;">
                                     </div>
                                 </div>
@@ -144,17 +151,15 @@
                                 </button>
                             </div>
                             <div class="card-body">
-                                <h5 class="card-title">{{details.listingAddress}}</h5>
-                                <br>
+                                <p class="card-title">{{details.listingAddress}}</p>
                                 <p class="card-text">{{details.roomType}}</p>
-                                <p class="text-center">{{details.listingMrt}}
-                                    <span class="badge rounded-pill text-bg-primary w-1 ms-5">4minutes to MRT</span>
-                                </p>
-                                <p style="float: left;"><i style="font-size:24px"
-                                        class="fa">&#xf06e;</i>{{details.listingViews}}
+                                <p class="text-start">{{details.listingMrt}}</p>
+                                <p class="text-end distance"><i style="font-size:10px" class="fas fa-walking"></i> 4 minutes to MRT</p>
+                                <p class="final-details" style="float: left;"><i style="font-size:10px"
+                                        class="fa">&#xf06e;</i> {{details.listingViews}} people viewed this
                                     <!-- <p style="float: left;"><img src="./images/eyeicon.png" alt="" width="25px"> 15 -->
                                     <span>
-                                        <p style="float: right;"><sup>SGD</sup>{{details.price}}/ mth</p>
+                                        <p class="listing-price" style="float: right;"><sup>SGD</sup>{{details.price}}/ mth</p>
                                     </span>
                                 </p>
                             </div>
