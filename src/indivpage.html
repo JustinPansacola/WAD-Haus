@@ -108,8 +108,9 @@
                <div class="amenities-box text-center">
                 <h6 style="margin: 10px; font-weight: 300; text-decoration: underline;">amenities list</h6>
                 <ul id="amenitieslist" style="list-style: none; padding: 0;">
-                    <li v-for="amen in listing_dict.amenities" style="margin-bottom:10px;">
+                    <li v-for="amen in listing_dict.amenities" style="margin-bottom:15px;">
                         {{amen}}
+                        <img v-bind:src="'./icons/' + amen + '.png' " alt="" style="width: 20px; height: 20px;">
                     </li>
                    
 
@@ -118,38 +119,39 @@
             </div>
             <div class="col-lg-3 col-md-3 col-sm-3 me-6">
                 <div v-if="listing_dict.cookingallowed === true" class="medium-box">
-                    <h6 style="text-align: center; margin-top: 25px;">
+                    <h3 style="text-align: center; margin-top: 25px;">
                         Cooking Allowed
                         <br>
                         
                         <img src="./icons/cooking.png" alt="" style="width: 50px; height: 50px; margin-top: 20px;">
-                    </h6>
+                    </h3>
                 </div>
                 <div v-else class="medium-box">
-                    <h6 v-else style="text-align: center; margin-top: 25px;">
+                    <h3 v-else style="text-align: center; margin-top: 25px;">
                         Cooking Not Allowed
                         <br>
                         <img src="./icons/nocooking.png" alt="" style="width: 50px; height: 50px; margin-top: 20px;">
-                    </h6>
+                    </h3>
                 </div>
-                <div class="medium-box" >
-                    <h6 style="text-align: center; margin-top: 25px;">
+                <div class="medium-box" style="text-align: center; padding: 20px;" >
+                    <h4>
                        Other Tenants
+                    </h4>
                        <div id="carouselExampleSlidesOnly" class="carousel slide mt-4" data-bs-ride="carousel">
                         <div class="carousel-inner">
                           <div class="carousel-item active">
                             <img src="./images/usericon.png" alt="" style="width:50px ;height:50px;">
                             <br>
-                            {{roomMates[0]}}
+                            <h5>{{roomMates[0]}}</h5>
                           </div>
                           <div v-for="mate in roomMates.slice(1)" class="carousel-item">
                             <img src="./images/usericon.png" alt="" style="width:50px ;height:50px;">
                             <br>
-                            {{mate}}
+                            <h5>{{mate}}</h5>
                           </div>
                         </div>
                       </div>
-                    </h6>
+
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 me-6">
@@ -157,26 +159,32 @@
                     <div class="col-lg-5 col-md-5 col-sm-5 medium-box mx-4 MRTBOX">
                         <div v-if="listing_dict.listingMrt == 'NEL'" style="background-color: plum; height: 50px; width: 100px; margin:auto; display:flex;
                         align-items: center;
-                        justify-content: center; border-radius: 10%; margin-top: 20px; ">
+                        justify-content: center; border-radius: 10px; margin-top: 20px; ">
                             NEL
                         </div>
                         <div v-else-if="listing_dict.listingMrt == 'NSL'" style="background-color: lightcoral; height: 50px; width: 100px; margin: auto; display:flex;
                         align-items: center;
-                        justify-content: center; border-radius: 10%; margin-top: 20px;">
+                        justify-content: center; border-radius: 10px; margin-top: 20px;">
                             NSL
                         </div>
                         <div v-else-if="listing_dict.listingMrt == 'EWL'" style="background-color: lightgreen; height: 50px; width: 100px; margin: auto; display:flex;
                         align-items: center;
-                        justify-content: center; border-radius: 10%; margin-top: 20px;">
+                        justify-content: center; border-radius: 10px; margin-top: 20px;">
                             EWL
                         </div>
                         <div style="margin:auto; text-align:center; padding: 20px">
-                            <img src="./icons/mrt.png" alt="" style="height:50px; width:50px;">
-                            <h7 style="margin:auto; margin-top: 10px; text-align: center;">{{listing_dict.listingArea}} MRT</h7>
+                            <img src="./icons/mrt.png" alt="" style="height:30px; width:30px;">
+                            <h7 style="margin:auto; margin-top: 10px; margin-left:5px; text-align: center;">{{listing_dict.listingArea}} MRT</h7>
                         </div>
 
                     </div>
-                    <div class="col-lg-5 col-md-5 col-sm-5 medium-box mx-4"></div>
+                    <div class="col-lg-5 col-md-5 col-sm-5 medium-box mx-4 " style="text-align: center;display:flex;
+                    align-items: center;
+                    justify-content: center;">
+                        <h3>
+                            <span style="font-weight: bold; text-decoration: underline">{{listing_dict.distance}}</span> minute walk from the MRT
+                        </h3>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 large-box  "></div>

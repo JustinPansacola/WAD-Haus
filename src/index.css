@@ -70,7 +70,7 @@ margin-left: 180px;
     padding: 10px; 
     margin-top: 20px; 
     height: 200px; 
-    border-radius: 6%;
+    border-radius: 10px;
 }
 .medium-box, .small-box{
     border: 1px black solid;
@@ -84,6 +84,7 @@ margin-left: 180px;
     padding: 10px; 
     margin-top: 20px; 
     border-radius: 10%;
+    height: 95%;
 }
 .searchbg{
     width: 100%;
