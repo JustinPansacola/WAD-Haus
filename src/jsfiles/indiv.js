@@ -30,7 +30,8 @@ const main = Vue.createApp({
 
     data() {
         return {
-            listing_dict: {}
+            listing_dict: {},
+            roomMates:[]
         }
     },
 
@@ -52,7 +53,9 @@ const main = Vue.createApp({
                 if (docSnap.exists()) {
                     console.log("Document data:", docSnap.data());
                     this.listing_dict = docSnap.data()
-                    console.log(this.listing_dict)
+                    this.roomMates = this.listing_dict.roomMates
+                    console.log(this.roomMates)
+                    console.log(this.listing_dict.listingMrt)
                 } else {
                     // doc.data() will be undefined in this case
                     console.log("No such document!");
