@@ -138,12 +138,12 @@
                        <div id="carouselExampleSlidesOnly" class="carousel slide mt-4" data-bs-ride="carousel">
                         <div class="carousel-inner">
                           <div class="carousel-item active">
-                            <img src="./images/usericon.png" alt="" width="50px" height="50px">
+                            <img src="./images/usericon.png" alt="" style="width:50px ;height:50px;">
                             <br>
                             {{roomMates[0]}}
                           </div>
                           <div v-for="mate in roomMates.slice(1)" class="carousel-item">
-                            <img src="./images/usericon.png" alt="" width="50px" height="50px">
+                            <img src="./images/usericon.png" alt="" style="width:50px ;height:50px;">
                             <br>
                             {{mate}}
                           </div>
@@ -154,27 +154,25 @@
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 me-6">
                 <div class="row justify-content-center">
-                    <div class="col-lg-5 col-md-5 col-sm-5 medium-box mx-4 MRTBOX ">
-                        <div v-if="listing_dict.listingMrt == 'NEL'" style="background-color: plum; height: 50px; width: 100px; margin: auto; display:flex;
+                    <div class="col-lg-5 col-md-5 col-sm-5 medium-box mx-4 MRTBOX">
+                        <div v-if="listing_dict.listingMrt == 'NEL'" style="background-color: plum; height: 50px; width: 100px; margin:auto; display:flex;
                         align-items: center;
-                        justify-content: center; border-radius: 10%;">
+                        justify-content: center; border-radius: 10%; margin-top: 20px; ">
                             NEL
                         </div>
                         <div v-else-if="listing_dict.listingMrt == 'NSL'" style="background-color: lightcoral; height: 50px; width: 100px; margin: auto; display:flex;
                         align-items: center;
-                        justify-content: center; border-radius: 10%;">
+                        justify-content: center; border-radius: 10%; margin-top: 20px;">
                             NSL
                         </div>
                         <div v-else-if="listing_dict.listingMrt == 'EWL'" style="background-color: lightgreen; height: 50px; width: 100px; margin: auto; display:flex;
                         align-items: center;
-                        justify-content: center; border-radius: 10%;">
+                        justify-content: center; border-radius: 10%; margin-top: 20px;">
                             EWL
                         </div>
-                        <div>
-                            <img src="./icons/mrt.png" alt="" height="50px" width="50px">
-
-                            <br>
-                            <h5 style="margin:auto; margin-top: 10px; text-align: center;">{{listing_dict.listingArea}} MRT</h5>
+                        <div style="margin:auto; text-align:center; padding: 20px">
+                            <img src="./icons/mrt.png" alt="" style="height:50px; width:50px;">
+                            <h7 style="margin:auto; margin-top: 10px; text-align: center;">{{listing_dict.listingArea}} MRT</h7>
                         </div>
 
                     </div>
