@@ -31,7 +31,7 @@ onAuthStateChanged(auth, user =>{
     if(user != null){
         console.log("Hello!")
         document.getElementById("navbar_button_1").innerHTML = `<a class="nav-link text-dark text-white" style="background-color:rgb(55, 32, 40);" href="profilepage-fad.html">${user.displayName}</a>`
-        document.getElementById("navbar_button_2").innerHTML = `<a class="nav-link text-dark text-white" style="background-color:rgb(55, 32, 40);">Logout</a>`
+        document.getElementById("navbar_button_2").innerHTML = `<a class="nav-link text-dark text-white" style="background-color:rgb(55, 32, 40);" href="logoutsuccesspage.html">Logout</a>`
     }
     else{ // if user is logged, display "username" and "logout" elements
         console.log("No user")

@@ -63,7 +63,7 @@ const main = Vue.createApp({
 
                 console.log("Hello!")
                 document.getElementById("navbar_button_1").innerHTML = `<a class="nav-link text-dark text-white" style="background-color:rgb(55, 32, 40);" href="profilepage-fad.html">${user.displayName}</a>`
-                document.getElementById("navbar_button_2").innerHTML = `<a class="nav-link text-dark text-white" style="background-color:rgb(55, 32, 40);">Logout</a>`
+                document.getElementById("navbar_button_2").innerHTML = `<a class="nav-link text-dark text-white" style="background-color:rgb(55, 32, 40);" href="logoutsuccesspage.html">Logout</a>`
 
                 // pull favourite listings from db
                 const docRef = doc(db, "users", uid);
@@ -73,7 +73,7 @@ const main = Vue.createApp({
                     this.favourites = docSnap.data().favourites;
 
                     if (typeof this.favourites == 'undefined') {
-                        window.location = "errorpage.html";
+                        window.location = "nofavouritespage.html";
                     }
 
                 } else {
@@ -112,6 +112,7 @@ const main = Vue.createApp({
                 function logOut() {
                     auth.signOut().then(() => {
                         console.log("user signed out");
+                        window.location = "logoutsuccess.html";
                     })
                 }
 
