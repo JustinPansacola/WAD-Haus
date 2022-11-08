@@ -1,13 +1,11 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-app.js";
-import { getAnalytics, } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-analytics.js";
-import {getAuth, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.12.1/firebase-auth.js";
-import {getDatabase, ref, set} from "https://www.gstatic.com/firebasejs/9.12.1/firebase-database.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-analytics.js";
+import { doc, getDoc, collection, getDocs, getFirestore } from 'https://www.gstatic.com/firebasejs/9.12.1/firebase-firestore.js';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-auth.js";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
-
-
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -21,34 +19,85 @@ const firebaseConfig = {
     measurementId: "G-15BEF38096"
 };
 
-
 // Initialize Firebase
-const auth = getAuth(firebaseConfig);
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const auth = getAuth();
+const db = getFirestore();
 
+// Vue instance
+const main = Vue.createApp({
 
-onAuthStateChanged(auth, user =>{
-    if(user != null){
-        console.log("Hello!")
-    }
-    else{
-        console.log("No user")
+    data() {
+        return {
+            listing_dict: {}
+        }
+    },
+
+    methods: {},
+
+    // created method to call db and store all the data before mounting to vue
+    async created() {
+
+        // listen for auth status change (For user authentication)
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+
+                // User is signed in, see docs for a list of available properties
+                // https://firebase.google.com/docs/reference/js/firebase.User
+                let id = "1"
+                const docRef = doc(db, "listings", id);
+                const docSnap = await getDoc(docRef);
+
+                if (docSnap.exists()) {
+                    console.log("Document data:", docSnap.data());
+                    this.listing_dict = docSnap.data()
+                    console.log(this.listing_dict)
+                } else {
+                    // doc.data() will be undefined in this case
+                    console.log("No such document!");
+                }
+
+                const loginnav = document.getElementById("loginnav");
+                const registernav = document.getElementById("registernav");
+
+                // if there is a user logged in, change navbar login and register to profile and logout
+                loginnav.innerText = user.displayName;
+                loginnav.href = "profilepage.html";
+                registernav.innerText = "Logout";
+
+                // if user clicks logout, sign them out
+                registernav.addEventListener("click", logOut);
+
+                function logOut() {
+                    auth.signOut().then(() => {
+                        console.log("user signed out");
+                    })
+                }
+
+            } else {
+                // User is signed out
+                // ...
+
+                // redirect to errorpage.html if user is not logged in
+                window.location = "errorpage.html";
+
+            }
+        });
     }
 })
+main.mount("#content"); // mount vue to html
 
 
-function newUserData(userID, name, lastname, gender, race, religion, email){
-    const db = getDatabase(firebaseConfig)
-    const reference = ref(db, 'Users/', userID);
 
-    set (reference, {
-        userFirstName: name,
-        userLastName: lastname,
-        userEmail: email,
-        gender: gender,
-        race: race,
-        religion: religion
-    })
-}
+// function map_details(current_id) {
+//     const docRef = doc(db, "projects", current_id);
+//     const docSnap = getDoc(docRef);
 
-newUserData(7561, "Randy", "Orton", "M", "American", "Freethinker", "ro@gmail.com")
-
+//     if (docSnap.exists()) {
+//         console.log("Document data:", docSnap.data());
+//     } else {
+//         // doc.data() will be undefined in this case
+//         console.log("No such document!");
+//     }
+// }
