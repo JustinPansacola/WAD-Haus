@@ -58,7 +58,8 @@ const main = Vue.createApp({
                 // https://firebase.google.com/docs/reference/js/firebase.User
                 const uid = user.uid;
                 console.log(user);
-                window.location = "index.html";
+                // window.location = "index.html";
+                window.history.back(); // redirects to previous page after login
             } else {
                 // User is signed out
                 // ...

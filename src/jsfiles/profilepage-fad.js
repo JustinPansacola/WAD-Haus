@@ -68,6 +68,10 @@ const main = Vue.createApp({
                 console.log(uid);
                 this.username = user.displayName;
 
+                console.log("Hello!")
+                document.getElementById("navbar_button_1").innerHTML = `<a class="nav-link text-dark text-white" style="background-color:rgb(55, 32, 40);" href="profilepage-fad.html">${user.displayName}</a>`
+                document.getElementById("navbar_button_2").innerHTML = `<a class="nav-link text-dark text-white" style="background-color:rgb(55, 32, 40);">Logout</a>`
+
                 const docRef = doc(db, "users", uid);
                 const docSnap = await getDoc(docRef);
 
@@ -83,21 +87,12 @@ const main = Vue.createApp({
 
                 this.dataLoaded = true;
 
-                const loginnav = document.getElementById("loginnav");
-                const registernav = document.getElementById("registernav");
-
-                // if there is a user logged in, change navbar login and register to profile and logout
-                loginnav.innerText = user.displayName;
-                loginnav.href = "profilepage-fad.html";
-                registernav.innerText = "Logout";
-
                 // if user clicks logout, sign them out
-                registernav.addEventListener("click", logOut);
+                document.getElementById("navbar_button_2").addEventListener("click", logOut);
 
                 function logOut() {
                     auth.signOut().then(() => {
                         console.log("user signed out");
-                        window.location = "login.html";
                     })
                 }
 

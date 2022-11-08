@@ -3,6 +3,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.12.1/firebas
 import { getAnalytics, } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-analytics.js";
 import {getAuth, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.12.1/firebase-auth.js";
 import {getDatabase, ref, set} from "https://www.gstatic.com/firebasejs/9.12.1/firebase-database.js";
+import { doc, getDoc, collection, getDocs, getFirestore } from 'https://www.gstatic.com/firebasejs/9.12.1/firebase-firestore.js';
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -23,15 +24,34 @@ const firebaseConfig = {
 
 
 // Initialize Firebase
-const auth = getAuth(firebaseConfig);
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
+const db = getFirestore();
+const auth = getAuth();
 
 
 onAuthStateChanged(auth, user =>{
+    // if no user logged in, display "login" and "register" elements
     if(user != null){
         console.log("Hello!")
+        document.getElementById("navbar_button_1").innerHTML = `<a class="nav-link text-dark text-white" style="background-color:rgb(55, 32, 40);" href="profilepage-fad.html">${user.displayName}</a>`
+        document.getElementById("navbar_button_2").innerHTML = `<a class="nav-link text-dark text-white" style="background-color:rgb(55, 32, 40);">Logout</a>`
     }
-    else{
+    else{ // if user is logged, display "username" and "logout" elements
         console.log("No user")
+        document.getElementById("navbar_button_1").innerHTML = `<a class="nav-link text-dark text-white" style="background-color:rgb(55, 32, 40);" href="login-fad.html">login</a>`
+        document.getElementById("navbar_button_2").innerHTML = `<a class="nav-link text-dark text-white" style="background-color:rgb(55, 32, 40);" href="register-fad.html">register</a>`
+    }
+
+    // if user clicks logout, sign them out
+    document.getElementById("navbar_button_2").addEventListener("click", logOut);
+
+    function logOut() {
+        auth.signOut().then(() => {
+            console.log("user signed out");
+        })
     }
 })
 

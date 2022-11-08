@@ -42,9 +42,6 @@ const main = Vue.createApp({
 
         // disallow user to click chat button if not logged in
         goChat(val) {
-            // if (uid == null) {
-            //     alert("Login first!")
-            // }
             console.log(val);
             window.location = "chat.html?address=" + val;
         }
@@ -63,6 +60,10 @@ const main = Vue.createApp({
                 const uid = user.uid;
                 console.log(user);
                 console.log(uid)
+
+                console.log("Hello!")
+                document.getElementById("navbar_button_1").innerHTML = `<a class="nav-link text-dark text-white" style="background-color:rgb(55, 32, 40);" href="profilepage-fad.html">${user.displayName}</a>`
+                document.getElementById("navbar_button_2").innerHTML = `<a class="nav-link text-dark text-white" style="background-color:rgb(55, 32, 40);">Logout</a>`
 
                 // pull favourite listings from db
                 const docRef = doc(db, "users", uid);
@@ -105,16 +106,8 @@ const main = Vue.createApp({
 
                 console.log("favroomlist" + roomlist);
 
-                const loginnav = document.getElementById("loginnav");
-                const registernav = document.getElementById("registernav");
-
-                // if there is a user logged in, change navbar login and register to profile and logout
-                loginnav.innerText = user.displayName;
-                loginnav.href = "profilepage.html";
-                registernav.innerText = "Logout";
-
                 // if user clicks logout, sign them out
-                registernav.addEventListener("click", logOut);
+                document.getElementById("navbar_button_2").addEventListener("click", logOut);
 
                 function logOut() {
                     auth.signOut().then(() => {
@@ -131,27 +124,6 @@ const main = Vue.createApp({
 
             }
         });
-
-        // let roomlist = []; // initialize roomlist to store all listings from db
-
-        // const colRef = collection(db, "listings");
-        // const docsSnap = await getDocs(colRef);
-
-        // try {
-        //     const docsSnap = await getDocs(colRef);
-        //     if (docsSnap.docs.length > 0) {
-        //         docsSnap.forEach(doc => {
-        //             // console.log(doc.data());
-        //             roomlist.push(doc.data()) // push all listings into roomlist array
-        //             // console.log(doc.id);
-        //             this.dataLoaded = true;
-        //         })
-        //     }
-        // } catch (error) {
-        //     console.log(error);
-        // }
-
-        // this.listings = roomlist; // set listings variable in vue data as roomlist for access to vue in html
 
     }
 
