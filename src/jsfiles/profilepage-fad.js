@@ -81,6 +81,7 @@ const main = Vue.createApp({
                     this.religion = docSnap.data().religion;
                     this.nationality = docSnap.data().nationality;
                     this.school = docSnap.data().school;
+                    this.avatar = docSnap.data().avatar;
                 } else {
                     // doc.data() will be undefined in this case
                 }
