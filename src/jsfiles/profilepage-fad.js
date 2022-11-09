@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-analytics.js";
-import { doc, getDoc, collection, getDocs, getFirestore } from 'https://www.gstatic.com/firebasejs/9.12.1/firebase-firestore.js';
+import { doc, updateDoc, getDoc, setDoc, collection, getDocs, getFirestore } from 'https://www.gstatic.com/firebasejs/9.12.1/firebase-firestore.js';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, browserSessionPersistence } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-auth.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -53,6 +53,29 @@ const main = Vue.createApp({
             }
         },
 
+        async onSubmit() {
+
+            console.log('form submitted');
+            console.log(auth.currentUser.uid)
+
+            const userprofile = doc(db, "users", auth.currentUser.uid);
+
+            await updateDoc(userprofile, {
+                religion: this.religion,
+                school: this.school
+            })
+
+            // await setDoc(doc(db, "users", auth.currentUser.uid), {
+
+            //     religion: this.religion,
+            //     school: this.school
+            // });
+
+            console.log("er")
+            console.log("data set")
+            window.location = "profilepage-fad.html";
+        }
+
     },
 
     // created method to call db and store all the data before mounting to vue
@@ -67,6 +90,9 @@ const main = Vue.createApp({
                 console.log(user);
                 console.log(uid);
                 this.username = user.displayName;
+
+                console.log(this.school)
+
 
                 console.log("Hello!")
                 document.getElementById("navbar_button_1").innerHTML = `<a class="nav-link text-dark text-white" style="background-color:rgb(55, 32, 40);" href="profilepage-fad.html">${user.displayName}</a>`
