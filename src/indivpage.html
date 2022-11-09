@@ -141,14 +141,22 @@
 
                         <div v-if="roomMates.length > 0"class="carousel-inner">
                           <div class="carousel-item active">
-                            <img src="./icons/usericon.png" alt="" style="width:50px ;height:50px;">
-                            <br>
-                            <h5>{{roomMates[0]}}</h5>
+                            <a :href="'userprofilepage.html?user=' + roomMatesId[0]+ '&name=' + roomMates[0]"
+                            style="text-decoration: none; color:black">
+                                <img src="./icons/usericon.png" alt="" style="width:50px ;height:50px;">
+                                <br>
+                                <h5>{{roomMates[0]}}</h5>
+                            </a>
+                            
                           </div>
-                          <div v-for="mate in roomMates.slice(1)" class="carousel-item">
-                            <img src="./icons/usericon.png" alt="" style="width:50px ;height:50px;">
-                            <br>
-                            <h5>{{mate}}</h5>
+                          <div v-for="[index, mate] in roomMates.slice(1).entries()" class="carousel-item">
+                            <a :href="'userprofilepage.html?user=' + roomMatesId[index +1] + '&name=' + mate" style="text-decoration: none; color:black">
+                                <img src="./icons/usericon.png" alt="" style="width:50px ;height:50px;">
+                                <br>
+                                <h5>{{mate}}</h5>
+
+                            </a>
+                            
                           </div>
                         </div>
 
