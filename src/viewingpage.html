@@ -147,7 +147,14 @@
                                             <a :href="'indivpage.html?id=' + id " class="stretched-link" style="position: relative; text-decoration: none; color: black;">
                                                 <h5 class="card-title">{{details.listingAddress}}</h5>
                                                 <p class="card-text">{{details.roomType}}</p>
-                                                <p class="text-start">{{details.listingMrt}}</p>
+                                                <p class="text-start"><img src = "icons/mrt.png" style="height:30px; width:30px">
+                                                    <mark v-if="details.listingMrt == 'NSL'" style = "background-color:lightcoral">{{details.listingMrt}}</mark>
+                                                    <mark v-if="details.listingMrt == 'EWL'" style = "background-color:lightgreen">{{details.listingMrt}}</mark>
+                                                    <mark v-if="details.listingMrt == 'CCL'" style = "background-color:yellow">{{details.listingMrt}}</mark>
+                                                    <mark v-if="details.listingMrt == 'NEL'" style = "background-color:plum">{{details.listingMrt}}</mark>
+                                                    <mark v-if="details.listingMrt == 'DTL'" style = "background-color:#1E90FF">{{details.listingMrt}}</mark>
+                                                    <mark v-if="details.listingMrt == 'TEL'" style = "background-color:brown">{{details.listingMrt}}</mark>
+                                                    {{details.listingArea}}
                                                 <p class="text-end distance">
                                                     <span class="badge rounded-pill text-bg-primary w-1 ms-5"><i style="font-size:10px" class="fas fa-walking"></i> {{details.distance}} min to MRT</span>
                                                 </p>
