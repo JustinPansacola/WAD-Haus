@@ -31,7 +31,8 @@ const main = Vue.createApp({
     data() {
         return {
             listing_dict: {},
-            roomMates:[]
+            roomMates:[],
+            roomMatesId:[]
         }
     },
 
@@ -59,12 +60,15 @@ const main = Vue.createApp({
                     console.log("Document data:", docSnap.data());
                     this.listing_dict = docSnap.data()
                     this.roomMates = this.listing_dict.roomMates
+                    this.roomMatesId = this.listing_dict.roomatesId
                     console.log(this.roomMates)
                     console.log(this.listing_dict.listingMrt)
                 } else {
                     // doc.data() will be undefined in this case
                     console.log("No such document!");
                 }
+
+                console.log(this.roomMatesId)
 
                 const loginnav = document.getElementById("loginnav");
                 const registernav = document.getElementById("registernav");
