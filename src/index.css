@@ -11,7 +11,7 @@ body {
 
 .playfair {
     font-family: 'Playfair Display';
-    color: yellow;
+    color: #F8B709;
 }
 
 #landingbody {
@@ -100,7 +100,7 @@ margin-left: 180px;
     padding: 10px;
 }
 
-/* for login.html */
+/* for login.html and register.html*/
 #loginbody{
     background: url("images/mainbg.jpeg") no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -128,7 +128,25 @@ margin-left: 180px;
     text-align: center;
 }
 
-/* for register.html */
+#loginbox .activedot {
+    height: 25px;
+    width: 25px;
+    background-color: #F8B709;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+#loginbox .inactivedot {
+    height: 25px;
+    width: 25px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+#loginbox .form-control{
+    background-color: #EEE9D2;
+}
 /* for viewingpage.html */
 .card{
     border-radius: 20px;

@@ -22,7 +22,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
-<body>
+<body id = "loginbody">
 
     <!-- Navbar -->
     <nav class="navbar py-3 ">
@@ -68,32 +68,36 @@
 
     <div id="content">
 
-        <div class="container">
+        <div id = "loginbox" class="container">
             <!-- add your stuff here :D -->
 
-            <div class="container bg-white mx-auto mt-5 p-5 rounded">
+            <div class="container">
 
-                <h1>Register</h1>
+                <h1 class = "text-center playfair">register</h1>
                 <form @submit.prevent="onSubmit">
                     <div class="mb-3">
-                        <label for="exampleText1" class="form-label">Name</label>
+                        <label for="exampleText1" class="form-label">name</label>
                         <input v-model="username" type="text" class="form-control" id="exampleText1"
                             aria-describedby="textHelp" required>
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                        <label for="exampleInputEmail1" class="form-label">email address</label>
                         <input v-model="email" type="email" class="form-control" id="exampleInputEmail1"
                             aria-describedby="emailHelp" required>
                         <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>
+                        <label for="exampleInputPassword1" class="form-label">password</label>
                         <input v-model="password" type="password" class="form-control" id="exampleInputPassword1"
                             required>
                     </div>
-                    <button type="submit" class="btn btn-primary">Register</button>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-lg btn-warning">register</button>
+                    </div><br>
                 </form>
-
+                <div class = "text-center">
+                    <span class="activedot"></span> <span class="inactivedot"></span>
+                </div>
             </div>
 
         </div>
