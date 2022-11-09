@@ -29,7 +29,7 @@ const auth = getAuth();
 // const colRef = collection(db, "listings");
 // const docsSnap = await getDocs(colRef);
 
-let id = "7c2QONB8q2SEp60wjATxQuQDf7z1";
+// let id = "7c2QONB8q2SEp60wjATxQuQDf7z1";
 
 
 // Vue instance
@@ -69,10 +69,15 @@ const main = Vue.createApp({
             if (user) {
                 // User is signed in, see docs for a list of available properties
                 // https://firebase.google.com/docs/reference/js/firebase.User
+                let params = (new URL(document.location)).searchParams
+                let id = params.get("id")
+                let username = params.get("name");
+
                 const uid = user.uid;
                 console.log(user);
                 console.log(uid);
-                this.username = user.displayName;
+                // this.username = user.displayName;
+                this.username = username;
 
                 console.log(this.school)
 
