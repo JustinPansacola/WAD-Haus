@@ -9,22 +9,21 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
-    <!-- Montserrat font -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-
     <link rel="stylesheet" href="index.css">
     <script type="module" src="jsfiles/page.js"></script>
     <script type="module" src="jsfiles/index.js"></script>
     <script type="module" src="jsfiles/navbar.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- <script src="https://unpkg.com/vue3-google-map"></script> -->
 
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 
-<body onload="initMap()">
+<body>
     <nav class="navbar py-3 ">
         <div class="container-fluid py-0 ">
             <div class="justify-content-start">
@@ -35,11 +34,13 @@
             </div>
 
             <ul class="nav align-middle justify-content-center p-0">
-                <li class="nav-item" id="navbar_button_1">
-                    <!-- <a class="nav-link text-dark text-white" style="background-color:rgb(55, 32, 40);" href="...">login</a> -->
+                <li class="nav-item">
+                    <a class="nav-link text-dark text-white" style="background-color:rgb(55, 32, 40);"
+                        href="...">login</a>
                 </li>
-                <li class="nav-item" id="navbar_button_2">
-                    <!-- <a class="nav-link text-dark text-white" style="background-color:rgb(55, 32, 40);" href="...">register</a> -->
+                <li class="nav-item">
+                    <a class="nav-link text-dark text-white" style="background-color:rgb(55, 32, 40);"
+                        href="...">register</a>
                 </li>
             </ul>
         </div>
@@ -65,10 +66,7 @@
         </ul>
     </div>
 
-
-
     <div id="content">
-        <!--style="margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px;">-->
         <div class="searchbg">
             <div class="container d-flex justify-content-center" id="selection">
                 <form class="row row-cols-auto">
@@ -100,92 +98,141 @@
                             <option v-for="price in price_listings">{{price}}</option>
                         </select>
                     </div>
-    
+
                     <div class="col">
                         <button type="button" class="btn" style="background-color: #F8B709;">
                             Search
                         </button>
                     </div>
                 </form>
-    
             </div>
         </div>
-        
 
 
-        <div id="listings-box" style="width: 50vw; height: 100vh; float: left; margin-top:10px;">
-            <div class="container">
-                <div class="row">
-                    <div class="col-6" v-for="(details, id) in listings_dict">
-                        <div class="card mb-3" onclick="prepareMap(this)">
-                            <!-- <p type="hidden" id="listing_id">{{id}}</p> -->
-                            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img src="./images/cozyrm.jpeg" class="d-block w-100" alt="..."
-                                            style="max-height: 200px;">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="images/images.jpeg" class="d-block w-100" alt="..."
-                                            style="max-height: 200px;">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="./images/cozyrm.jpeg" class="d-block w-100" alt="..."
-                                            style="max-height: 200px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-12" id="listings-box-id">
+                    <div id="listings-box">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-6" v-for="(details, id) in listings_dict">
+                                    <div class="card m-2">
+                                        <div :id="'carouselControls' + id" class="carousel slide"
+                                            data-bs-ride="carousel">
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                    <img src="./images/cozyrm.jpeg" class="d-block w-100" alt="..."
+                                                        style="max-height: 200px;">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="images/images.jpeg" class="d-block w-100" alt="..."
+                                                        style="max-height: 200px;">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="./images/cozyrm.jpeg" class="d-block w-100" alt="..."
+                                                        style="max-height: 200px;">
+                                                </div>
+                                            </div>
+                                            <button class="carousel-control-prev" type="button"
+                                                :data-bs-target="'#carouselControls' + id" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Previous</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button"
+                                                :data-bs-target="'#carouselControls' + id" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Next</span>
+                                            </button>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{details.listingAddress}}</h5>
+                                            <br>
+                                            <p class="card-text">{{details.roomType}}</p>
+                                            <p class="text-center">{{details.listingMrt}}
+                                                <span
+                                                    class="badge rounded-pill text-bg-primary w-1 ms-5">{{details.distance}}
+                                                    min to
+                                                    MRT</span>
+                                            </p>
+                                            <p style="float: left;"><i style="font-size:24px"
+                                                    class="fa">&#xf06e;</i>{{details.listingViews}}
+                                                <!-- <p style="float: left;"><img src="./images/eyeicon.png" alt="" width="25px"> 15 -->
+                                                <span>
+                                                    <p style="float: right;"><sup>SGD</sup>{{details.price}}/ mth
+                                                    </p>
+                                                </span>
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
-                                <button class="carousel-control-prev" type="button"
-                                    data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button"
-                                    data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">{{details.listingAddress}}</h5>
-                                <br>
-                                <p class="card-text">{{details.roomType}}</p>
-                                <p class="text-center">{{details.listingMrt}}
-                                    <span class="badge rounded-pill text-bg-primary w-1 ms-5">4minutes to MRT</span>
-                                </p>
-                                <p style="float: left;"><i style="font-size:24px"
-                                        class="fa">&#xf06e;</i>{{details.listingViews}}
-                                    <!-- <p style="float: left;"><img src="./images/eyeicon.png" alt="" width="25px"> 15 -->
-                                    <span>
-                                        <p style="float: right;"><sup>SGD</sup>{{details.price}}/ mth</p>
-                                    </span>
-                                </p>
                             </div>
                         </div>
                     </div>
-
                 </div>
-            </div>
-        </div>
-
-        <div id="map-box" class="mt-2" style="float: right; position: fixed; right: 0; bottom: 0; width: 50vw;">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div id="map" style="height: 100%; width: 100%; z-index: 100000;"></div>
+                <div class="d-lg-block d-none col-6" id="map-box-id">
+                    <div id="map-box" style="position: fixed; bottom: 0; height: 100%;">
+                        <div id="map" style="height: 100%; width: 100%;"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"></script>
 
     <script>
-        // Initialize and add the map
+        let search_bar_height = $('.searchbg').outerHeight()
+        let top_nav_height = $('.navbar').outerHeight()
+
+        $(document).ready(function ($) { //wait for the document to load
+            $('#content').css({
+                'margin-top': top_nav_height + 0 + 'px' //adjust the css rule for margin-top to equal the element height - 10px and add the measurement unit "px" for valid CSS
+            });
+
+            console.log($('#map-box-id').width())
+            $('#map-box').css({
+                'height': ($(window).height() - search_bar_height - top_nav_height) + "px",
+                'width': $('#map-box-id').width() + "px",
+                'top': search_bar_height + top_nav_height + "px"
+            });
+        });
+
+        $(window).resize(function () {
+            $('#content').css({
+                'margin-top': top_nav_height + 0 + 'px' //adjust the css rule for margin-top to equal the element height - 10px and add the measurement unit "px" for valid CSS
+            });
+
+            $('#map-box').css({
+                'height': ($(window).height() - search_bar_height - top_nav_height) + "px",
+                'width': $('#map-box-id').width + "px",
+                'top': search_bar_height + top_nav_height + "px"
+            });
+        });
+
+        $(window).scroll(function () {
+
+            let scrolled_y = $(window).scrollTop().toFixed(0)
+            //console.log(scrolled_y)
+
+            if (scrolled_y > search_bar_height) {
+                $('#map-box').css({
+                    'height': ($(window).height() - top_nav_height + scrolled_y) + "px",
+                    'top': top_nav_height + "px"
+                });
+            } else {
+                $('#map-box').css({
+                    'height': ($(window).height() - search_bar_height - top_nav_height) + "px",
+                    'top': search_bar_height + top_nav_height + "px"
+                });
+            }
+        });
+
+    </script>
+
+    <!-- <script>
+        //Initialize and add the map
         function initMap() {
             // The location of location
             var location = { lat: 1.304833, lng: 103.831833 };
@@ -194,47 +241,98 @@
                 document.getElementById('map'), { zoom: 14, center: location });
             // The marker, positioned at location
             var marker = new google.maps.Marker({ position: location, map: map });
+
+            console.log(initMap);
         }
-
-        function prepareMap(ele) {
-
-            let current_id = ele.children[0].innerText
-
-            // The location of location
-            var location = { lat: 1.304833, lng: 103.831833 };
-            // The map, centered at location
-            var map = new google.maps.Map(
-                document.getElementById('map'), { zoom: 14, center: location });
-            // The marker, positioned at location
-            var marker = new google.maps.Marker({ position: location, map: map });
-
-            console.log(prepareMap);
-        }
-    </script>
-
-
-    <!-- <script>
-        var geocoder = new google.maps.Geocoder;
-        let lat = 0;
-        let lng = 0;
-        geocoder.geocode({ 'address': address }, function (results, status) {
-            if (status == google.maps.GeocoderStatus.OK) {
-                lat = results[0].geometry.location.lat()
-                lng = results[0].geometry.location.lng()
-
-                return lat, lng
-            }
-        });
-        // console.log(this.listings_dict)
-        console.log(lat)
-        console.log(lng)
     </script> -->
 
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaO7dcyKs4biX1nmInftecJWjf8py7mRM&callback=initMap"
+        async defer></script> -->
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaO7dcyKs4biX1nmInftecJWjf8py7mRM&callback=initMap"
-        async defer></script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-analytics.js";
+        import { doc, getDoc, collection, getDocs, getFirestore } from 'https://www.gstatic.com/firebasejs/9.12.1/firebase-firestore.js';
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyArV04a4S8V0wGmhYuFbo4-kXLjmrxLJc8",
+            authDomain: "haus-testing.firebaseapp.com",
+            projectId: "haus-testing",
+            storageBucket: "haus-testing.appspot.com",
+            messagingSenderId: "397764373658",
+            appId: "1:397764373658:web:f662c290beee1f4a640323",
+            measurementId: "G-15BEF38096"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+        const db = getFirestore();
 
 
+        const colRef = collection(db, "listings");
+        const docsSnap = await getDocs(colRef);
+
+
+        let listings_latlng_dict = {}
+
+        try {
+            const docsSnap = await getDocs(colRef);
+
+            if (docsSnap.docs.length > 0) {
+                docsSnap.forEach(doc => {
+                    listings_latlng_dict[doc.id] = { "lat": doc.data().lat, "lng": doc.data().lng }
+                })
+                console.log(listings_latlng_dict)
+            }
+        } catch (error) {
+            console.log(error);
+        }
+
+        // Create the script tag, set the appropriate attributes
+        var script = document.createElement('script');
+        script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCaO7dcyKs4biX1nmInftecJWjf8py7mRM&callback=initMap';
+        script.async = true;
+
+        // Attach your callback function to the `window` object
+        function initMap() {
+            // JS API is loaded and available
+            var location = { lat: 1.290270, lng: 103.851959 };
+            // The map, centered at location
+            var map = new google.maps.Map(
+                document.getElementById('map'), { zoom: 10, center: location });
+            // The marker, positioned at location
+            // var marker = new google.maps.Marker({ position: location, map: map });
+
+            for (const [key, value] of Object.entries(listings_latlng_dict)) {
+                // console.log(key, value)
+                // console.log(value.lat)
+                // var marker = new google.maps.Marker({ position: { lat: value.lat, lng: value.lng }, map: map });
+                // addMarker({ lat: Number(value.lat), lng: Number(value.lng) }, map)
+                new google.maps.Marker({
+                    position: { lat: Number(value.lat), lng: Number(value.lng) },
+                    label: key,
+                    map: map,
+                });
+            }
+            console.log(initMap);
+        };
+
+        // function addMarker(location, map) {
+        //     // Add the marker at the clicked location, and add the next-available label
+        //     // from the array of alphabetical characters.
+        //     new google.maps.Marker({
+        //         position: location,
+        //         label: labels[labelIndex++ % labels.length],
+        //         map: map,
+        //     });
+        // }
+
+        window.initMap = initMap
+        // Append the 'script' element to 'head'
+        document.head.appendChild(script);
+    </script>
 </body>
 
 </html>
