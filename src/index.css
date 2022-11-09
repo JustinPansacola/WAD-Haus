@@ -10,7 +10,8 @@ body {
 }
 
 .playfair {
-    font-family: 'Playfair Display'
+    font-family: 'Playfair Display';
+    color: yellow;
 }
 
 #landingbody {
@@ -99,6 +100,35 @@ margin-left: 180px;
     padding: 10px;
 }
 
+/* for login.html */
+#loginbody{
+    background: url("images/mainbg.jpeg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; 
+}
+
+#loginbox {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 90vh;
+}
+
+#loginbox > div {
+    width: 40%;
+    background-color: rgb(55, 32, 40);
+    border-radius: 20px;
+    color: #E7E4CA;
+}
+
+#loginbox button {
+    font-weight: bold;
+    text-align: center;
+}
+
+/* for register.html */
 /* for viewingpage.html */
 .card{
     border-radius: 20px;
