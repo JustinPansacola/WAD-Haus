@@ -49,7 +49,9 @@ const main = Vue.createApp({
 
                 // User is signed in, see docs for a list of available properties
                 // https://firebase.google.com/docs/reference/js/firebase.User
-                let id = "1"
+                let params = (new URL(document.location)).searchParams
+                let id = params.get("id")
+                console.log(id)
                 const docRef = doc(db, "listings", id);
                 const docSnap = await getDoc(docRef);
 
