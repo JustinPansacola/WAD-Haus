@@ -143,15 +143,18 @@
                                             </button>
                                         </div>
                                         <div class="card-body">
-                                            <h5 class="card-title">{{details.listingAddress}}</h5>
+                                            <a :href="'indivpage.html?id=' + id " class="stretched-link" style="position: relative; text-decoration: none; color: black;">
+                                                <h5 class="card-title">{{details.listingAddress}}</h5>
+                                                <p class="card-text">{{details.roomType}}</p>
+                                                <p class="text-center">{{details.listingMrt}}
+                                                    <span
+                                                        class="badge rounded-pill text-bg-primary w-1 ms-5">{{details.distance}}
+                                                        min to
+                                                        MRT</span>
+                                                </p>
+                                            </a>
                                             <br>
-                                            <p class="card-text">{{details.roomType}}</p>
-                                            <p class="text-center">{{details.listingMrt}}
-                                                <span
-                                                    class="badge rounded-pill text-bg-primary w-1 ms-5">{{details.distance}}
-                                                    min to
-                                                    MRT</span>
-                                            </p>
+                                           
                                             <p style="float: left;"><i style="font-size:24px"
                                                     class="fa">&#xf06e;</i> {{details.listingViews}}
                                                 <!-- <p style="float: left;"><img src="./images/eyeicon.png" alt="" width="25px"> 15 -->
