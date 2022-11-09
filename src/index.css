@@ -6,6 +6,7 @@
 
 body {
     font-family: 'Montserrat';
+    font-size: 17px;
     background-color: #EEE9D2;
 }
 
@@ -22,28 +23,21 @@ body {
 }
 
 .navbar {
-    background-color: #372028;
+    background-color: rgb(55, 32, 40);
     z-index: 1000;
     position: fixed;
     width: 100%;
     top: 0;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .side-navbar {
-    /* border-right: 2px solid black; */
     width: 180px;
     height: 100%;
     position: fixed;
     margin-left: -300px;
-    background-color: #EEE9D2;
-    /* background-color: white; */
+    background-color: white;
     transition: 0.5s;
     z-index: 1000;
-    box-shadow: rgba(0, 0, 0, 0.35) 5px 5px 15px;
-}
-.side-navbar li{
-    background-color: #EEE9D2;
 }
 
 .nav-link,
@@ -54,8 +48,11 @@ body {
     color: black;
 }
 
-.formbox {
-    background-color: rgb(211,211,211, 0.5);
+#loginform {
+    background-color: rgb(55, 32, 40);
+    border-radius: 25px;
+    color: white;
+
 }
 
 .sidelink {
@@ -73,28 +70,35 @@ margin-left: 180px;
 } 
 
 .large-box{
-    border: 3px black solid;
+    border: 1px black solid;
     padding: 10px; 
     margin-top: 20px; 
     height: 200px; 
-    border-radius: 10px;
+    border-radius: 6%;
 }
 .medium-box, .small-box{
-    border: 3px black solid;
+    border: 1px black solid;
     padding: 10px; 
     margin-top: 20px; 
     height: 200px; 
     border-radius: 10%;
 }
 .amenities-box{
-    border: 3px black solid;
+    border: 1px black solid;
     padding: 10px; 
     margin-top: 20px; 
     border-radius: 10%;
-    height: 95%;
 }
 .searchbg{
     width: 100%;
     background-color: #86502F;
     padding: 10px;
+}
+
+.typography-headline-elevated {
+    font-size: 64px;
+    line-height: 1.0625;
+    font-weight: 900;
+    letter-spacing: 0.025em;
+    font-family: "Montserrat","Helvetica Neue","Helvetica","Arial",sans-serif;
 }
