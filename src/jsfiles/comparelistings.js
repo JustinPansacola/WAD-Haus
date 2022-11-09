@@ -70,7 +70,10 @@ const main = Vue.createApp({
                 const docSnap = await getDoc(docRef);
 
                 if (docSnap.exists()) {
+                    
                     this.favourites = docSnap.data().favourites;
+
+                    console.log(this.favourites)
 
                     if (typeof this.favourites == 'undefined') {
                         window.location = "nofavouritespage.html";
