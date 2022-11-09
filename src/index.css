@@ -183,3 +183,11 @@ margin-left: 180px;
 .listing-price{
     color: #372028;
 }
+
+.typography-headline-elevated {
+    font-size: 64px;
+    line-height: 1.0625;
+    font-weight: 900;
+    letter-spacing: 0.025em;
+    font-family: "Montserrat","Helvetica Neue","Helvetica","Arial",sans-serif;
+}

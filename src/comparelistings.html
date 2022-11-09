@@ -64,20 +64,20 @@
         </ul>
     </div>
 
-    <div id="content">
+    <div id="content" style="background-color:#372028; color:black;">
 
         <div class="container">
             <!-- add your stuff here :D -->
 
             <div class="d-flex flex-column min-vh-100" v-if="!dataLoaded">
                 <div class="d-flex flex-grow-1 justify-content-center align-items-center text-center">
-                    <h1>Preparing rooms ... Please wait...</h1>
+                    <h1 style="color:#EEE9D2" class="typography-headline-elevated">Preparing rooms ... Please wait...</h1>
                 </div>
             </div>
 
             <div v-if="dataLoaded" class="pt-5">
-                <h1 class="text-center">Compare</h1>
-                <p class="text-center">any two favourite listings</p>
+                <h1 style="color:#EEE9D2" class="typography-headline-elevated text-center">Compare</h1>
+                <p style="color:#EEE9D2" class="text-center">any two favourite listings</p>
                 <div class="container-fluid text-center mt-5">
                     <div class="row gx-5">
                         <!-- first listing column -->
@@ -90,8 +90,8 @@
                                 </option>
                             </select>
 
-                            <h1 class="pt-5">{{listings[firstselected].listingAddress}}</h1>
-                            <h6 class="pt-3 pb-5">{{listings[firstselected].roomType}}</h6>
+                            <h1 style="color:#EEE9D2" class="pt-5">{{listings[firstselected].listingAddress}}</h1>
+                            <h6 style="color:#EEE9D2" class="pt-3 pb-5">{{listings[firstselected].roomType}}</h6>
 
                             <div id="carouselExampleControls" class="carousel slide my-2" data-bs-ride="carousel">
                                 <div class="carousel-inner">
@@ -119,11 +119,11 @@
 
                             <div class="container-fluid p-5 d-flex align-items-center justify-content-center">
                                 <span>
-                                    <h5 class="me-3">SGD</h5>
+                                    <h5 style="color:#EEE9D2" class="me-3">SGD</h5>
                                 </span>
-                                <h1> {{listings[firstselected].price}} </h1>
+                                <h1 style="color:#EEE9D2"> {{listings[firstselected].price}} </h1>
                                 <span>
-                                    <h5 class="ms-3"> / mo</h5>
+                                    <h5 style="color:#EEE9D2" class="ms-3"> / mo</h5>
                                 </span>
                             </div>
 
@@ -290,8 +290,8 @@
                                 </option>
                             </select>
 
-                            <h1 class="pt-5">{{listings[secondselected].listingAddress}}</h1>
-                            <h6 class="pt-3 pb-5">{{listings[secondselected].roomType}}</h6>
+                            <h1 style="color:#EEE9D2" class="pt-5">{{listings[secondselected].listingAddress}}</h1>
+                            <h6 style="color:#EEE9D2" class="pt-3 pb-5">{{listings[secondselected].roomType}}</h6>
 
                             <div id="carouselExampleControls" class="carousel slide my-2" data-bs-ride="carousel">
                                 <div class="carousel-inner">
@@ -319,11 +319,11 @@
 
                             <div class="container-fluid p-5 d-flex align-items-center justify-content-center">
                                 <span>
-                                    <h5 class="me-3">SGD</h5>
+                                    <h5 style="color:#EEE9D2" class="me-3">SGD</h5>
                                 </span>
-                                <h1> {{listings[secondselected].price}} </h1>
+                                <h1 style="color:#EEE9D2"> {{listings[secondselected].price}} </h1>
                                 <span>
-                                    <h5 class="ms-3"> / mo</h5>
+                                    <h5 style="color:#EEE9D2" class="ms-3"> / mo</h5>
                                 </span>
                             </div>
 
