@@ -279,7 +279,8 @@
                         <!-- Second listing column -->
                         <div class="col-12 col-md-6 col-lg-6">
 
-                            <select class="form-select mt-2" v-model="secondselected" style="box-shadow: none;">
+                            <select class="form-select mt-2" v-model="secondselected"
+                                style="z-index:999;box-shadow: none;">
                                 <option v-for="(room, index) in listings" v-bind:value="index">
                                     {{room.listingAddress}}
                                 </option>
@@ -288,7 +289,7 @@
                             <h1 class="pt-5">{{listings[secondselected].listingAddress}}</h1>
                             <h6 class="pt-3 pb-5">{{listings[secondselected].roomType}}</h6>
 
-                            <div id="carouselExampleControls2" class="carousel slide my-2" data-bs-ride="carousel">
+                            <div id="carouselExampleControls" class="carousel slide my-2" data-bs-ride="carousel">
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
                                         <img src="images/sleek-bedroom.jpeg" class="d-block w-100" alt="...">
@@ -301,12 +302,12 @@
                                     </div>
                                 </div>
                                 <button class="carousel-control-prev" type="button"
-                                    data-bs-target="#carouselExampleControls2" data-bs-slide="prev">
+                                    data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                     <span class="visually-hidden">Previous</span>
                                 </button>
                                 <button class="carousel-control-next" type="button"
-                                    data-bs-target="#carouselExampleControls2" data-bs-slide="next">
+                                    data-bs-target="#carouselExampleControls" data-bs-slide="next">
                                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                     <span class="visually-hidden">Next</span>
                                 </button>
@@ -322,10 +323,10 @@
                                 </span>
                             </div>
 
-                            <div class="container text-center">
+                            <div class="container-fluid text-center">
                                 <div class="row mb-3 gap-3">
                                     <div class="col">
-                                        <div class="card h-100">
+                                        <div class="card h-100" style="border-radius:20px">
                                             <div class="card-body d-flex align-items-center justify-content-center">
                                                 <p class="card-text">
                                                 <h3 v-if="listings[secondselected].listingMrt == 'NSL'"
@@ -351,7 +352,7 @@
                                         </div>
                                     </div>
                                     <div class="col">
-                                        <div class="card h-100">
+                                        <div class="card h-100" style="border-radius:20px">
                                             <div class="card-body">
                                                 <p class="card-text">
                                                 <h3>added to favourites</h3>
@@ -363,7 +364,7 @@
                                 <div class="row mb-3 gap-3">
                                     <div class="col d-flex flex-column gap-3">
                                         <div class="flex-fill">
-                                            <div class="card h-100">
+                                            <div class="card h-100" style="border-radius:20px">
                                                 <div class="card-body d-flex align-items-center justify-content-center">
                                                     <h3 class="card-text"
                                                         v-if="listings[secondselected].visitorsallowed">
@@ -401,34 +402,41 @@
                                             </div>
                                         </div>
                                         <div class="flex-fill">
-                                            <div class="card h-100">
+                                            <div class="card h-100" style="border-radius:20px">
                                                 <div class="card-body d-flex align-items-center justify-content-center">
-                                                    <h3 class="card-text">
+                                                    <p class="card-text">
                                                         <div class="d-flex flex-column">
-                                                            <div class="p-2">other tenants</div>
-
+                                                            <div class="p-2"><h3>other tenants</h3></div>
+                                                            <div class="" v-for="mates in listings[secondselected].roomMates"><p>{{mates}}</p></div>
                                                         </div>
-                                                    </h3>
+                                                    </p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col">
                                         <!-- amenities -->
-                                        <div class="card h-100">
+                                        <div class="card h-100" style="border-radius:20px">
                                             <div class="card-body">
-                                                <h3 class="mb-3">amenities list</h3>
-                                                <p class="card-text text-start"
+                                                <h3 class="card-title p-3">amenities list</h3>
+                                                <!-- <h3 class="mb-3">amenities list</h3> -->
+                                                <p id="photo" class="text-start"
                                                     v-for="amenity in listings[secondselected].amenities">
-                                                    {{amenity}}
+                                                    <img style="vertical-align: middle; width: 20px; height : 20px;" 
+                                                        v-bind:src="'icons/' + amenity + '.png'" alt="" >
+                                                    <span class="ps-3" style="vertical-align:middle">{{amenity}}</span>
                                                 </p>
+                                                <!-- <p class="card-text text-start"
+                                                    v-for="amenity in listings[firstselected].amenities">
+                                                    {{amenity}}
+                                                </p> -->
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col">
-                                        <div class="card h-100">
+                                        <div class="card h-100" style="border-radius:20px">
                                             <div class="card-body d-flex align-items-center justify-content-center">
                                                 <p class="card-text">
                                                     Card Placeholder for Google Maps
@@ -439,7 +447,7 @@
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col">
-                                        <div class="card h-100">
+                                        <div class="card h-100" style="border-radius:20px">
                                             <div class="card-body d-flex align-items-center justify-content-center">
                                                 <p class="card-text">
                                                 <div class="d-flex flex-column">
