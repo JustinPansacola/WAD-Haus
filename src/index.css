@@ -22,7 +22,7 @@ body {
 }
 
 .navbar {
-    background-color: rgb(55, 32, 40);
+    background-color: #372028;
     z-index: 1000;
     position: fixed;
     width: 100%;
@@ -34,7 +34,7 @@ body {
     height: 100%;
     position: fixed;
     margin-left: -300px;
-    background-color: white;
+    background-color: #EEE9D2;
     transition: 0.5s;
     z-index: 1000;
 }
