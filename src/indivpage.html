@@ -138,18 +138,28 @@
                        Other Tenants
                     </h4>
                        <div id="carouselExampleSlidesOnly" class="carousel slide mt-4" data-bs-ride="carousel">
-                        <div class="carousel-inner">
+
+                        <div v-if="roomMates.length > 0"class="carousel-inner">
                           <div class="carousel-item active">
-                            <img src="./images/usericon.png" alt="" style="width:50px ;height:50px;">
+                            <img src="./icons/usericon.png" alt="" style="width:50px ;height:50px;">
                             <br>
                             <h5>{{roomMates[0]}}</h5>
                           </div>
                           <div v-for="mate in roomMates.slice(1)" class="carousel-item">
-                            <img src="./images/usericon.png" alt="" style="width:50px ;height:50px;">
+                            <img src="./icons/usericon.png" alt="" style="width:50px ;height:50px;">
                             <br>
                             <h5>{{mate}}</h5>
                           </div>
                         </div>
+
+                        <div v-else class="carousel-inner">
+                            <div class="carousel-item active">
+                              <img src="./icons/noroomates.png" alt="" style="width:50px ;height:50px;">
+                              <br>
+                              <h5>No Room Mates!</h5>
+                            </div>
+                        </div>
+
                       </div>
 
                 </div>
@@ -168,6 +178,11 @@
                             NSL
                         </div>
                         <div v-else-if="listing_dict.listingMrt == 'EWL'" style="background-color: lightgreen; height: 50px; width: 100px; margin: auto; display:flex;
+                        align-items: center;
+                        justify-content: center; border-radius: 10px; margin-top: 20px;">
+                            EWL
+                        </div>
+                        <div v-else-if="listing_dict.listingMrt == 'DTL'" style="background-color: #1E90FF; height: 50px; width: 100px; margin: auto; display:flex;
                         align-items: center;
                         justify-content: center; border-radius: 10px; margin-top: 20px;">
                             EWL
