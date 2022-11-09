@@ -30,7 +30,7 @@
                 <button id="menu-btn" class="navbar-toggler" type="button">
                     <span class="navbar-toggler-icon navbar-dark"></span>
                 </button>
-                <a class="navbar-brand ms-4 text-dark justify-content-start text-white" href="index.html">haus</a>
+                <a class="navbar-brand ms-4 text-dark justify-content-start text-white" href="index.html">haûs <span><img src="./icons/hauslogo.svg" alt="" style="height: 40px;width:40px;"></span></a>
             </div>
 
             <ul class="nav align-middle justify-content-center p-0">
@@ -114,7 +114,7 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-6" v-for="(details, id) in listings_dict">
-                                    <div class="card m-2">
+                                    <div class="card m-1">
                                         <div :id="'carouselControls' + id" class="carousel slide"
                                             data-bs-ride="carousel">
                                             <div class="carousel-inner">
@@ -153,7 +153,7 @@
                                                     MRT</span>
                                             </p>
                                             <p style="float: left;"><i style="font-size:24px"
-                                                    class="fa">&#xf06e;</i>{{details.listingViews}}
+                                                    class="fa">&#xf06e;</i> {{details.listingViews}}
                                                 <!-- <p style="float: left;"><img src="./images/eyeicon.png" alt="" width="25px"> 15 -->
                                                 <span>
                                                     <p style="float: right;"><sup>SGD</sup>{{details.price}}/ mth
