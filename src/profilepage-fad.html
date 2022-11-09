@@ -111,7 +111,7 @@
                 <div class="card mb-4">
                     <div class="card-header text-center">Account Details</div>
                     <div class="card-body">
-                        <form>
+                        <form @submit.prevent="onSubmit">
                             <!-- Form Group (username)-->
                             <div class="mb-3">
                                 <label
@@ -171,7 +171,7 @@
                                 >
                                 <input
                                     class="form-control"
-                                    id="inputSchool"
+                                    v-model="religion"
                                     type="text"
                                     placeholder="Enter your religion"
                                     :value=religion
@@ -186,14 +186,14 @@
                                 >
                                 <input
                                     class="form-control"
-                                    id="inputSchool"
+                                    v-model="school"
                                     type="text"
                                     placeholder="Enter your school"
                                     :value=school
                                 />
                             </div>
                             <!-- Save changes button-->
-                            <button class="btn btn-primary" type="button">
+                            <button class="btn btn-primary" type="submit">
                                 Save changes
                             </button>
                         </form>
