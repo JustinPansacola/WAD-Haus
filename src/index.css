@@ -27,10 +27,11 @@ body {
     position: fixed;
     width: 100%;
     top: 0;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .side-navbar {
-    border-right: 2px solid black;
+    /* border-right: 2px solid black; */
     width: 180px;
     height: 100%;
     position: fixed;
@@ -39,6 +40,7 @@ body {
     /* background-color: white; */
     transition: 0.5s;
     z-index: 1000;
+    box-shadow: rgba(0, 0, 0, 0.35) 5px 5px 15px;
 }
 .side-navbar li{
     background-color: #EEE9D2;
