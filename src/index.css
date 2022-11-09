@@ -30,13 +30,18 @@ body {
 }
 
 .side-navbar {
+    border-right: 2px solid black;
     width: 180px;
     height: 100%;
     position: fixed;
     margin-left: -300px;
     background-color: #EEE9D2;
+    /* background-color: white; */
     transition: 0.5s;
     z-index: 1000;
+}
+.side-navbar li{
+    background-color: #EEE9D2;
 }
 
 .nav-link,
