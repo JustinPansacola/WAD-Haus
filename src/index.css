@@ -98,3 +98,40 @@ margin-left: 180px;
     background-color: #86502F;
     padding: 10px;
 }
+
+/* for viewingpage.html */
+.card{
+    border-radius: 20px;
+}
+
+.cardimage{
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.card-title{
+    font-weight: 800;   
+    font-size: 18px;
+}
+
+.card-text{
+    font-size: 12px;
+    font-weight: 700;
+    color: #666666;
+}
+
+.distance{
+    font-size: 10px;
+    font-weight: 700;
+    color: #666666;
+}
+
+.final-details{
+    font-size: 10px;
+    font-weight: 700;
+    color: #666666;
+}
+
+.listing-price{
+    color: #372028;
+}
