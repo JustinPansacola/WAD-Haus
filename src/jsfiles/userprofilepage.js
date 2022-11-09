@@ -70,7 +70,7 @@ const main = Vue.createApp({
                 // User is signed in, see docs for a list of available properties
                 // https://firebase.google.com/docs/reference/js/firebase.User
                 let params = (new URL(document.location)).searchParams
-                let id = params.get("id")
+                let id = params.get("user")
                 let username = params.get("name");
 
                 const uid = user.uid;
