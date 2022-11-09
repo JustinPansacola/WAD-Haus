@@ -134,23 +134,27 @@
                     </h3>
                 </div>
                 <div class="medium-box" style="text-align: center; padding: 20px;" >
-                    <h4>
-                       Other Tenants
-                    </h4>
+                    
                        <div id="carouselExampleSlidesOnly" class="carousel slide mt-4" data-bs-ride="carousel">
 
                         <div v-if="roomMates.length > 0"class="carousel-inner">
                           <div class="carousel-item active">
-                            <a :href="'userprofilepage.html?user=' + roomMatesId[0]+ '&name=' + roomMates[0]"
+                            <a :href="'userprofilepage.html?user=' + listing_dict.landlordid + '&name=' + listing_dict.landlord"
                             style="text-decoration: none; color:black">
+                                <h4>
+                                    Landlord
+                                </h4>
                                 <img src="./icons/usericon.png" alt="" style="width:50px ;height:50px;">
                                 <br>
-                                <h5>{{roomMates[0]}}</h5>
+                                <h5>{{listing_dict.landlord}}</h5>
                             </a>
                             
                           </div>
-                          <div v-for="[index, mate] in roomMates.slice(1).entries()" class="carousel-item">
+                          <div v-for="[index, mate] in roomMates.entries()" class="carousel-item">
                             <a :href="'userprofilepage.html?user=' + roomMatesId[index +1] + '&name=' + mate" style="text-decoration: none; color:black">
+                                <h4>
+                                    Other Tenants
+                                 </h4>
                                 <img src="./icons/usericon.png" alt="" style="width:50px ;height:50px;">
                                 <br>
                                 <h5>{{mate}}</h5>
