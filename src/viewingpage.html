@@ -145,24 +145,13 @@
                                                 <span class="visually-hidden">Next</span>
                                             </button>
                                         </div>
-                                        <div class="card-body">
-                                            <a :href="'indivpage.html?id=' + id " class="stretched-link"
-                                                style="position: relative; text-decoration: none; color: black;">
+                                        <a :href="'indivpage.html?id=' + id " class="stretched-link"
+                                            style="position: relative; text-decoration: none; color: black;">
+                                            <div class="card-body">
                                                 <h5 class="card-title">{{details.listingAddress}}</h5>
                                                 <p class="card-text">{{details.roomType}}</p>
-                                                <p class="text-start"><i style="font-size:20px" class="fa fa-subway">&nbsp;</i>
-                                                    <mark v-if="details.listingMrt == 'NSL'"
-                                                        style="background-color:lightcoral">{{details.listingMrt}}</mark>
-                                                    <mark v-if="details.listingMrt == 'EWL'"
-                                                        style="background-color:lightgreen">{{details.listingMrt}}</mark>
-                                                    <mark v-if="details.listingMrt == 'CCL'"
-                                                        style="background-color:yellow">{{details.listingMrt}}</mark>
-                                                    <mark v-if="details.listingMrt == 'NEL'"
-                                                        style="background-color:plum">{{details.listingMrt}}</mark>
-                                                    <mark v-if="details.listingMrt == 'DTL'"
-                                                        style="background-color:#1E90FF">{{details.listingMrt}}</mark>
-                                                    <mark v-if="details.listingMrt == 'TEL'"
-                                                        style="background-color:brown">{{details.listingMrt}}</mark>
+                                                <p class="text-start"><img src = "icons/mrt.png" style="height:30px; width:30px">
+                                                    <mark :class = "details.listingMrt">{{details.listingMrt}}</mark>
                                                     {{details.listingArea}}
                                                     <p class="text-end distance">
                                                         <span class="badge rounded-pill text-bg-primary w-1 ms-5"><i
@@ -180,8 +169,8 @@
                                                             </p>
                                                         </span>
                                                     </p>
+                                                </div>
                                             </a>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
