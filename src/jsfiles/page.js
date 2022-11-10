@@ -26,6 +26,7 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
 const db = getFirestore();
+const auth = getAuth();
 
 
 // Vue instance
@@ -80,6 +81,27 @@ var content = Vue.createApp({
     },
 
     async created() {
+
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+
+                const uid = user.uid;
+                console.log(user);
+                console.log(uid)
+
+                console.log("Hello!")
+                document.getElementById("navbar_button_1").innerHTML = `<a class="nav-link text-dark text-white" style="background-color:rgb(55, 32, 40);" href="profilepage-fad.html">${user.displayName}</a>`
+                document.getElementById("navbar_button_2").innerHTML = `<a class="nav-link text-dark text-white" style="background-color:rgb(55, 32, 40);" href="logoutsuccesspage.html">logout</a>`
+
+            }
+            else
+            {
+                document.getElementById("navbar_button_1").innerHTML = `<a class="nav-link text-dark text-white" style="background-color:rgb(55, 32, 40);" href="login-fad.html">login</a>`
+                document.getElementById("navbar_button_2").innerHTML = `<a class="nav-link text-dark text-white" style="background-color:rgb(55, 32, 40);" href="register-fad.html">register</a>`
+
+            }
+            });
+
         const colRef = collection(db, "listings");
         // const docsSnap = await getDocs(colRef);
 
