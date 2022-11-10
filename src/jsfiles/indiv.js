@@ -78,6 +78,7 @@ const main = Vue.createApp({
                     console.log('updating view')
 
                     console.log(this.viewers.includes(user.uid))
+                    console.log(user.uid)
 
                     if (!this.viewers.includes(user.uid)){
                         this.viewers.push(user.uid)
