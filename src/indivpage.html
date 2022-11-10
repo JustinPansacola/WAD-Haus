@@ -99,7 +99,7 @@
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
-            </div>
+        </div>
     </div>
 
     <div class="container-fluid mt-5" style="width:80%;">
@@ -135,33 +135,32 @@
                 </div>
                 <div class="medium-box" style="text-align: center; padding: 20px;" >
                     
-                       <div id="carouselExampleSlidesOnly" class="carousel slide mt-4" data-bs-ride="carousel">
+                    <div id="tenantsCarousel" class="carousel slide mt-4" data-bs-ride="carousel">
 
                         <div v-if="roomMates.length > 0"class="carousel-inner">
-                          <div class="carousel-item active">
-                            <a :href="'userprofilepage.html?user=' + listing_dict.landlordid + '&name=' + listing_dict.landlord"
-                            style="text-decoration: none; color:black">
-                                <h4>
-                                    Landlord
-                                </h4>
-                                <img src="./icons/usericon.png" alt="" style="width:50px ;height:50px;">
-                                <br>
-                                <h5>{{listing_dict.landlord}}</h5>
-                            </a>
-                            
-                          </div>
-                          <div v-for="[index, mate] in roomMates.entries()" class="carousel-item">
-                            <a :href="'userprofilepage.html?user=' + roomMatesId[index +1] + '&name=' + mate" style="text-decoration: none; color:black">
-                                <h4>
-                                    Other Tenants
-                                 </h4>
-                                <img src="./icons/usericon.png" alt="" style="width:50px ;height:50px;">
-                                <br>
-                                <h5>{{mate}}</h5>
+                            <div class="carousel-item active">
+                                <a :href="'userprofilepage.html?user=' + listing_dict.landlordid + '&name=' + listing_dict.landlord"
+                                style="text-decoration: none; color:black">
+                                    <h4>
+                                        Landlord
+                                    </h4>
+                                    <img src="./icons/usericon.png" alt="" style="width:50px ;height:50px;">
+                                    <br>
+                                    <h5>{{listing_dict.landlord}}</h5>
+                                </a>
+                                
+                            </div>
+                            <div v-for="[index, mate] in roomMates.entries()" class="carousel-item">
+                                <a :href="'userprofilepage.html?user=' + roomMatesId[index +1] + '&name=' + mate" style="text-decoration: none; color:black">
+                                    <h4>
+                                        Other Tenants
+                                    </h4>
+                                    <img src="./icons/usericon.png" alt="" style="width:50px ;height:50px;">
+                                    <br>
+                                    <h5>{{mate}}</h5>
 
                             </a>
-                            
-                          </div>
+                            </div>
                         </div>
 
                         <div v-else class="carousel-inner">
@@ -171,33 +170,23 @@
                               <h5>No Room Mates!</h5>
                             </div>
                         </div>
-
-                      </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#tenantsCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true" style = "filter: invert(100%)"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#tenantsCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true" style = "filter: invert(100%)"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
 
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 me-6">
                 <div class="row justify-content-center">
                     <div class="col-lg-5 col-md-5 col-sm-5 medium-box mx-4 MRTBOX">
-                        <div v-if="listing_dict.listingMrt == 'NEL'" style="background-color: plum; height: 50px; width: 100px; margin:auto; display:flex;
-                        align-items: center;
-                        justify-content: center; border-radius: 10px; margin-top: 20px; ">
-                            NEL
-                        </div>
-                        <div v-else-if="listing_dict.listingMrt == 'NSL'" style="background-color: lightcoral; height: 50px; width: 100px; margin: auto; display:flex;
-                        align-items: center;
-                        justify-content: center; border-radius: 10px; margin-top: 20px;">
-                            NSL
-                        </div>
-                        <div v-else-if="listing_dict.listingMrt == 'EWL'" style="background-color: lightgreen; height: 50px; width: 100px; margin: auto; display:flex;
-                        align-items: center;
-                        justify-content: center; border-radius: 10px; margin-top: 20px;">
-                            EWL
-                        </div>
-                        <div v-else-if="listing_dict.listingMrt == 'DTL'" style="background-color: #1E90FF; height: 50px; width: 100px; margin: auto; display:flex;
-                        align-items: center;
-                        justify-content: center; border-radius: 10px; margin-top: 20px;">
-                            EWL
+                        <div>
+                            <mark :class="listing_dict.listingMrt">{{listing_dict.listingMrt}}</mark>
                         </div>
                         <div style="margin:auto; text-align:center; padding: 20px">
                             <img src="./icons/mrt.png" alt="" style="height:30px; width:30px;">
