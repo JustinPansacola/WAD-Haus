@@ -191,3 +191,28 @@ margin-left: 180px;
     letter-spacing: 0.025em;
     font-family: "Montserrat","Helvetica Neue","Helvetica","Arial",sans-serif;
 }
+
+/* colors */
+.NSL {
+    background-color: lightcoral;
+}
+
+.EWL {
+    background-color: lightgreen;
+}
+
+.CCL {
+    background-color: yellow;
+}
+
+.NEL {
+    background-color: plum;
+}
+
+.DTL {
+    background-color: #1E90FF;
+}
+
+.TEL {
+    background-color: brown;
+}

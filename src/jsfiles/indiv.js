@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-analytics.js";
-import { doc, getDoc, collection, getDocs, getFirestore } from 'https://www.gstatic.com/firebasejs/9.12.1/firebase-firestore.js';
+import { doc, getDoc, collection, getDocs, getFirestore, updateDoc } from 'https://www.gstatic.com/firebasejs/9.12.1/firebase-firestore.js';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-auth.js";
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -32,7 +32,8 @@ const main = Vue.createApp({
         return {
             listing_dict: {},
             roomMates:[],
-            roomMatesId:[]
+            roomMatesId:[],
+            curr_views: 0,
         }
     },
 
@@ -61,8 +62,26 @@ const main = Vue.createApp({
                     this.listing_dict = docSnap.data()
                     this.roomMates = this.listing_dict.roomMates
                     this.roomMatesId = this.listing_dict.roomatesId
+
+                    this.curr_views = this.listing_dict.listingViews
+    
+                    let new_views = this.curr_views + 1
+
+                    console.log(new_views)
                     console.log(this.roomMates)
                     console.log(this.listing_dict.listingMrt)
+
+
+                    console.log('updating view')
+
+                    await updateDoc(docRef, {
+                        listingViews: new_views
+                    })
+
+            
+                    // await updateDoc(docSnap, {
+                    //     listingViews: FieldValue.increment(1)
+                    // })
                 } else {
                     // doc.data() will be undefined in this case
                     console.log("No such document!");
