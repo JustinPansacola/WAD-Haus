@@ -76,23 +76,38 @@
             </div>
 
             <div v-if="dataLoaded" class="pt-5">
+                <!-- Compare Title Starts -->
                 <h1 style="color:#EEE9D2" class="typography-headline-elevated text-center">Compare</h1>
+                <!-- Compare Title Ends -->
+
+                <!-- Subtitle Starts -->
                 <p style="color:#EEE9D2" class="text-center">any two favourite listings</p>
+                <!-- Subtitle Ends -->
+
                 <div class="container-fluid text-center mt-5">
                     <div class="row gx-5">
-                        <!-- first listing column -->
+
+                        <!-- First Listing Column Starts -->
                         <div class="col-12 col-md-6 col-lg-6 border-end border-dark">
 
+                            <!-- First Dropdown List Starts -->
                             <select class="form-select mt-2" v-model="firstselected"
                                 style="z-index:999;box-shadow: none;">
                                 <option v-for="(room, index) in listings" v-bind:value="index">
                                     {{room.listingAddress}}
                                 </option>
                             </select>
+                            <!-- First Dropdown List Ends -->
 
-                            <h1 style="color:#EEE9D2" class="pt-5">{{listings[firstselected].listingAddress}}</h1>
+                            <!-- First Address Starts -->
+                            <h1 style="color:#EEE9D2; font-weight:600" class="pt-5">{{listings[firstselected].listingAddress}}</h1>
+                            <!-- First Address Ends -->
+
+                            <!-- First Room Type Starts -->
                             <h6 style="color:#EEE9D2" class="pt-3 pb-5">{{listings[firstselected].roomType}}</h6>
+                            <!-- First Room Type Ends -->
 
+                            <!-- First Image Carousel Starts -->
                             <div id="carouselExampleControls" class="carousel slide my-2" data-bs-ride="carousel">
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
@@ -116,7 +131,9 @@
                                     <span class="visually-hidden">Next</span>
                                 </button>
                             </div>
+                            <!-- First Image Carousel Ends -->
 
+                            <!-- First Price Starts -->
                             <div class="container-fluid p-5 d-flex align-items-center justify-content-center">
                                 <span>
                                     <h5 style="color:#EEE9D2" class="me-3">SGD</h5>
@@ -126,11 +143,15 @@
                                     <h5 style="color:#EEE9D2" class="ms-3"> / mo</h5>
                                 </span>
                             </div>
+                            <!-- First Price Ends -->
 
+                            <!-- First Cards List Starts  -->
                             <div class="container-fluid text-center">
                                 <div class="row mb-3 gap-3">
                                     <div class="col">
-                                        <div class="card h-100" style="border-radius:20px">
+
+                                        <!-- First MRT Card Starts -->
+                                        <div class="card h-100" style="border-radius:20px;">
                                             <div class="card-body d-flex align-items-center justify-content-center">
                                                 <p class="card-text">
                                                 <h3 v-if="listings[firstselected].listingMrt == 'NSL'"
@@ -154,20 +175,35 @@
                                                 </p>
                                             </div>
                                         </div>
+                                        <!-- First MRT Card Ends -->
+
                                     </div>
                                     <div class="col">
-                                        <div class="card h-100" style="border-radius:20px">
+
+                                        <!-- First Favourite Card Starts -->
+                                        <div class="card h-100" style="border-radius:20px;">
                                             <div class="card-body">
-                                                <p class="card-text">
-                                                <h3>added to favourites</h3>
-                                                </p>
+                                                <div class="row align-items-center">
+                                                    <div class="col">
+                                                        <img src = "./icons/red-heart-icon.svg" alt="red-heart-icon" width="50"/>
+                                                    </div>
+                                                    <div class="col">
+                                                        <p class="card-text">
+                                                            <h3>added to favourites</h3>
+                                                        </p>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
+                                        <!-- First Favourite Card Ends -->
+
                                     </div>
                                 </div>
                                 <div class="row mb-3 gap-3">
                                     <div class="col d-flex flex-column gap-3">
                                         <div class="flex-fill">
+
+                                            <!-- First Visitor Card Starts -->
                                             <div class="card h-100" style="border-radius:20px">
                                                 <div class="card-body d-flex align-items-center justify-content-center">
                                                     <h3 class="card-text"
@@ -183,7 +219,9 @@
                                                                     <path
                                                                         d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" />
                                                                 </svg></div>
-                                                            <div class="p-2">Visitors allowed</div>
+                                                            <div class="p-2">
+                                                                <h3 style="font-weight:600">visitors allowed</h3>
+                                                            </div>
                                                         </div>
                                                         <!-- Visitors allowed -->
                                                     </h3>
@@ -199,13 +237,19 @@
                                                                     <path
                                                                         d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" />
                                                                 </svg></div>
-                                                            <div class="p-2">No Visitors allowed</div>
+                                                            <div class="p-2">
+                                                                <h3>NO visitors allowed</h3>
+                                                            </div>
                                                         </div>
                                                     </h3>
                                                 </div>
                                             </div>
+                                            <!-- First Visitor Card Ends -->
+
                                         </div>
                                         <div class="flex-fill">
+
+                                            <!-- First Tenant Card Starts -->
                                             <div class="card h-100" style="border-radius:20px">
                                                 <div class="card-body d-flex align-items-center justify-content-center">
                                                     <p class="card-text">
@@ -220,14 +264,16 @@
                                                     </p>
                                                 </div>
                                             </div>
+                                            <!-- First Tenant Card Ends -->
+                                            
                                         </div>
                                     </div>
                                     <div class="col">
-                                        <!-- amenities -->
+
+                                        <!-- First Amenities List Starts -->
                                         <div class="card h-100" style="border-radius:20px">
                                             <div class="card-body">
-                                                <h3 class="card-title p-3">amenities list</h3>
-                                                <!-- <h3 class="mb-3">amenities list</h3> -->
+                                                <h3 style="font-weight:600; color: #372028;">amenities list</h3>
                                                 <p id="photo" class="text-start"
                                                     v-for="amenity in listings[firstselected].amenities">
                                                     <img style="vertical-align: middle; width: 20px; height : 20px;" 
@@ -240,6 +286,8 @@
                                                 </p> -->
                                             </div>
                                         </div>
+                                        <!-- First Amenities List Ends -->
+
                                     </div>
                                 </div>
                                 <div class="row mb-3">
@@ -277,10 +325,12 @@
                                     </div>
                                 </div>
                             </div>
-
+                            <!-- First Cards List Starts  -->
 
                         </div>
-                        <!-- Second listing column -->
+                        <!-- First Listing Column Ends -->
+
+                        <!-- Second Listing Column Starts -->
                         <div class="col-12 col-md-6 col-lg-6">
 
                             <select class="form-select mt-2" v-model="secondselected"
@@ -480,6 +530,7 @@
 
 
                         </div>
+                        <!-- Second Listing Column Ends -->
 
                     </div>
                 </div>
