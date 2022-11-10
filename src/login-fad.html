@@ -72,7 +72,7 @@
         <div id = "loginbox" class="container">
             <!-- add your stuff here :D -->
 
-            <div class = "container">
+            <div class = "container" style="padding: 20px ;">
 
                 <h1 class = "text-center text-warning playfair">login</h1>
                 <form id="login" @submit.prevent="onSubmit">
@@ -80,15 +80,15 @@
                         <label for="exampleInputEmail1" class="form-label">email address</label>
                         <input v-model="email" type="email" class="form-control" id="exampleInputEmail1"
                             aria-describedby="emailHelp" required>
-                        <div id="emailHelp" class="form-text"><em>We'll never share your email with anyone else.</em></div>
+                        <div id="emailHelp" class="form-text"></div>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">password</label>
                         <input v-model="password" type="password" class="form-control" id="exampleInputPassword1" required>
                     </div>
                     <div class="text-center">
-                        <button type="submit" class="btn btn-lg btn-warning">login</button><br>
-                        <a href = "register-fad.html"> New to haus? Register here </a>
+                        <button style="margin-bottom:20px;" type="submit" class="btn btn-lg btn-warning">login</button><br>
+                        <a style="text-decoration: none; color: #EEE9D2; "href = "register-fad.html"> new to haus? register here </a>
                     </div>
                 </form>
 
