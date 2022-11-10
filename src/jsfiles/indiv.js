@@ -34,6 +34,8 @@ const main = Vue.createApp({
             roomMates:[],
             roomMatesId:[],
             curr_views: 0,
+            new_views: 0,
+            viewers: []
         }
     },
 
@@ -64,19 +66,33 @@ const main = Vue.createApp({
                     this.roomMatesId = this.listing_dict.roomatesId
 
                     this.curr_views = this.listing_dict.listingViews
+                    this.viewers = this.listing_dict.listingViewers
     
-                    let new_views = this.curr_views + 1
-
+                    let new_views = this.curr_views 
                     console.log(new_views)
+
                     console.log(this.roomMates)
                     console.log(this.listing_dict.listingMrt)
 
 
                     console.log('updating view')
 
-                    await updateDoc(docRef, {
-                        listingViews: new_views
-                    })
+                    console.log(this.viewers.includes(user.uid))
+
+                    if (!this.viewers.includes(user.uid)){
+                        this.viewers.push(user.uid)
+                        new_views += 1 
+
+                        console.log(new_views)
+
+
+                        await updateDoc(docRef, {
+                            listingViewers: this.viewers,
+                            listingViews: new_views
+                        })
+                    }
+
+
 
             
                     // await updateDoc(docSnap, {
