@@ -22,7 +22,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
-<body id = "loginbody">
+<body id="loginbody">
 
     <!-- Navbar -->
     <nav class="navbar py-3 ">
@@ -31,15 +31,18 @@
                 <button id="menu-btn" class="navbar-toggler" type="button">
                     <span class="navbar-toggler-icon navbar-dark"></span>
                 </button>
-                <a class="navbar-brand ms-4 text-dark justify-content-start text-white" href="index.html">haûs <span><img src="./icons/hauslogo.svg" alt="" style="height: 40px;width:40px;"></span></a>
+                <a class="navbar-brand ms-4 text-dark justify-content-start text-white" href="index.html">haûs
+                    <span><img src="./icons/hauslogo.svg" alt="" style="height: 40px;width:40px;"></span></a>
             </div>
 
             <ul class="nav align-middle justify-content-center p-0">
                 <li class="nav-item">
-                    <a class="nav-link text-dark text-white" style="background-color:rgb(55, 32, 40);" href="login-fad.html">login</a>
+                    <a class="nav-link text-dark text-white" style="background-color:rgb(55, 32, 40);"
+                        href="login-fad.html">login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark text-white" style="background-color:rgb(55, 32, 40);" href="register-fad.html">register</a>
+                    <a class="nav-link text-dark text-white" style="background-color:rgb(55, 32, 40);"
+                        href="register-fad.html">register</a>
                 </li>
             </ul>
         </div>
@@ -68,12 +71,12 @@
 
     <div id="content">
 
-        <div id = "loginbox" class="container">
+        <div id="loginbox" class="container">
             <!-- add your stuff here :D -->
 
             <div class="container" style="padding: 20px;">
 
-                <h1 class = "text-center playfair">register</h1>
+                <h1 class="text-center playfair">register</h1>
                 <form @submit.prevent="onSubmit">
                     <div class="mb-3">
                         <label for="exampleText1" class="form-label">name</label>
@@ -90,11 +93,32 @@
                         <input v-model="password" type="password" class="form-control" id="exampleInputPassword1"
                             required>
                     </div>
+                    <div class="text-center mb-3">
+                        <a style="text-decoration: none; color: #EEE9D2; "href = "login-fad.html"> already registered? login here </a>
+                    </div>
+
+                    <!-- error message div -->
+                    <div class="modal" tabindex="-1" id="errormessage">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title">ERROR</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body" id="modal-body">
+                              <p>Modal body text goes here.</p>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     <div class="text-center">
                         <button type="submit" class="btn btn-lg btn-warning">register</button>
                     </div><br>
                 </form>
-                <div class = "text-center">
+                <div class="text-center">
                     <span class="activedot"></span> <span class="inactivedot"></span>
                 </div>
             </div>
@@ -106,7 +130,7 @@
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"></script>
 
-    
+
 
 </body>
 

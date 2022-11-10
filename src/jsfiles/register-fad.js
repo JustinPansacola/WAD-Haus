@@ -49,6 +49,13 @@ const main = Vue.createApp({
                 })
                 window.location = 'registerdetailspage.html';
             })
+                .catch((error) => {
+                    // Some error occurred.
+                    console.log(error.code);
+                    var myModal = new bootstrap.Modal(document.getElementById("errormessage"),{keyboard: false})
+                    document.getElementById("modal-body").innerHTML = `<p>${error.code}</p>`
+                    myModal.show()
+                })
         }
     },
 
@@ -66,7 +73,7 @@ const main = Vue.createApp({
                 // ...
             }
 
-            
+
         });
 
     }
