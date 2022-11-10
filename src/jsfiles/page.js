@@ -3,6 +3,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.12.1/firebas
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-analytics.js";
 import { doc, getDoc, collection, getDocs, getFirestore } from 'https://www.gstatic.com/firebasejs/9.12.1/firebase-firestore.js';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-auth.js";
+// import {mitt} from './mitt';
 //import $Scriptjs from './scriptjs';
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -26,21 +27,58 @@ const analytics = getAnalytics(app);
 
 const db = getFirestore();
 
+
 // Vue instance
-var selection = Vue.createApp({
+var content = Vue.createApp({
     data() {
         return {
             location_listings: ["North", "South", "East", "West", "Central"], // initialize listings array to store all listings from db once created method is called
-            room_type_listings: ["Studio", "1 Bedroom Apartment", "Bedroom (Private Bathroom)", "Bedroom (Common Bathroom)"],
+            room_type_listings: [], //taken from db
             occupancy_listings: ["Single", "Double"],
             price_listings: ["<$800/month", "<$1000/month", "<$1200/month", "<$1500/month"],
-            listings_dict: {}
+            listings_dict: {},
+            location_selected_v: "Location",
+            roomtype_selected_v: "Room Type",
+            occupancy_selected_v: "Occupancy",
+            price_selected_v: "Price",
+            filtered_listings_dict: {},
+            search_filter: false
         }
     },
 
-    methods: {},
+    methods: {
+        myPreference() {
+            console.log("in myPreference()")
+            this.search_filter = true
 
-    // created method to call db and store all the data before mounting to vue
+            this.filtered_listings_dict = {}
+
+            let location_selected = this.location_selected_v
+            let roomtype_selected = this.roomtype_selected_v
+            let occupancy_selected = this.occupancy_selected_v
+            let price_selected = (this.price_selected_v).replace(/\D/g, '')
+
+            let listings_arr = Object.entries(this.listings_dict)
+            console.log(listings_arr)
+
+            for (let i = 0; i < listings_arr.length; i++) {
+                console.log(listings_arr[i])
+                let details = listings_arr[i][1]
+
+                if (details.location.toLowerCase() == location_selected.toLowerCase() &&
+                    details.roomType.toLowerCase() == roomtype_selected.toLowerCase() &&
+                    details.roomOccupancy.toLowerCase() == occupancy_selected.toLowerCase() &&
+                    Number(details.price) <= Number(price_selected)) {
+                    
+                    this.filtered_listings_dict[listings_arr[i][0]] = details
+                    console.log(details)
+                }
+            }
+            console.log(this.filtered_listings_dict)
+            //this.listings_dict = this.filtered_listings_dict
+        }
+    },
+
     async created() {
         const colRef = collection(db, "listings");
         // const docsSnap = await getDocs(colRef);
@@ -51,6 +89,12 @@ var selection = Vue.createApp({
             if (docsSnap.docs.length > 0) {
                 docsSnap.forEach(doc => {
                     this.listings_dict[doc.id] = doc.data()
+                    // console.log(doc.data().roomType)
+
+                    let current_roomType = doc.data().roomType
+                    if (!this.room_type_listings.includes(current_roomType)) {
+                        this.room_type_listings.push(current_roomType)
+                    }
                 })
                 console.log(this.listings_dict)
             }
@@ -59,36 +103,4 @@ var selection = Vue.createApp({
         }
     }
 })
-selection.mount("#selection")
-
-
-var listings = Vue.createApp({
-    data() {
-        return {
-            listings_dict: {}
-        }
-    },
-
-    methods: {},
-
-    // created method to call db and store all the data before mounting to vue
-    async created() {
-        const colRef = collection(db, "listings");
-        // const docsSnap = await getDocs(colRef);
-
-        try {
-            const docsSnap = await getDocs(colRef);
-
-            if (docsSnap.docs.length > 0) {
-                docsSnap.forEach(doc => {
-                    this.listings_dict[doc.id] = doc.data()
-                })
-                console.log(this.listings_dict)
-            }
-        } catch (error) {
-            console.log(error);
-        }
-    }
-})
-listings.mount('#listings-box-id')
-
+content.mount('#content')
