@@ -71,7 +71,7 @@
         <div id = "loginbox" class="container">
             <!-- add your stuff here :D -->
 
-            <div class="container">
+            <div class="container" style="padding: 20px;">
 
                 <h1 class = "text-center playfair">register</h1>
                 <form @submit.prevent="onSubmit">
@@ -84,7 +84,6 @@
                         <label for="exampleInputEmail1" class="form-label">email address</label>
                         <input v-model="email" type="email" class="form-control" id="exampleInputEmail1"
                             aria-describedby="emailHelp" required>
-                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">password</label>
