@@ -52,8 +52,19 @@ const main = Vue.createApp({
                 .catch((error) => {
                     // Some error occurred.
                     console.log(error.code);
+                    let errormsg = "";
+
+                    if(error.code.includes("weak-password"))
+                    {
+                        errormsg = "Weak password."
+                    }
+                    else if(error.code.includes("email-already-in-use"))
+                    {
+                        errormsg = "Email already in use."
+                    }
+
                     var myModal = new bootstrap.Modal(document.getElementById("errormessage"),{keyboard: false})
-                    document.getElementById("modal-body").innerHTML = `<p>${error.code}</p>`
+                    document.getElementById("modal-body").innerHTML = `<p>${errormsg}</p>`
                     myModal.show()
                 })
         }
