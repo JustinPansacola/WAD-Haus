@@ -75,20 +75,22 @@
                 </div>
             </div>
             <div
-                class="container bg-white mx-auto p-5 rounded"
+                class="container mx-auto p-5 rounded"
                 v-if="dataLoaded"
             >
             
     <div class="container-xl px-4 mt-4">
         <div class="row">
-            <h1 class="display-1 text-center">Personal info</h1>
-            <p class="lead text-center mb-5">Basic info about you and your preferences in haûs</p>
+            <h1 class="text-center" style="font-weight: 700; color: 372028">Personal info</h1>
+            <p class="lead text-center mb-5" style="font-weight: 700; color: 372028">Basic info about you and your preferences in haûs</p>
         </div>
         <div class="row">
             <div class="col-xl-4">
                 <!-- Profile picture card-->
                 <div class="card mb-4 mb-xl-0">
-                    <div class="card-header text-center">Profile Picture</div>
+                    <div class="card-header text-center">
+                        Profile picture
+                    </div>
                     <div class="card-body text-center">
                         <!-- Profile picture image-->
                         <img
@@ -96,11 +98,11 @@
                             :src=" '/users/' + avatar"
                         />
                         <!-- Profile picture help block-->
-                        <div class="small font-italic text-muted mb-4">
-                            JPG or PNG no larger than 5 MB
+                        <div class="small font-italic mb-4">
+                            <p>JPG or PNG no larger than 5 MB</p>
                         </div>
                         <!-- Profile picture upload button-->
-                        <button class="btn btn-primary" type="button">
+                        <button class="btn" style="background-color:#F8B709;" type="button">
                             Upload new image
                         </button>
                     </div>
@@ -109,7 +111,7 @@
             <div class="col-xl-8">
                 <!-- Account details card-->
                 <div class="card mb-4">
-                    <div class="card-header text-center">Account Details</div>
+                    <div class="card-header text-center">Account details</div>
                     <div class="card-body">
                         <form @submit.prevent="onSubmit">
                             <!-- Form Group (username)-->
@@ -169,13 +171,45 @@
                                     for="inputReligion"
                                     >Religion</label
                                 >
-                                <input
+                                <!-- <input
                                     class="form-control"
-                                    v-model="religion"
+                                    
                                     type="text"
                                     placeholder="Enter your religion"
                                     :value=religion
                                 />
+                                 -->
+
+                                
+                                
+                                <select id="religion_input" class="form-control" name="religion" style ="width:100%" v-model="religion" v-bind:value=religion>
+                                    <option value="" selected="selected" disabled="disabled">-- select one --</option>
+                                    <option value="African Traditional &amp; Diasporic">African Traditional &amp; Diasporic</option>
+                                    <option value="Agnostic">Agnostic</option>
+                                    <option value="Atheist">Atheist</option>
+                                    <option value="Baha'i">Baha'i</option>
+                                    <option value="Buddhism">Buddhism</option>
+                                    <option value="Cao Dai">Cao Dai</option>
+                                    <option value="Chinese traditional religion">Chinese traditional religion</option>
+                                    <option value="Christianity">Christianity</option>
+                                    <option value="Hinduism">Hinduism</option>
+                                    <option value="Islam">Islam</option>
+                                    <option value="Jainism">Jainism</option>
+                                    <option value="Juche">Juche</option>
+                                    <option value="Judaism">Judaism</option>
+                                    <option value="Neo-Paganism">Neo-Paganism</option>
+                                    <option value="Nonreligious">Nonreligious</option>
+                                    <option value="Rastafarianism">Rastafarianism</option>
+                                    <option value="Secular">Secular</option>
+                                    <option value="Shinto">Shinto</option>
+                                    <option value="Sikhism">Sikhism</option>
+                                    <option value="Spiritism">Spiritism</option>
+                                    <option value="Tenrikyo">Tenrikyo</option>
+                                    <option value="Unitarian-Universalism">Unitarian-Universalism</option>
+                                    <option value="Zoroastrianism">Zoroastrianism</option>
+                                    <option value="primal-indigenous">primal-indigenous</option>
+                                    <option value="Other">Other</option>
+                                </select>
                             </div>
                             <!-- Form Group (school)-->
                             <div class="mb-3">
@@ -193,7 +227,7 @@
                                 />
                             </div>
                             <!-- Save changes button-->
-                            <button class="btn btn-primary" type="submit">
+                            <button class="btn" type="submit" style="background-color:#F8B709;">
                                 Save changes
                             </button>
                         </form>
@@ -245,6 +279,8 @@
             }
         });
     </script>
+
+    
 
     <!-- <script>
         // Initialize and add the map

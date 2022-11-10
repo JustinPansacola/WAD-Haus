@@ -37,7 +37,7 @@ const main = Vue.createApp({
         return {
             username: "",
             race: "",
-            religion: "",
+            religion: "0",
             nationality: "",
             school: "",
             dataLoaded: false
