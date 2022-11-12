@@ -19,6 +19,7 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <!-- <script src="https://unpkg.com/vue3-google-map"></script> -->
 
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
@@ -110,12 +111,12 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-12" id="listings-box-id">
+                <div class="col-lg-6" id="listings-box-id">
                     <div id="listings-box">
                         <div class="container" v-if="search_filter == false">
                             <div class="row">
-                                <div class="col-6" v-for="(details, id) in listings_dict">
-                                    <div class="card m-1">
+                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 mt-3" v-for="(details, id) in listings_dict">
+                                    <div class="card h-100 mx-auto mt-2" style = "width: 250px">
                                         <div :id="'carouselControls' + id" class="carousel slide"
                                             data-bs-ride="carousel">
                                             <div class="carousel-inner">
@@ -148,27 +149,25 @@
                                             <div class="card-body">
                                                 <h5 class="card-title">{{details.listingAddress}}</h5>
                                                 <p class="card-text">{{details.roomType}}</p>
-                                                <p class="text-start"><img src = "icons/mrt.png" style="height:30px; width:30px">
-                                                    <mark :class = "details.listingMrt">{{details.listingMrt}}</mark>
-                                                    {{details.listingArea}}
-                                                    <p class="text-end distance">
-                                                        <span class="badge rounded-pill text-bg-primary w-1 ms-5"><i
-                                                                style="font-size:10px" class="fas fa-walking"></i>
-                                                            {{details.distance}} min to MRT</span>
-                                                    </p>
-
-                                                    <p class="final-details" style="float: left;"><i
-                                                            style="font-size:10px" class="fa">&#xf06e;</i>
+                                                <img src = "icons/mrt.png" style="height:30px; width:30px">
+                                                    <mark :class = 'details.listingMrt'>{{details.listingMrt}}</marK>
+                                                    <span class = 'listingArea'>&nbsp{{details.listingArea}}</span>
+                                                    <br>
+                                                    <span class = "distance-details" style="float:right"><i
+                                                        style="font-size:10px" class="fas fa-walking"></i>
+                                                    {{details.distance}} min to MRT</span>
+                                                </p>
+                                                <p><i style="font-size:10px" class="fa">&#xf06e;</i>&nbsp
+                                                    <span class="number-of-views">
                                                         {{details.listingViews}} people viewed this
-                                                        <!-- <p style="float: left;"><img src="./images/eyeicon.png" alt="" width="25px"> 15 -->
-                                                        <span>
-                                                            <p class="listing-price" style="float: right;">
-                                                                <sup>SGD</sup> {{details.price}} / mth
-                                                            </p>
-                                                        </span>
-                                                    </p>
-                                                </div>
-                                            </a>
+                                                    </span>
+                                                    <span class = "listing-price text-right" style = "float:right">
+                                                        <sup>SGD</sup> <span class = "details-price">{{details.price}}</span> / mth
+                                                    </span>
+                                                </p>
+                                                    <!-- <p style="float: left;"><img src="./images/eyeicon.png" alt="" width="25px"> 15 -->
+                                            </div>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -205,44 +204,31 @@
                                                 <span class="visually-hidden">Next</span>
                                             </button>
                                         </div>
-                                        <div class="card-body">
-                                            <a :href="'indivpage.html?id=' + id " class="stretched-link"
-                                                style="position: relative; text-decoration: none; color: black;">
-                                                <h5 class="card-title">{{details.listingAddress}}</h5>
-                                                <p class="card-text">{{details.roomType}}</p>
-                                                <p class="text-start"><img src="icons/mrt.png"
+                                        <a :href="'indivpage.html?id=' + id " class="stretched-link"
+                                        style="position: relative; text-decoration: none; color: black;">
+                                            <div class="card-body">
+                                                    <h5 class="card-title">{{details.listingAddress}}</h5>
+                                                    <p class="card-text">{{details.roomType}}</p>
+                                            </div>
+                                            <div class="card-body">
+                                                <p class="card-text"><img src="icons/mrt.png"
                                                         style="height:30px; width:30px">
-                                                    <mark v-if="details.listingMrt == 'NSL'"
-                                                        style="background-color:lightcoral">{{details.listingMrt}}</mark>
-                                                    <mark v-if="details.listingMrt == 'EWL'"
-                                                        style="background-color:lightgreen">{{details.listingMrt}}</mark>
-                                                    <mark v-if="details.listingMrt == 'CCL'"
-                                                        style="background-color:yellow">{{details.listingMrt}}</mark>
-                                                    <mark v-if="details.listingMrt == 'NEL'"
-                                                        style="background-color:plum">{{details.listingMrt}}</mark>
-                                                    <mark v-if="details.listingMrt == 'DTL'"
-                                                        style="background-color:#1E90FF">{{details.listingMrt}}</mark>
-                                                    <mark v-if="details.listingMrt == 'TEL'"
-                                                        style="background-color:brown">{{details.listingMrt}}</mark>
+                                                    <mark :class = "details.listingMrt">{{details.listingMrt}}</mark>
                                                     {{details.listingArea}}
-                                                    <p class="text-end distance">
-                                                        <span class="badge rounded-pill text-bg-primary w-1 ms-5"><i
-                                                                style="font-size:10px" class="fas fa-walking"></i>
-                                                            {{details.distance}} min to MRT</span>
-                                                    </p>
+                                                </p>
 
-                                                    <p class="final-details" style="float: left;"><i
-                                                            style="font-size:10px" class="fa">&#xf06e;</i>
-                                                        {{details.listingViews}} people viewed this
-                                                        <!-- <p style="float: left;"><img src="./images/eyeicon.png" alt="" width="25px"> 15 -->
-                                                        <span>
-                                                            <p class="listing-price" style="float: right;">
-                                                                <sup>SGD</sup> {{details.price}} / mth
-                                                            </p>
-                                                        </span>
-                                                    </p>
-                                            </a>
-                                        </div>
+                                                        <p class="final-details" style="float: left;"><i
+                                                                style="font-size:10px" class="fa">&#xf06e;</i>
+                                                            {{details.listingViews}} people viewed this
+                                                            <!-- <p style="float: left;"><img src="./images/eyeicon.png" alt="" width="25px"> 15 -->
+                                                            <span>
+                                                                <p class="listing-price" style="float: right;">
+                                                                    <sup>SGD</sup> {{details.price}} / mth
+                                                                </p>
+                                                            </span>
+                                                        </p>
+                                            </div>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
