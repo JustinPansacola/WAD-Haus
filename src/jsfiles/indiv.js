@@ -3,6 +3,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.12.1/firebas
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-analytics.js";
 import { doc, getDoc, collection, getDocs, getFirestore, updateDoc } from 'https://www.gstatic.com/firebasejs/9.12.1/firebase-firestore.js';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-auth.js";
+import { getStorage, ref, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-storage.js";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -24,6 +25,7 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth();
 const db = getFirestore();
+const storage = getStorage();
 
 // Vue instance
 const main = Vue.createApp({
@@ -35,7 +37,8 @@ const main = Vue.createApp({
             roomMatesId:[],
             curr_views: 0,
             new_views: 0,
-            viewers: []
+            viewers: [],
+            images: []
         }
     },
 
@@ -58,10 +61,48 @@ const main = Vue.createApp({
                 console.log(id)
                 const docRef = doc(db, "listings", id);
                 const docSnap = await getDoc(docRef);
+                // const pathReference = ref(storage, '');
 
                 if (docSnap.exists()) {
-                    console.log("Document data:", docSnap.data());
                     this.listing_dict = docSnap.data()
+                    
+                    for(let i = 0; i < 3; i++){
+                        getDownloadURL(ref(storage, `listings/${id}/${i+1}.jpeg`))
+                        .then((url) => {
+
+                            // Or inserted into an <img> element
+                           
+                            let curr_targ = `carou${i+1}`
+                            const img = document.getElementById(curr_targ);
+                            img.setAttribute('src', url);
+
+                        })
+                        .catch((error) => {
+                            // Handle any errors
+                        });
+                        console.log(this.images)
+                    }
+
+                    // let curr_url = ""
+
+                    // console.log(this.images)
+                    // for(image of this.images){
+                    //     console.log(image)
+                    // }
+                    // // for(let j=0; j < 3; j++){
+
+                    // //     curr_url = this.images[j]
+                    // //     console.log(curr_url)
+                    // //     // Or inserted into an <img> element
+                    // //     let img = document.getElementById(`test${j+1}`);
+
+                    // //     img.src = curr_url;
+                        
+
+                    // // }
+                    
+
+                    
                     this.roomMates = this.listing_dict.roomMates
                     this.roomMatesId = this.listing_dict.roomatesId
 
