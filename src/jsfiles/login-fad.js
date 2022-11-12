@@ -44,6 +44,24 @@ const main = Vue.createApp({
             signInWithEmailAndPassword(auth, this.email, this.password).then(cred => {
                 console.log(cred);
             })
+            .catch((error) => {
+
+                // Some error occurred.
+                console.log(error.code);
+                let errormsg = "";
+
+                if (error.code.includes("wrong-password")) {
+                    errormsg = "password is incorrect."
+                }
+                else if (error.code.includes("user-not-found")) {
+                    errormsg = "user not found."
+                }
+
+                var myModal = new bootstrap.Modal(document.getElementById("errormessage"), { keyboard: false })
+                document.getElementById("modal-body").innerHTML = `<p>${errormsg}</p>`
+                myModal.show()
+
+            })
 
 
         }

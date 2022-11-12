@@ -38,7 +38,8 @@ const main = Vue.createApp({
             curr_views: 0,
             new_views: 0,
             viewers: [],
-            images: []
+            images: [],
+            dataLoaded: false
         }
     },
 
@@ -145,15 +146,16 @@ const main = Vue.createApp({
                     console.log("No such document!");
                 }
 
+                this.dataLoaded = true;
+
                 console.log(this.roomMatesId)
 
-                const loginnav = document.getElementById("loginnav");
-                const registernav = document.getElementById("registernav");
+                // const loginnav = document.getElementById("loginnav");
+                // const registernav = document.getElementById("registernav");
 
-                // if there is a user logged in, change navbar login and register to profile and logout
-                loginnav.innerText = user.displayName;
-                loginnav.href = "profilepage.html";
-                registernav.innerText = "Logout";
+                // loginnav.innerText = user.displayName;
+                // loginnav.href = "profilepage.html";
+                // registernav.innerText = "Logout";
 
                 // if user clicks logout, sign them out
             
