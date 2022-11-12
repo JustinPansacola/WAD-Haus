@@ -49,7 +49,8 @@
                         listings</a></span>
             </li>
             <li class="nav-link sidelink">
-                <span class="mx-2"><a href="comparelistings.html" style="text-decoration: none; color: black;">favourites</a></span>
+                <span class="mx-2"><a href="comparelistings.html"
+                        style="text-decoration: none; color: black;">favourites</a></span>
             </li>
             <!-- <li class="nav-link sidelink">
                 <span class="mx-2"><a href="#" style="text-decoration: none; color: black;">chat</a></span>
@@ -67,7 +68,7 @@
 
     <div id="content">
 
-        <div class="container" >
+        <div class="container">
             <!-- add your stuff here :D -->
 
             <div class="d-flex flex-column min-vh-100" v-if="!dataLoaded">
@@ -78,12 +79,21 @@
 
             <div class="container mx-auto p-5 rounded" v-if="dataLoaded">
 
-                <div class="card text-center p-3">
+                <div class="d-flex flex-column align-items-center mb-3">
+                    <img id="selectedphoto" class="rounded-circle mb-3"
+                            style="width:200px;height:200px;border: 5px solid #372028" v-bind:src="imageurl" id="img" />
+                    <div class="p-2"><h3><span style="color:#372028"><strong>name:</strong></span> {{username}}</h3></div>
+                    <div class="p-2"><h3><span style="color:#372028"><strong>race:</strong></span> {{race}}</h3></div>
+                    <div class="p-2"><h3><span style="color:#372028"><strong>religion:</strong></span> {{religion}}</h3></div>
+                    <div class="p-2"><h3><span style="color:#372028"><strong>nationality:</strong></span> {{nationality}}</h3></div>
+                    <div class="p-2"><h3><span style="color:#372028"><strong>school:</strong></span> {{school}}</h3></div>
+                  </div>
+
+                <!-- <div class="card p-3 border-0 text-center" style="background-color:#EEE9D2">
                     <div class="card-body">
 
-                        <img id="selectedphoto"
-                            class="img-account-profile rounded-circle mb-2 border border-5" style="width:200px;height:200px;" v-bind:src="imageurl" id="img"
-                        />
+                        <img id="selectedphoto" class="rounded-circle mb-3"
+                            style="width:200px;height:200px;border: 5px solid #372028" v-bind:src="imageurl" id="img" />
 
                         <h1 class="card-title mt-3">Name: {{username}}</h1>
                         <p class="card-text mt-3">Race: {{race}}</p>
@@ -91,7 +101,7 @@
                         <p class="card-text mt-3">Nationality: {{nationality}}</p>
                         <p class="card-text mt-3">School: {{school}}</p>
                     </div>
-                </div>
+                </div> -->
 
             </div>
 
