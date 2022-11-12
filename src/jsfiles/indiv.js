@@ -104,42 +104,6 @@ const main = Vue.createApp({
 
                     // // }
 
-                    // get landlord profile picture
-                    getDownloadURL(ref(storage, "users/" + this.listing_dict.landlordid))
-                        .then((url) => {
-
-                            // Or inserted into an <img> element
-                            // const img = document.getElementById("selectedphoto");
-                            // img.setAttribute('src', url);
-                            this.landlordimg = url;
-                        })
-                        .catch((error) => {
-                            // Handle any errors
-                        });
-
-                    console.log("check: " + this.listing_dict.roomatesId)
-
-                    // get tenants profile picture
-                    for (let rid in this.listing_dict.roomatesId) {
-
-                        console.log("loop" + this.listing_dict.roomatesId[rid])
-                        await getDownloadURL(ref(storage, "users/" + this.listing_dict.roomatesId[rid]))
-                            .then((url) => {
-
-                                // Or inserted into an <img> element
-                                // const img = document.getElementById("selectedphoto");
-                                // img.setAttribute('src', url);
-                                // this.landlordimg = url;
-                                
-                                console.log("Here: " + url);
-                                this.tenantsimg.push(url);
-                                console.log(this.tenantsimg)
-                            })
-                            .catch((error) => {
-                                // Handle any errors
-                            });
-                    }
-
                     console.log(this.tenantsimg)
 
                     this.roomMates = this.listing_dict.roomMates
@@ -182,6 +146,42 @@ const main = Vue.createApp({
                 } else {
                     // doc.data() will be undefined in this case
                     console.log("No such document!");
+                }
+
+                // get landlord profile picture
+                getDownloadURL(ref(storage, "users/" + this.listing_dict.landlordid))
+                    .then((url) => {
+
+                        // Or inserted into an <img> element
+                        // const img = document.getElementById("selectedphoto");
+                        // img.setAttribute('src', url);
+                        this.landlordimg = url;
+                    })
+                    .catch((error) => {
+                        // Handle any errors
+                    });
+
+                console.log("check: " + this.listing_dict.roomatesId)
+
+                // get tenants profile picture
+                for (let rid in this.listing_dict.roomatesId) {
+
+                    console.log("loop" + this.listing_dict.roomatesId[rid])
+                    getDownloadURL(ref(storage, "users/" + this.listing_dict.roomatesId[rid]))
+                        .then((url) => {
+
+                            // Or inserted into an <img> element
+                            // const img = document.getElementById("selectedphoto");
+                            // img.setAttribute('src', url);
+                            // this.landlordimg = url;
+
+                            console.log("Here: " + url);
+                            this.tenantsimg.push(url);
+                            console.log(this.tenantsimg)
+                        })
+                        .catch((error) => {
+                            // Handle any errors
+                        });
                 }
 
                 this.dataLoaded = true;
