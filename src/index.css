@@ -169,13 +169,16 @@ margin-left: 180px;
 }
 
 .card-title{
-    font-weight: 800;   
+    font-weight: 900;   
     font-size: 18px;
+    text-shadow: 0px 1px, 1px 0px, 1px 1px;
+    color: #372028;
 }
 
 .card-text{
     font-size: 12px;
     font-weight: 700;
+    text-shadow: 1px 0px;
     color: #666666;
 }
 
@@ -185,8 +188,13 @@ margin-left: 180px;
     color: #666666;
 }
 
-.final-details{
-    font-size: 10px;
+.distance-details{
+    font-size: 8px;
+    font-weight: 700;
+    color: #666666;
+}
+.number-of-views{
+    font-size: 8px;
     font-weight: 700;
     color: #666666;
 }
@@ -203,8 +211,24 @@ margin-left: 180px;
     font-family: "Montserrat","Helvetica Neue","Helvetica","Arial",sans-serif;
 }
 
+#selection select {
+    width: 200px;
+}
+
+.listingArea {
+    color: rgb(55, 32, 40);
+    text-transform: uppercase;
+    text-shadow: 1px 0px;
+}
+
+.details-price {
+    font-size: 22px;
+    font-weight: bolder;
+    text-shadow: 1px 0px;
+}
+
 /* colors */
-.NSL {
+#MRTBOX .NSL {
     background-color: lightcoral;
     margin:auto;
     margin-top: 20px;
@@ -218,7 +242,7 @@ margin-left: 180px;
 }
 
 
-.EWL {
+#MRTBOX .EWL {
     background-color: lightgreen;
     margin:auto;
     margin-top: 20px;
@@ -232,7 +256,7 @@ margin-left: 180px;
 }
 
 
-.CCL {
+#MRTBOX .CCL {
     background-color: yellow;
     margin:auto;
     margin-top: 20px;
@@ -245,7 +269,7 @@ margin-left: 180px;
     border-radius: 10%;
 }
 
-.NEL {
+#MRTBOX .NEL {
     background-color: plum;
     margin:auto;
     margin-top: 20px;
@@ -258,7 +282,7 @@ margin-left: 180px;
     border-radius: 10%;
 }
 
-.DTL {
+#MRTBOX .DTL {
     background-color: #1E90FF;
     margin:auto;
     margin-top: 20px;
@@ -271,7 +295,7 @@ margin-left: 180px;
     border-radius: 10%;
 }
 
-.TEL {
+#MRTBOX .TEL {
     background-color: brown;
     margin:auto;
     margin-top: 20px;
@@ -282,4 +306,46 @@ margin-left: 180px;
     align-items: center;
     justify-content: center;
     border-radius: 10%;
+}
+
+#listings-box .NSL{
+    background-color: lightcoral;
+    color: white;
+    font-weight: bolder;
+    text-shadow: 0px 1px, 1px 0px, 1px 1px;
+}
+
+#listings-box .EWL{
+    background-color: lightgreen;
+    color: white;
+    font-weight: bolder;
+    text-shadow: 1px 0px;
+}
+
+#listings-box .CCL{
+    background-color: yellow;
+    color: white;
+    font-weight: bolder;
+    text-shadow: 1px 0px;
+}
+
+#listings-box .NEL{
+    background-color: plum;
+    color: white;
+    font-weight: bolder;
+    text-shadow: 1px 0px;
+}
+
+#listings-box .DTL{
+    background-color: #1E90FF;
+    color: white;
+    font-weight: bolder;
+    text-shadow: 1px 0px;
+}
+
+#listings-box .TEL{
+    background-color: brown;
+    color: white;
+    font-weight: bolder;
+    text-shadow: 1px 0px;
 }
