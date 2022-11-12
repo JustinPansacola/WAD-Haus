@@ -33,13 +33,15 @@ const main = Vue.createApp({
     data() {
         return {
             listing_dict: {},
-            roomMates:[],
-            roomMatesId:[],
+            roomMates: [],
+            roomMatesId: [],
             curr_views: 0,
             new_views: 0,
             viewers: [],
             images: [],
-            dataLoaded: false
+            dataLoaded: false,
+            landlordimg: "",
+            tenantsimg: []
         }
     },
 
@@ -51,7 +53,7 @@ const main = Vue.createApp({
         // listen for auth status change (For user authentication)
         onAuthStateChanged(auth, async (user) => {
             if (user) {
-                
+
                 document.getElementById("navbar_button_1").innerHTML = `<a class="nav-link text-dark text-white" style="background-color:rgb(55, 32, 40);" href="profilepage-fad.html">${user.displayName}</a>`
                 document.getElementById("navbar_button_2").innerHTML = `<a class="nav-link text-dark text-white" style="background-color:rgb(55, 32, 40);" href="logoutsuccesspage.html">logout</a>`
 
@@ -66,21 +68,21 @@ const main = Vue.createApp({
 
                 if (docSnap.exists()) {
                     this.listing_dict = docSnap.data()
-                    
-                    for(let i = 0; i < 3; i++){
-                        getDownloadURL(ref(storage, `listings/${id}/${i+1}.jpeg`))
-                        .then((url) => {
 
-                            // Or inserted into an <img> element
-                           
-                            let curr_targ = `carou${i+1}`
-                            const img = document.getElementById(curr_targ);
-                            img.setAttribute('src', url);
+                    for (let i = 0; i < 3; i++) {
+                        getDownloadURL(ref(storage, `listings/${id}/${i + 1}.jpeg`))
+                            .then((url) => {
 
-                        })
-                        .catch((error) => {
-                            // Handle any errors
-                        });
+                                // Or inserted into an <img> element
+
+                                let curr_targ = `carou${i + 1}`
+                                const img = document.getElementById(curr_targ);
+                                img.setAttribute('src', url);
+
+                            })
+                            .catch((error) => {
+                                // Handle any errors
+                            });
                         console.log(this.images)
                     }
 
@@ -98,19 +100,55 @@ const main = Vue.createApp({
                     // //     let img = document.getElementById(`test${j+1}`);
 
                     // //     img.src = curr_url;
-                        
+
 
                     // // }
-                    
 
-                    
+                    // get landlord profile picture
+                    getDownloadURL(ref(storage, "users/" + this.listing_dict.landlordid))
+                        .then((url) => {
+
+                            // Or inserted into an <img> element
+                            // const img = document.getElementById("selectedphoto");
+                            // img.setAttribute('src', url);
+                            this.landlordimg = url;
+                        })
+                        .catch((error) => {
+                            // Handle any errors
+                        });
+
+                    console.log("check: " + this.listing_dict.roomatesId)
+
+                    // get tenants profile picture
+                    for (let rid in this.listing_dict.roomatesId) {
+
+                        console.log("loop" + this.listing_dict.roomatesId[rid])
+                        await getDownloadURL(ref(storage, "users/" + this.listing_dict.roomatesId[rid]))
+                            .then((url) => {
+
+                                // Or inserted into an <img> element
+                                // const img = document.getElementById("selectedphoto");
+                                // img.setAttribute('src', url);
+                                // this.landlordimg = url;
+                                
+                                console.log("Here: " + url);
+                                this.tenantsimg.push(url);
+                                console.log(this.tenantsimg)
+                            })
+                            .catch((error) => {
+                                // Handle any errors
+                            });
+                    }
+
+                    console.log(this.tenantsimg)
+
                     this.roomMates = this.listing_dict.roomMates
                     this.roomMatesId = this.listing_dict.roomatesId
 
                     this.curr_views = this.listing_dict.listingViews
                     this.viewers = this.listing_dict.listingViewers
-    
-                    let new_views = this.curr_views 
+
+                    let new_views = this.curr_views
                     console.log(new_views)
 
                     console.log(this.roomMates)
@@ -122,9 +160,9 @@ const main = Vue.createApp({
                     console.log(this.viewers.includes(user.uid))
                     console.log(user.uid)
 
-                    if (!this.viewers.includes(user.uid)){
+                    if (!this.viewers.includes(user.uid)) {
                         this.viewers.push(user.uid)
-                        new_views += 1 
+                        new_views += 1
 
                         console.log(new_views)
 
@@ -137,7 +175,7 @@ const main = Vue.createApp({
 
 
 
-            
+
                     // await updateDoc(docSnap, {
                     //     listingViews: FieldValue.increment(1)
                     // })
@@ -158,7 +196,7 @@ const main = Vue.createApp({
                 // registernav.innerText = "Logout";
 
                 // if user clicks logout, sign them out
-            
+
                 document.getElementById("navbar_button_2").addEventListener("click", logOut);
 
                 function logOut() {
