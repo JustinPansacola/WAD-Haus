@@ -221,11 +221,10 @@ margin-left: 180px;
 .listingArea {
     color: rgb(55, 32, 40);
     text-transform: uppercase;
-    text-shadow: 1px 0px;
 }
 
 .details-price {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: bolder;
     text-shadow: 1px 0px;
 }
