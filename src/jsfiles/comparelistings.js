@@ -74,13 +74,13 @@ const main = Vue.createApp({
                     this.favourites = docSnap.data().favourites;
 
                     console.log(this.favourites)
-                    console.log("Length" + this.favourites.length)
+                    // console.log("Length" + this.favourites.length)
 
                     if (typeof this.favourites == 'undefined') {
                         window.location = "nofavouritespage.html";
                     }
 
-                    if(this.favourites.length == 1)
+                    if(this.favourites.length < 2)
                     {
                         window.location = "notenoughfavourites.html";
                     }
