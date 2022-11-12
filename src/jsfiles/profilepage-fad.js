@@ -3,6 +3,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.12.1/firebas
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-analytics.js";
 import { doc, updateDoc, getDoc, setDoc, collection, getDocs, getFirestore } from 'https://www.gstatic.com/firebasejs/9.12.1/firebase-firestore.js';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, browserSessionPersistence } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-auth.js";
+import { getStorage, ref, uploadBytes } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-storage.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -28,6 +29,7 @@ const auth = getAuth();
 // TO GET ALL DOCUMENTS IN A COLLECTION
 // const colRef = collection(db, "listings");
 // const docsSnap = await getDocs(colRef);
+
 
 
 // Vue instance
@@ -93,6 +95,13 @@ const main = Vue.createApp({
 
                 console.log(this.school)
 
+                const storage = getStorage();
+                const storageRef = ref(storage, 'some-child');
+
+                // 'file' comes from the Blob or File API
+                uploadBytes(storageRef, "").then((snapshot) => {
+                    console.log('Uploaded a blob or file!');
+                });
 
                 console.log("Hello!")
                 document.getElementById("navbar_button_1").innerHTML = `<a class="nav-link text-dark text-white" style="background-color:rgb(55, 32, 40);" href="profilepage-fad.html">${user.displayName}</a>`
@@ -135,3 +144,5 @@ const main = Vue.createApp({
 })
 
 main.mount("#content") // mount vue to html
+
+
