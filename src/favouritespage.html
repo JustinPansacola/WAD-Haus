@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>haus</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link rel="stylesheet" href="index.css">
+    <script type="module" src="jsfiles/favouritespage.js"></script>
+    <script type="module" src="jsfiles/index.js"></script>
+    <script type="module" src="jsfiles/navbar.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- <script src="https://unpkg.com/vue3-google-map"></script> -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+    <nav class="navbar py-3 ">
+        <div class="container-fluid py-0 ">
+            <div class="justify-content-start">
+                <button id="menu-btn" class="navbar-toggler" type="button">
+                    <span class="navbar-toggler-icon navbar-dark"></span>
+                </button>
+                <a class="navbar-brand ms-4 text-dark justify-content-start text-white" href="index.html">haûs <span><img src="./icons/hauslogo.svg" alt="" style="height: 40px;width:40px;"></span></a>
+            </div>
+
+            <ul class="nav align-middle justify-content-center p-0">
+                <li class="nav-item" id="navbar_button_1">
+                    <!-- <a class="nav-link text-dark text-white" style="background-color:rgb(55, 32, 40);" href="...">login</a> -->
+                </li>
+                <li class="nav-item" id="navbar_button_2">
+                    <!-- <a class="nav-link text-dark text-white" style="background-color:rgb(55, 32, 40);" href="...">register</a> -->
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="side-navbar d-flex justify-content-between flex-wrap flex-column" id="sidebar">
+        <ul class="nav flex-column text-white w-100">
+            <li class="nav-link sidelink">
+                <span class="mx-2"><a href="viewingpage.html" style="text-decoration: none; color: black;">browse
+                        listings</a></span>
+            </li>
+            <li class="nav-link sidelink">
+                <span class="mx-2"><a href="comparelistings.html" style="text-decoration: none; color: black;">favourites</a></span>
+            </li>
+            <!-- <li class="nav-link sidelink">
+                <span class="mx-2"><a href="#" style="text-decoration: none; color: black;">chat</a></span>
+            </li>
+            <li class="nav-link sidelink">
+                <span class="mx-2"><a href="#" style="text-decoration: none; color: black;">contract</a></span>
+            </li> -->
+            <li href="#" class="nav-link sidelink">
+                <span class="mx-2"></span>
+            </li>
+        </ul>
+    </div>
+
+    <div id="content">
+        <!-- <div class="searchbg">
+            <div class="container d-flex justify-content-center" id="selection">
+                <form class="row row-cols-auto">
+                    <div class="col">
+                        <label class="visually-hidden" for="inlineFormSelectLocation">Location</label>
+                        <select class="form-select" id="inlineFormSelectLocation" v-model="location_selected_v">
+                            <option selected>Location</option>
+                            <option v-for="location in location_listings">{{location}}</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label class="visually-hidden" for="inlineFormSelectPref">RoomType</label>
+                        <select class="form-select" id="inlineFormSelectRoomType" v-model="roomtype_selected_v">
+                            <option selected>Room Type</option>
+                            <option v-for="room_type in room_type_listings">{{room_type}}</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label class="visually-hidden" for="inlineFormSelectPref">Occupancy</label>
+                        <select class="form-select" id="inlineFormSelectOccupancy" v-model="occupancy_selected_v">
+                            <option selected>Occupancy</option>
+                            <option v-for="occupancy in occupancy_listings">{{occupancy}}</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label class="visually-hidden" for="inlineFormSelectPref">Price</label>
+                        <select class="form-select" id="inlineFormSelectPrice" v-model="price_selected_v">
+                            <option selected>Price</option>
+                            <option v-for="price in price_listings">{{price}}</option>
+                        </select>
+                    </div>
+
+                    <div class="col">
+                        <button type="button" class="btn" style="background-color: #F8B709;" onclick="updateMap()"
+                            @click="myPreference()">
+                            Search
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div> -->
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-12" id="listings-box-id">
+                    <div id="listings-box">
+                        <div class="container mt-3">
+                            <div class="row">
+                                <h1 class="text-center">favourites</h1>
+                                <button class="btn btn-warning w-50 m-auto mb-3">compare listings</button>
+                            </div>
+                            <div class="row">
+                                <div class="col-6" v-for="(listing, id) in listings">
+                                    <div class="card m-1">
+                                        <div :id="'carouselControls' + id" class="carousel slide"
+                                            data-bs-ride="carousel">
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                    <img src="./images/cozyrm.jpeg" class="d-block w-100 cardimage"
+                                                        alt="..." style="max-height: 200px;">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="images/images.jpeg" class="d-block w-100 cardimage"
+                                                        alt="..." style="max-height: 200px;">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="./images/cozyrm.jpeg" class="d-block w-100 cardimage"
+                                                        alt="..." style="max-height: 200px;">
+                                                </div>
+                                            </div>
+                                            <button class="carousel-control-prev" type="button"
+                                                :data-bs-target="'#carouselControls' + id" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Previous</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button"
+                                                :data-bs-target="'#carouselControls' + id" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Next</span>
+                                            </button>
+                                        </div>
+                                        <a :href="'indivpage.html?id=' + id " class="stretched-link"
+                                            style="position: relative; text-decoration: none; color: black;">
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{listing.listingAddress}}</h5>
+                                                <p class="card-text">{{listing.roomType}}</p>
+                                                <p class="text-start"><img src = "icons/mrt.png" style="height:30px; width:30px">
+                                                    <mark :class = "listing.listingMrt">{{listing.listingMrt}}</mark>
+                                                    {{listing.listingArea}}
+                                                    <p class="text-end distance">
+                                                        <span class="badge rounded-pill text-bg-primary w-1 ms-5"><i
+                                                                style="font-size:10px" class="fas fa-walking"></i>
+                                                            {{listing.distance}} min to MRT</span>
+                                                    </p>
+
+                                                    <p class="final-details" style="float: left;"><i
+                                                            style="font-size:10px" class="fa">&#xf06e;</i>
+                                                        {{listing.listingViews}} people viewed this
+                                                        <!-- <p style="float: left;"><img src="./images/eyeicon.png" alt="" width="25px"> 15 -->
+                                                        <span>
+                                                            <p class="listing-price" style="float: right;">
+                                                                <sup>SGD</sup> {{listing.price}} / mth
+                                                            </p>
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                            </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-lg-block d-none col-6" id="map-box-id">
+                    <div id="map-box" style="position: fixed; bottom: 0; height: 100%;">
+                        <div id="map" style="height: 100%; width: 100%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+
+    <script>
+        let search_bar_height = 0
+        let top_nav_height = $('.navbar').outerHeight()
+
+        $(document).ready(function ($) { //wait for the document to load
+            $('#content').css({
+                'margin-top': top_nav_height + 0 + 'px' //adjust the css rule for margin-top to equal the element height - 10px and add the measurement unit "px" for valid CSS
+            });
+
+            console.log($('#map-box-id').width())
+            $('#map-box').css({
+                'height': ($(window).height() - search_bar_height - top_nav_height) + "px",
+                'width': $('#map-box-id').width() + "px",
+                'top': search_bar_height + top_nav_height + "px"
+            });
+        });
+
+        $(window).resize(function () {
+            $('#content').css({
+                'margin-top': top_nav_height + 0 + 'px' //adjust the css rule for margin-top to equal the element height - 10px and add the measurement unit "px" for valid CSS
+            });
+
+            $('#map-box').css({
+                'height': ($(window).height() - search_bar_height - top_nav_height) + "px",
+                'width': $('#map-box-id').width + "px",
+                'top': search_bar_height + top_nav_height + "px"
+            });
+        });
+
+        
+
+    </script>
+
+    <!-- <script>
+        let listings;
+        var script;
+    </script> -->
+
+
+    <script type="module" src="./jsfiles/favouritespage_map.js"></script>
+
+    <!-- <script>
+        function updateMap() {
+            // console.log(listings)
+            let location_selected = document.getElementById('inlineFormSelectLocation').value
+            let roomtype_selected = document.getElementById('inlineFormSelectRoomType').value
+            let occupancy_selected = document.getElementById('inlineFormSelectOccupancy').value
+            let price_selected = (document.getElementById('inlineFormSelectPrice').value).replace(/\D/g, '')
+
+            let listings_arr = Object.entries(listings)
+
+            let filtered_listings = {}
+            for (let i = 0; i < listings_arr.length; i++) {
+                console.log(listings_arr[i][1])
+                let details = listings_arr[i][1]
+
+                if (listing.location.toLowerCase() == location_selected.toLowerCase() &&
+                    listing.roomType.toLowerCase() == roomtype_selected.toLowerCase() &&
+                    listing.roomOccupancy.toLowerCase() == occupancy_selected.toLowerCase() &&
+                    Number(listing.price) <= Number(price_selected)) {
+
+                    let current_lat = listing.lat
+                    let current_lng = listing.lng
+                    console.log(current_lat + " " + current_lng)
+
+                    filtered_listings[i+1] = { "lat": current_lat, "lng": current_lng }
+                }
+            }
+
+            initMap(filtered_listings)
+        }
+    </script> -->
+</body>
+
+</html>
