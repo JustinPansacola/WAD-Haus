@@ -31,42 +31,55 @@ const main = Vue.createApp({
         return {
             username: "",
             email: "",
-            password: ""
+            password: "",
+            confirmpassword: ""
         }
     },
 
     methods: {
         onSubmit() {
-            console.log('form submitted');
-            console.log(this.email);
-            console.log(this.password);
 
-            // Sign up the user
-            createUserWithEmailAndPassword(auth, this.email, this.password).then(async cred => {
-                console.log(cred);
-                await updateProfile(auth.currentUser, {
-                    displayName: this.username // set username to db
+            if (this.password != this.confirmpassword) {
+                console.log("Passwords do not match!");
+
+                var myModal = new bootstrap.Modal(document.getElementById("errormessage"), { keyboard: false })
+                document.getElementById("modal-body").innerHTML = `<p>Passwords do not match!</p>`
+                myModal.show()
+            }
+            else {
+
+                console.log('form submitted');
+                console.log(this.email);
+                console.log(this.password);
+
+                // Sign up the user
+                createUserWithEmailAndPassword(auth, this.email, this.password).then(async cred => {
+                    console.log(cred);
+                    await updateProfile(auth.currentUser, {
+                        displayName: this.username // set username to db
+                    })
+                    window.location = 'registerdetailspage.html';
                 })
-                window.location = 'registerdetailspage.html';
-            })
-                .catch((error) => {
-                    // Some error occurred.
-                    console.log(error.code);
-                    let errormsg = "";
+                    .catch((error) => {
+                        // Some error occurred.
+                        console.log(error.code);
+                        let errormsg = "";
 
-                    if(error.code.includes("weak-password"))
-                    {
-                        errormsg = "Weak password."
-                    }
-                    else if(error.code.includes("email-already-in-use"))
-                    {
-                        errormsg = "Email already in use."
-                    }
+                        if (error.code.includes("weak-password")) {
+                            errormsg = "Weak password."
+                        }
+                        else if (error.code.includes("email-already-in-use")) {
+                            errormsg = "Email already in use."
+                        }
 
-                    var myModal = new bootstrap.Modal(document.getElementById("errormessage"),{keyboard: false})
-                    document.getElementById("modal-body").innerHTML = `<p>${errormsg}</p>`
-                    myModal.show()
-                })
+                        var myModal = new bootstrap.Modal(document.getElementById("errormessage"), { keyboard: false })
+                        document.getElementById("modal-body").innerHTML = `<p>${errormsg}</p>`
+                        myModal.show()
+                    })
+            }
+
+
+
         }
     },
 
