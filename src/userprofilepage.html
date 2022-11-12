@@ -28,7 +28,8 @@
                 <button id="menu-btn" class="navbar-toggler" type="button">
                     <span class="navbar-toggler-icon navbar-dark"></span>
                 </button>
-                <a class="navbar-brand ms-4 text-dark justify-content-start text-white" href="index.html">haus</a>
+                <a class="navbar-brand ms-4 text-dark justify-content-start text-white" href="index.html">haûs
+                    <span><img src="./icons/hauslogo.svg" alt="" style="height: 40px;width:40px;"></span></a>
             </div>
 
             <ul class="nav align-middle justify-content-center p-0">
@@ -75,15 +76,20 @@
                 </div>
             </div>
 
-            <div class="container bg-white mx-auto p-5 rounded" v-if="dataLoaded">
+            <div class="container mx-auto p-5 rounded" v-if="dataLoaded">
 
-                <div class="card text-center">
+                <div class="card text-center p-3">
                     <div class="card-body">
-                        <h1 class="card-title">Name: {{username}}</h1>
-                        <p class="card-text">Race: {{race}}</p>
-                        <p class="card-text">Religion: {{religion}}</p>
-                        <p class="card-text">Nationality: {{nationality}}</p>
-                        <p class="card-text">School: {{school}}</p>
+
+                        <img id="selectedphoto"
+                            class="img-account-profile rounded-circle mb-2 border border-5" style="width:200px;height:200px;" v-bind:src="imageurl" id="img"
+                        />
+
+                        <h1 class="card-title mt-3">Name: {{username}}</h1>
+                        <p class="card-text mt-3">Race: {{race}}</p>
+                        <p class="card-text mt-3">Religion: {{religion}}</p>
+                        <p class="card-text mt-3">Nationality: {{nationality}}</p>
+                        <p class="card-text mt-3">School: {{school}}</p>
                     </div>
                 </div>
 

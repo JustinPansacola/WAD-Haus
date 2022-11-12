@@ -3,6 +3,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.12.1/firebas
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-analytics.js";
 import { doc, updateDoc, getDoc, setDoc, collection, getDocs, getFirestore } from 'https://www.gstatic.com/firebasejs/9.12.1/firebase-firestore.js';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, browserSessionPersistence } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-auth.js";
+import { getStorage, ref, uploadBytes, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-storage.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -25,6 +26,8 @@ const analytics = getAnalytics(app);
 const db = getFirestore();
 const auth = getAuth();
 
+const storage = getStorage();
+
 // TO GET ALL DOCUMENTS IN A COLLECTION
 // const colRef = collection(db, "listings");
 // const docsSnap = await getDocs(colRef);
@@ -42,7 +45,8 @@ const main = Vue.createApp({
             religion: "",
             nationality: "",
             school: "",
-            dataLoaded: false
+            dataLoaded: false,
+            imageurl: ""
         }
     },
 
@@ -80,6 +84,18 @@ const main = Vue.createApp({
                 this.username = username;
 
                 console.log(this.school)
+
+                getDownloadURL(ref(storage, "users/" + id))
+                .then((url) => {
+
+                    // Or inserted into an <img> element
+                    // const img = document.getElementById("selectedphoto");
+                    // img.setAttribute('src', url);
+                    this.imageurl = url;
+                })
+                .catch((error) => {
+                    // Handle any errors
+                });
 
 
                 console.log("Hello!")
