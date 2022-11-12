@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-analytics.js";
-import { doc, getDoc, collection, getDocs, getFirestore } from 'https://www.gstatic.com/firebasejs/9.12.1/firebase-firestore.js';
+import { doc, getDoc, collection, getDocs, getFirestore, setDoc } from 'https://www.gstatic.com/firebasejs/9.12.1/firebase-firestore.js';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-auth.js";
 // import {mitt} from './mitt';
 //import $Scriptjs from './scriptjs';
@@ -29,6 +29,8 @@ const db = getFirestore();
 const auth = getAuth();
 
 
+
+
 // Vue instance
 var content = Vue.createApp({
     data() {
@@ -43,7 +45,10 @@ var content = Vue.createApp({
             occupancy_selected_v: "Occupancy",
             price_selected_v: "Price",
             filtered_listings_dict: {},
-            search_filter: false
+            search_filter: false,
+            uid: "",
+            userfavs: [], 
+            startingfavs: []
         }
     },
 
@@ -77,8 +82,86 @@ var content = Vue.createApp({
             }
             console.log(this.filtered_listings_dict)
             //this.listings_dict = this.filtered_listings_dict
-        }
+        },
+        async changeFavourite(ele){
+            console.log(ele)
+            console.log(this.uid)
+            let current = document.getElementById(`heart${ele}`).checked
+
+            console.log(current)
+            let userfav_scoped = []
+
+            const docRef = doc(db,"users", this.uid)
+            console.log(docRef)
+            const docSnap = await getDoc(docRef);
+            let race = ""
+            let religion = ""
+            let school= ""
+            let nationality = ""
+
+            if (docSnap.exists()) {
+                const data = docSnap.data()
+                userfav_scoped = data.favourites
+                console.log(userfav_scoped)
+
+                race = data.race
+                religion = data.religion
+                school = data.school
+                nationality = data.nationality
+                
+            }
+
+            if(userfav_scoped.includes(`/listings/${ele}`)){
+                if (current === true){
+                    let ind = userfav_scoped.indexOf(`/listings/${ele}`)
+                    console.log(ind)
+                    userfav_scoped.splice(ind, 1)
+                    console.log(userfav_scoped)
+                }
+            }
+
+            else if(!userfav_scoped.includes(`/listings/${ele}`)){
+                if (current === false){
+                    userfav_scoped.push(`/listings/${ele}`)
+                    console.log(userfav_scoped)
+                }
+            }
+
+            this.userfavs = userfav_scoped
+            console.log(typeof this.userfavs)
+            console.log(docRef)
+            console.log(docSnap)
+
+            await setDoc(doc(db, "users", auth.currentUser.uid), {
+                race: race,
+                nationality: nationality,
+                religion: religion,
+                school: school,
+                favourites: this.userfavs
+
+            });
+
+        },
+
+        // async loadhearts(){
+        //     const docRef = doc(db,"users", this.uid)
+        //     console.log(docRef)
+        //     const docSnap = await getDoc(docRef);
+
+        //     if (docSnap.exists()) {
+        //         const data = docSnap.data()
+        //         this.startingfavs = data.favourites
+        //         console.log(startingfavs)
+        //         console.log("HI")
+                
+        //     }
+
+        // }
+        
     },
+    // mounted: function() {
+    //     this.loadhearts() // Calls the method before page loads
+    // },
 
     async created() {
 
@@ -86,6 +169,7 @@ var content = Vue.createApp({
             if (user) {
 
                 const uid = user.uid;
+                this.uid = uid
                 console.log(user);
                 console.log(uid)
 
