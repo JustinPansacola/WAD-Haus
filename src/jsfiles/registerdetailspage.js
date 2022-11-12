@@ -48,7 +48,7 @@ const main = Vue.createApp({
                 race: this.race,
                 religion: this.religion,
                 nationality: this.nationality,
-                school: this.school
+                school: this.school,
 
             });
 

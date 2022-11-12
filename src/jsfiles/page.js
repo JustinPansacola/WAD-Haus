@@ -48,7 +48,8 @@ var content = Vue.createApp({
             search_filter: false,
             uid: "",
             userfavs: [], 
-            startingfavs: []
+            startingfavs: [],
+            usercurrentfav: []
         }
     },
 
@@ -102,6 +103,10 @@ var content = Vue.createApp({
             if (docSnap.exists()) {
                 const data = docSnap.data()
                 userfav_scoped = data.favourites
+                if(userfav_scoped === undefined)
+                {
+                    userfav_scoped = [];
+                }
                 console.log(userfav_scoped)
 
                 race = data.race
@@ -176,6 +181,25 @@ var content = Vue.createApp({
                 console.log("Hello!")
                 document.getElementById("navbar_button_1").innerHTML = `<a class="nav-link text-dark text-white" style="background-color:rgb(55, 32, 40);" href="profilepage-fad.html">${user.displayName}</a>`
                 document.getElementById("navbar_button_2").innerHTML = `<a class="nav-link text-dark text-white" style="background-color:rgb(55, 32, 40);" href="logoutsuccesspage.html">logout</a>`
+
+                // pull favourite listings from db
+                const docRef = doc(db, "users", uid);
+                const docSnap = await getDoc(docRef);
+
+                
+                if (docSnap.exists()) {
+                    
+                    this.usercurrentfav = docSnap.data().favourites;
+                    if(this.usercurrentfav === undefined)
+                    {
+                        this.usercurrentfav = [];
+                    }
+
+                    console.log(this.usercurrentfav)
+
+                } else {
+                    // doc.data() will be undefined in this case
+                }
 
             }
             else

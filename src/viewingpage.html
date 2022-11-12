@@ -152,8 +152,12 @@
                                                         <input class="heart" :id="'heart' + id" type="checkbox" />
                                                         <label class="heartlabel" :for="'heart' + id" @click="changeFavourite(id)" >❤</label>
                                                     </span> -->
-                                                    <span style="float: right;">
+                                                    <span style="float: right;" v-if="usercurrentfav.includes('/listings/' + id)">
                                                         <input class="heart" :id="'heart' + id" type="checkbox" checked />
+                                                        <label class="heartlabel" :for="'heart' + id" @click="changeFavourite(id)" >❤</label>
+                                                    </span>
+                                                    <span style="float: right;" v-else>
+                                                        <input class="heart" :id="'heart' + id" type="checkbox" />
                                                         <label class="heartlabel" :for="'heart' + id" @click="changeFavourite(id)" >❤</label>
                                                     </span>
 
