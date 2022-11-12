@@ -143,11 +143,21 @@
                                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                                 <span class="visually-hidden">Next</span>
                                             </button>
+
                                         </div>
-                                        <a :href="'indivpage.html?id=' + id " class="stretched-link"
-                                            style="position: relative; text-decoration: none; color: black;">
+                                        
                                             <div class="card-body">
-                                                <h5 class="card-title">{{details.listingAddress}}</h5>
+                                                <h5 class="card-title">{{details.listingAddress}} 
+                                                    <span style="float: right;">
+                                                        <input class="heart" :id="'heart' + id" type="checkbox" />
+                                                        <label class="heartlabel" :for="'heart' + id">❤</label>
+                                                    </span>
+                                                    
+                                            </h5>
+
+                                            <a :href="'indivpage.html?id=' + id " class="stretched-link"
+                                            style="position: relative; text-decoration: none; color: black;">
+                                                
                                                 <p class="card-text">{{details.roomType}}</p>
                                                 <img src = "icons/mrt.png" style="height:30px; width:30px">
                                                     <mark :class = 'details.listingMrt'>{{details.listingMrt}}</marK>
