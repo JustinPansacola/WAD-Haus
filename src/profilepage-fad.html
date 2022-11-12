@@ -93,18 +93,23 @@
                     </div>
                     <div class="card-body text-center">
                         <!-- Profile picture image-->
-                        <img
-                            class="img-account-profile rounded-circle mb-2"
-                            :src=" '/users/' + avatar" id="img"
+                        <img id="selectedphoto"
+                            class="img-account-profile rounded-circle mb-2" style="width:150px;height:150px;" v-bind:src="imageurl" id="img"
                         />
                         <!-- Profile picture help block-->
                         <div class="small font-italic mb-4">
                             <p>JPG or PNG no larger than 5 MB</p>
                         </div>
+                        <div>
+                            <input type="file" @change="previewFiles">
+                        </div>
                         <!-- Profile picture upload button-->
-                        <button class="btn" style="background-color:#F8B709;" type="button">
+                        <button class="btn" @click="uploadImage" style="background-color:#F8B709;" type="button">
                             Upload new image
                         </button>
+                        <!-- test image upload -->
+<!--                         
+                        <button @click="uploadImage">Upload image</button> -->
                     </div>
                 </div>
             </div>
