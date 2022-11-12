@@ -97,6 +97,7 @@ margin-left: 180px;
     height: 200px; 
     border-radius: 10%;
 }
+
 .amenities-box{
     border: 3px black solid;
     padding: 10px; 
@@ -205,24 +206,80 @@ margin-left: 180px;
 /* colors */
 .NSL {
     background-color: lightcoral;
+    margin:auto;
+    margin-top: 20px;
+    text-align: center;
+    width: 50%;
+    height: 50px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10%;
 }
+
 
 .EWL {
     background-color: lightgreen;
+    margin:auto;
+    margin-top: 20px;
+    text-align: center;
+    width: 50%;
+    height: 50px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10%;
 }
+
 
 .CCL {
     background-color: yellow;
+    margin:auto;
+    margin-top: 20px;
+    text-align: center;
+    width: 50%;
+    height: 50px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10%;
 }
 
 .NEL {
     background-color: plum;
+    margin:auto;
+    margin-top: 20px;
+    text-align: center;
+    width: 50%;
+    height: 50px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10%;
 }
 
 .DTL {
     background-color: #1E90FF;
+    margin:auto;
+    margin-top: 20px;
+    text-align: center;
+    width: 50%;
+    height: 50px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10%;
 }
 
 .TEL {
     background-color: brown;
+    margin:auto;
+    margin-top: 20px;
+    text-align: center;
+    width: 50%;
+    height: 50px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10%;
 }

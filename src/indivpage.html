@@ -67,7 +67,7 @@
 
 
     <div id="content">
-        <h1 style="margin-top: 20px; text-align: center ;">{{listing_dict.listingAddress}}</h1>
+        <h1 style="margin-top: 20px; text-align: center; padding-top: 30px;">{{listing_dict.listingAddress}}</h1>
         <h6 style="text-align: center;">{{listing_dict.roomType}}</h6>
         <hr style="width:100px; margin: auto;"/>
 
@@ -102,7 +102,7 @@
         </div>
     </div>
 
-    <div class="container-fluid mt-5" style="width:80%;">
+    <div class="container-fluid mt-3" style="width:80%;">
         <div class="row">
             <div class="col-lg-3 col-md-3 col-sm-3 me-6">
                <div class="amenities-box text-center">
@@ -133,9 +133,9 @@
                         <img src="./icons/nocooking.png" alt="" style="width: 50px; height: 50px; margin-top: 20px;">
                     </h3>
                 </div>
-                <div class="medium-box" style="text-align: center; padding: 20px;" >
+                <div class="medium-box" style="text-align: center; padding: 10px;" >
                     
-                    <div id="tenantsCarousel" class="carousel slide mt-4" data-bs-ride="carousel">
+                    <div id="tenantsCarousel" class="carousel slide mt-2" data-bs-ride="carousel">
 
                         <div v-if="roomMates.length > 0"class="carousel-inner">
                             <div class="carousel-item active">
@@ -144,7 +144,7 @@
                                     <h4>
                                         Landlord
                                     </h4>
-                                    <img src="./icons/usericon.png" alt="" style="width:50px ;height:50px;">
+                                    <img src="./icons/usericon.png" alt="" style="width:75px ;height:75px;">
                                     <br>
                                     <h5>{{listing_dict.landlord}}</h5>
                                 </a>
@@ -185,12 +185,12 @@
             <div class="col-lg-6 col-md-6 col-sm-6 me-6">
                 <div class="row justify-content-center">
                     <div class="col-lg-5 col-md-5 col-sm-5 medium-box mx-4 MRTBOX">
-                        <div>
-                            <mark :class="listing_dict.listingMrt">{{listing_dict.listingMrt}}</mark>
+                        <div :class ="listing_dict.listingMrt">
+                           {{listing_dict.stationcode}}
                         </div>
-                        <div style="margin:auto; text-align:center; padding: 20px">
+                        <div style="margin:auto; text-align:center; padding: 15px;">
                             <img src="./icons/mrt.png" alt="" style="height:30px; width:30px;">
-                            <h7 style="margin:auto; margin-top: 10px; margin-left:5px; text-align: center;">{{listing_dict.listingArea}} MRT</h7>
+                            <h7 style="margin:auto;  margin-left:5px; text-align: center; font-weight:bold;">{{listing_dict.listingArea}} MRT</h7>
                         </div>
 
                     </div>
