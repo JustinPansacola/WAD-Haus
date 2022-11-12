@@ -77,8 +77,7 @@
         </div>
 
         <div v-if="dataLoaded">
-            <h1 style="margin-top: 20px; text-align: center; padding-top: 30px; color: #EEE9D2;">
-                {{listing_dict.listingAddress}}</h1>
+            <h1 id = "indivpageaddress">{{listing_dict.listingAddress}}</h1>
             <h6 style="text-align: center; color: #EEE9D2;">{{listing_dict.roomType}}</h6>
             <hr style="width:100px; margin: auto;" />
 
@@ -124,6 +123,7 @@
                 </div>
             </div>
 
+            <h3 id = "indivpageprice">SGD <span>{{listing_dict.price}}</span> / mth</h3>
             <!-- <div class="container-fluid" style="width:50%; margin: auto">
                 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
                     <div class="carousel-indicators">
@@ -162,21 +162,21 @@
 
             <div class="container-fluid mt-3" style="width:80%;">
                 <div class="row">
-                    <div class="col-lg-3 col-md-3 col-sm-3 me-6">
+                    <div class="col-lg-3 col-md-6 order-md-2 col-sm-6">
                         <div class="amenities-box text-center">
-                            <h6 style="margin: 10px; font-weight: 300; text-decoration: underline;">amenities list</h6>
-                            <ul id="amenitieslist" style="list-style: none; padding: 0;">
+                            <h4>amenities list</h4>
+                            <ul id="amenitieslist">
                                 <li v-for="amen in listing_dict.amenities" style="margin-bottom:15px;">
-                                    {{amen}}
                                     <img v-bind:src="'./icons/' + amen + '.png' " alt=""
-                                        style="width: 20px; height: 20px;">
+                                    style="width: 20px; height: 20px;">
+                                    &nbsp {{amen}}
                                 </li>
 
 
                             </ul>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-3 col-sm-3 me-6">
+                    <div class="col-lg-3 col-md-6 order-md-3 col-sm-6">
                         <div v-if="listing_dict.cookingallowed === true" class="medium-box">
                             <h3 style="text-align: center; margin-top: 25px;">
                                 Cooking Allowed
@@ -187,7 +187,7 @@
                             </h3>
                         </div>
                         <div v-else class="medium-box">
-                            <h3 v-else style="text-align: center; margin-top: 25px;">
+                            <h3>
                                 Cooking Not Allowed
                                 <br>
                                 <img src="./icons/nocooking.png" alt=""
@@ -248,7 +248,8 @@
 
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 me-6">
+                    
+                    <div class="col-lg-6 order-lg-last col-md-12 col-sm-12 order-md-last order-sm-last col-sm-6 me-6">
                         <div class="row justify-content-center">
                             <div class="col-lg-5 col-md-5 col-sm-5 medium-box mx-4" id="MRTBOX">
                                 <div :class="listing_dict.listingMrt">
@@ -261,20 +262,17 @@
                                 </div>
 
                             </div>
-                            <div class="col-lg-5 col-md-5 col-sm-5 medium-box mx-4 " style="text-align: center;display:flex;
-                    align-items: center;
-                    justify-content: center;">
+                            <div class="col-lg-5 col-md-5 col-sm-5 medium-box mx-4 " style="text-align: center;display:flex; align-items: center; justify-content: center;">
                                 <h3>
-                                    <span
-                                        style="font-weight: bold; text-decoration: underline">{{listing_dict.distance}}</span>
-                                    minute walk from the MRT
+                                    added to favourites
                                 </h3>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-lg-12 col-md-12 col-sm-12 large-box"></div>
+                        <div class="row justify-content-center">
+                            <div class="col-lg-11 col-md-11 col-sm-11 large-box">
+                                send application
+                            </div>
                         </div>
-
                     </div>
                 </div>
 
