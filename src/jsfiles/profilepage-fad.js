@@ -3,7 +3,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.12.1/firebas
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-analytics.js";
 import { doc, updateDoc, getDoc, setDoc, collection, getDocs, getFirestore } from 'https://www.gstatic.com/firebasejs/9.12.1/firebase-firestore.js';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, browserSessionPersistence } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-auth.js";
-import { getStorage, ref, uploadBytes } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-storage.js";
+import { getStorage, ref, uploadBytes, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-storage.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -29,8 +29,7 @@ const auth = getAuth();
 // TO GET ALL DOCUMENTS IN A COLLECTION
 // const colRef = collection(db, "listings");
 // const docsSnap = await getDocs(colRef);
-
-
+const storage = getStorage();
 
 // Vue instance
 const main = Vue.createApp({
@@ -42,7 +41,10 @@ const main = Vue.createApp({
             religion: "0",
             nationality: "",
             school: "",
-            dataLoaded: false
+            dataLoaded: false,
+            imagefile: "",
+            uid: "",
+            imageurl: "",
         }
     },
 
@@ -53,6 +55,36 @@ const main = Vue.createApp({
             if (uid == null) {
                 alert("Login first!")
             }
+        },
+
+        previewFiles(event) {
+            this.imagefile = event.target.files[0];
+            console.log(this.imagefile);
+        },
+
+        uploadImage() {
+            
+            const storageRef = ref(storage, "users/" + this.uid);
+
+            // 'file' comes from the Blob or File API
+            uploadBytes(storageRef, this.imagefile).then((snapshot) => {
+                console.log('Uploaded a blob or file!');
+
+                getDownloadURL(ref(storage, "users/" + this.uid))
+                .then((url) => {
+
+                    // Or inserted into an <img> element
+                    const img = document.getElementById("selectedphoto");
+                    img.setAttribute('src', url);
+                })
+                .catch((error) => {
+                    // Handle any errors
+                });
+            });
+
+           
+
+
         },
 
         async onSubmit() {
@@ -91,16 +123,21 @@ const main = Vue.createApp({
                 const uid = user.uid;
                 console.log(user);
                 console.log(uid);
+                this.uid = uid;
                 this.username = user.displayName;
 
                 console.log(this.school)
 
-                const storage = getStorage();
-                const storageRef = ref(storage, 'some-child');
+                getDownloadURL(ref(storage, "users/" + this.uid))
+                .then((url) => {
 
-                // 'file' comes from the Blob or File API
-                uploadBytes(storageRef, "").then((snapshot) => {
-                    console.log('Uploaded a blob or file!');
+                    // Or inserted into an <img> element
+                    // const img = document.getElementById("selectedphoto");
+                    // img.setAttribute('src', url);
+                    this.imageurl = url;
+                })
+                .catch((error) => {
+                    // Handle any errors
                 });
 
                 console.log("Hello!")
