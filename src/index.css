@@ -402,3 +402,42 @@ margin-left: 180px;
     font-weight: bolder;
     text-shadow: 1px 0px;
 }
+
+ 
+.heart{
+    position: absolute;
+    left: -100vw;
+  }
+  
+.heartlabel{
+    color: #aab8c2;
+    cursor: pointer;
+    font-size: 1em;
+    align-self: center;  
+    transition: color 0.2s ease-in-out;
+  }
+  
+  .heartlabel :hover {
+    color: grey;
+  }
+  
+  .heartlabel ::selection {
+    color: none;
+    background: transparent;
+  }
+  
+  .heartlabel ::moz-selection {
+    color: none;
+    background: transparent;
+  }
+  
+    .heart:checked + label {
+    color: #e2264d;
+    will-change: font-size;
+    animation: heart 1s cubic-bezier(.17, .89, .32, 1.49);
+  }
+  
+  
+  
+  @keyframes heart {0%, 17.5% {font-size: 0;}}
+  
