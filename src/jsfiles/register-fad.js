@@ -66,10 +66,10 @@ const main = Vue.createApp({
                         let errormsg = "";
 
                         if (error.code.includes("weak-password")) {
-                            errormsg = "Weak password."
+                            errormsg = "weak password."
                         }
                         else if (error.code.includes("email-already-in-use")) {
-                            errormsg = "Email already in use."
+                            errormsg = "email already in use."
                         }
 
                         var myModal = new bootstrap.Modal(document.getElementById("errormessage"), { keyboard: false })
