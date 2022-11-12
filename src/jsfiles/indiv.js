@@ -75,9 +75,10 @@ const main = Vue.createApp({
 
                                 // Or inserted into an <img> element
 
-                                let curr_targ = `carou${i + 1}`
-                                const img = document.getElementById(curr_targ);
-                                img.setAttribute('src', url);
+                                // let curr_targ = `carou${i + 1}`
+                                // const img = document.getElementById(curr_targ);
+                                // img.setAttribute('src', url);
+                                this.images.push(url);
 
                             })
                             .catch((error) => {
@@ -85,6 +86,8 @@ const main = Vue.createApp({
                             });
                         console.log(this.images)
                     }
+
+                    console.log(this.images)
 
                     // let curr_url = ""
 
@@ -167,7 +170,7 @@ const main = Vue.createApp({
                 for (let rid in this.listing_dict.roomatesId) {
 
                     console.log("loop" + this.listing_dict.roomatesId[rid])
-                    getDownloadURL(ref(storage, "users/" + this.listing_dict.roomatesId[rid]))
+                    await getDownloadURL(ref(storage, "users/" + this.listing_dict.roomatesId[rid]))
                         .then((url) => {
 
                             // Or inserted into an <img> element
