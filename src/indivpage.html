@@ -273,7 +273,53 @@
                                 <img class="img-account-profile rounded-circle" v-bind:src="landlordimg" alt=""
                                     style="width:75px ;height:75px;">
                                 <h5>{{listing_dict.landlord}}</h5>
-                                <button type="button" class="btn btn-primary">Send application</button>
+                                <button type="button" class="btn btn-primary" @click="sendfirstApplication(listing_dict.landlord, listing_dict.listingAddress, listing_dict.price)">Send application</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal -->
+                    <div class="modal" tabindex="-1" id="firstapplication">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Send Application</h5>
+                                    <button type="button" class="btn-close"
+                                        data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body" id="modal-body-first">
+                                    <p>Modal body text goes here.</p>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">$</span>
+                                        <input type="text" class="form-control" id="modal-price-first" aria-label="Amount (to the nearest dollar)">
+                                      </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @click="submitfinalApplication(listing_dict.listingAddress, listing_dict.landlord)">Submit Application</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Submit Modal -->
+                    <div class="modal" tabindex="-1" id="finalapplication">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Confirm Application</h5>
+                                    <button type="button" class="btn-close"
+                                        data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body" id="modal-body-final">
+                                    <p>Modal body text goes here.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Confirm</button>
+                                </div>
                             </div>
                         </div>
                     </div>

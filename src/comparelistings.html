@@ -311,7 +311,7 @@
                                                     </div>
                                                     <button type="button" class="btn"
                                                         style="background-color:#86502F;color:#EEE9D2;"
-                                                        @click="sendfirstApplication(listings[firstselected].landlord)">send
+                                                        @click="sendfirstApplication(listings[firstselected].landlord, listings[firstselected].listingAddress, listings[firstselected].price)">send
                                                         application</button>
 
                                                     <!-- Modal -->
@@ -319,21 +319,47 @@
                                                         <div class="modal-dialog modal-dialog-centered">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
-                                                                    <h5 class="modal-title">Application Submitted</h5>
+                                                                    <h5 class="modal-title">Send Application</h5>
                                                                     <button type="button" class="btn-close"
                                                                         data-bs-dismiss="modal"
                                                                         aria-label="Close"></button>
                                                                 </div>
-                                                                <div class="modal-body" id="modal-body">
+                                                                <div class="modal-body" id="modal-body-first">
                                                                     <p>Modal body text goes here.</p>
                                                                 </div>
+                                                                <div class="modal-body">
+                                                                    <div class="input-group mb-3">
+                                                                        <span class="input-group-text">$</span>
+                                                                        <input type="text" class="form-control" id="modal-price-first" aria-label="Amount (to the nearest dollar)">
+                                                                      </div>
+                                                                </div>
                                                                 <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary"
-                                                                        data-bs-dismiss="modal">Close</button>
+                                                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @click="submitfinalApplication(listings[firstselected].listingAddress, listings[firstselected].landlord)">Submit Application</button>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
+
+                                                    <!-- Submit Modal -->
+                                                    <div class="modal" tabindex="-1" id="finalapplication">
+                                                        <div class="modal-dialog modal-dialog-centered">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title">Confirm Application</h5>
+                                                                    <button type="button" class="btn-close"
+                                                                        data-bs-dismiss="modal"
+                                                                        aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-body" id="modal-body-final">
+                                                                    <p>Modal body text goes here.</p>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Confirm</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
                                                 </div>
                                                 </p>
                                             </div>
@@ -561,29 +587,54 @@
                                                         </svg></div>
                                                     <div class="p-2">{{listings[secondselected].landlord}}</div>
                                                     <button type="button" class="btn"
-                                                        style="background-color:#86502F;color:#EEE9D2;" @click="sendsecondApplication(listings[secondselected].landlord)">send
+                                                        style="background-color:#86502F;color:#EEE9D2;" @click="sendsecondApplication(listings[secondselected].landlord, listings[secondselected].listingAddress, listings[secondselected].price)">send
                                                         application</button>
 
-                                                    <!-- Modal -->
-                                                    <div class="modal" tabindex="-1" id="secondapplication">
-                                                        <div class="modal-dialog modal-dialog-centered">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h5 class="modal-title">Application Submitted</h5>
-                                                                    <button type="button" class="btn-close"
-                                                                        data-bs-dismiss="modal"
-                                                                        aria-label="Close"></button>
-                                                                </div>
-                                                                <div class="modal-body" id="modal-body-2nd">
-                                                                    <p>Modal body text goes here.</p>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary"
-                                                                        data-bs-dismiss="modal">Close</button>
+                                                        
+                                                        <div class="modal" tabindex="-1" id="secondApplication">
+                                                            <div class="modal-dialog modal-dialog-centered">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title">Send Application</h5>
+                                                                        <button type="button" class="btn-close"
+                                                                            data-bs-dismiss="modal"
+                                                                            aria-label="Close"></button>
+                                                                    </div>
+                                                                    <div class="modal-body" id="modal-body-second">
+                                                                        <p>Modal body text goes here.</p>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <div class="input-group mb-3">
+                                                                            <span class="input-group-text">$</span>
+                                                                            <input type="text" class="form-control" id="modal-price-second" aria-label="Amount (to the nearest dollar)">
+                                                                          </div>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @click="submitfinalApplicationsecond(listings[secondselected].listingAddress, listings[secondselected].landlord, listings[secondselected].price)">Submit Application</button>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
+    
+                                                        <!-- Submit Modal -->
+                                                        <div class="modal" tabindex="-1" id="finalapplicationsecond">
+                                                            <div class="modal-dialog modal-dialog-centered">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title">Confirm Application</h5>
+                                                                        <button type="button" class="btn-close"
+                                                                            data-bs-dismiss="modal"
+                                                                            aria-label="Close"></button>
+                                                                    </div>
+                                                                    <div class="modal-body" id="modal-body-final-second">
+                                                                        <p>Modal body text goes here.</p>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Confirm</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
 
                                                 </div>
                                                 </p>
