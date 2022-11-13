@@ -61,27 +61,64 @@ var content = Vue.createApp({
 
             this.filtered_listings_dict = {}
 
-            let location_selected = this.location_selected_v
-            let roomtype_selected = this.roomtype_selected_v
-            let occupancy_selected = this.occupancy_selected_v
+            let location_selected = this.location_selected_v.toLowerCase()
+            let roomtype_selected = this.roomtype_selected_v.toLowerCase()
+            let occupancy_selected = this.occupancy_selected_v.toLowerCase()
             let price_selected = (this.price_selected_v).replace(/\D/g, '')
 
             let listings_arr = Object.entries(this.listings_dict)
             console.log(listings_arr)
-
-            for (let i = 0; i < listings_arr.length; i++) {
-                console.log(listings_arr[i])
-                let details = listings_arr[i][1]
-
-                if (details.location.toLowerCase() == location_selected.toLowerCase() &&
-                    details.roomType.toLowerCase() == roomtype_selected.toLowerCase() &&
-                    details.roomOccupancy.toLowerCase() == occupancy_selected.toLowerCase() &&
-                    Number(details.price) <= Number(price_selected)) {
-                    
-                    this.filtered_listings_dict[listings_arr[i][0]] = details
-                    console.log(details)
+            console.log(price_selected)
+            for(let i = 0; i < listings_arr.length; i++) {
+                let details = listings_arr[i][1];
+                let search_valid = 0;
+                if(location_selected == "location"){
+                    search_valid += 1
                 }
+                else if(details.location.toLowerCase() == location_selected){
+                    search_valid += 1
+                }
+                if(roomtype_selected == "room type"){
+                    search_valid += 1
+                }
+                else if(details.roomType.toLowerCase() == roomtype_selected){
+                    search_valid += 1
+                }
+                if(occupancy_selected == "occupancy"){
+                    search_valid += 1
+                }
+                else if(details.roomOccupancy.toLowerCase() == occupancy_selected){
+                    search_valid += 1
+                }
+                if(price_selected == ""){
+                    search_valid += 1
+                }
+                else if(Number(details.price) <= Number(price_selected)){
+                    search_valid += 1
+                }
+                if(search_valid == 4){
+                    this.filtered_listings_dict[listings_arr[i][0]] = details
+                }
+                console.log(details)
+                console.log(search_valid)
             }
+
+            // for (let i = 0; i < listings_arr.length; i++) {
+            //     console.log(listings_arr[i])
+            //     let details = listings_arr[i][1]
+
+            //     if (details.location.toLowerCase() == location_selected.toLowerCase() &&
+            //         details.roomType.toLowerCase() == roomtype_selected.toLowerCase() &&
+            //         details.roomOccupancy.toLowerCase() == occupancy_selected.toLowerCase() &&
+            //         Number(details.price) <= Number(price_selected)) {
+                    
+            //         this.filtered_listings_dict[listings_arr[i][0]] = details
+            //         console.log(details)
+            //     }
+            // }
+
+
+            
             console.log(this.filtered_listings_dict)
             //this.listings_dict = this.filtered_listings_dict
         },
