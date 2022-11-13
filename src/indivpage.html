@@ -201,7 +201,7 @@
                                                 Landlord
                                             </h4>
                                             <img class="img-account-profile rounded-circle" v-bind:src="landlordimg"
-                                                alt="" style="width:75px ;height:75px;">
+                                                alt="" style="width:75px ;height:75px;border: 5px solid #372028">
                                             <br>
                                             <h5 class="mt-2">{{listing_dict.landlord}}</h5>
                                         </a>
@@ -215,7 +215,7 @@
                                             </h4>
                                             <img v-bind:src="tenantsimg[index]"
                                                 class="img-account-profile rounded-circle" alt=""
-                                                style="width:75px ;height:75px;">
+                                                style="width:75px ;height:75px;border: 5px solid #372028">
                                             <br>
                                             <h5 class="mt-2">{{mate}}</h5>
 
@@ -250,9 +250,14 @@
                     <div class="col-lg-6 order-lg-last col-md-12 col-sm-12 order-md-last order-sm-last col-sm-6 me-6">
                         <div class="row justify-content-center">
                             <div class="col-lg-5 col-md-5 col-sm-5 medium-box mx-4" id="MRTBOX">
-                                <div :class="listing_dict.listingMrt">
+                                <!-- <div :class="listing_dict.listingMrt">
                                     {{listing_dict.stationcode}}
-                                </div>
+                                </div> -->
+                                <h3 class="comparestation">
+                                    <mark :class="listing_dict.listingMrt">
+                                        {{listing_dict.stationcode}}
+                                    </mark>
+                                </h3>
                                 <div style="margin:auto; text-align:center; padding: 15px;">
                                     <img src="./icons/mrt.png" alt="" style="height:30px; width:30px;">
                                     <h7 style="margin:auto;  margin-left:5px; text-align: center; font-weight:bold;">
@@ -268,7 +273,7 @@
                         <div class="row justify-content-center text-center">
                             <div class="col-lg-11 col-md-11 col-sm-11 large-box p-4">
                                 <img class="img-account-profile rounded-circle" v-bind:src="landlordimg" alt=""
-                                    style="width:75px ;height:75px;">
+                                    style="width:75px ;height:75px;border: 5px solid #372028">
                                 <h5 class="mt-2">{{listing_dict.landlord}}</h5>
                                 <button type="button" class="btn rounded-pill w-50 mb-3 shadow" style="background-color: #86502F;color: #EEE9D2; text-shadow: 0.5px 0px;"  @click="sendfirstApplication(listing_dict.landlord, listing_dict.listingAddress, listing_dict.price)">Send application</button>
                             </div>

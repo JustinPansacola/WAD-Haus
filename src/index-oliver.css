@@ -480,12 +480,12 @@ h6 {
 }
 
 .carousel-inner > .carousel-item > img {
-    height: 100px;
+    height: 200px;
 }
 
-.comparecard h3 {
-    color: #372028;
-    font-size: 20px;
+h3.comparecard-inner-text {
+    color:#372028;
+    font-size: 18px;
     line-height: 1.21053;
     font-weight: 600;
     letter-spacing: 0.012em;
@@ -504,7 +504,7 @@ h6 {
         font-family: "Montserrat", sans-serif;
     }
 
-    .comparecard h3 {
+    h3.comparecard-inner-text {
         font-size: 20px;
     }
 
@@ -516,7 +516,7 @@ h6 {
     }
 
     .carousel-inner > .carousel-item > img {
-        height: 100px;
+        height: 200px;
     }
 }
 
@@ -529,7 +529,7 @@ h6 {
         font-size: 30px;
     }
 
-    .comparecard h3 {
+    h3.comparecard-inner-text {
         font-size: 20px;
     }
 
@@ -555,7 +555,7 @@ h6 {
         font-size: 32px;
     }
 
-    .comparecard h3 {
+    h3.comparecard-inner-text {
         font-size: 24px;
     }
 
@@ -580,7 +580,7 @@ h6 {
         font-size: 40px;
     }
 
-    .comparecard h3 {
+    h3.comparecard-inner-text {
         font-size: 24px;
     }
 

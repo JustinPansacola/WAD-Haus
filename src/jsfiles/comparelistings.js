@@ -3,6 +3,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.12.1/firebas
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-analytics.js";
 import { doc, getDoc, collection, getDocs, getFirestore } from 'https://www.gstatic.com/firebasejs/9.12.1/firebase-firestore.js';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, browserSessionPersistence } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-auth.js";
+import { getStorage, ref, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-storage.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -24,6 +25,7 @@ const analytics = getAnalytics(app);
 
 const db = getFirestore();
 const auth = getAuth();
+const storage = getStorage();
 
 let offeredprice = "";
 
@@ -36,7 +38,8 @@ const main = Vue.createApp({
             secondselected: "1", // show second listing from db as default selected value
             listings: "", // initialize listings array to store all listings from db once created method is called
             dataLoaded: false,
-            favourites: []
+            favourites: [],
+            landlordimg: []
         }
     },
 
@@ -57,7 +60,7 @@ const main = Vue.createApp({
 
             console.log(price);
             document.getElementById("modal-body-first").innerHTML = finalhtml;
-            
+
             document.getElementById("modal-price-first").setAttribute("placeholder", price);
 
             myModal.show()
@@ -72,13 +75,13 @@ const main = Vue.createApp({
 
             console.log(price);
             document.getElementById("modal-body-second").innerHTML = finalhtml;
-            
+
             document.getElementById("modal-price-second").setAttribute("placeholder", price);
 
             myModal.show()
         },
 
-        submitfinalApplication(address, landlord){
+        submitfinalApplication(address, landlord) {
 
             offeredprice = document.getElementById("modal-price-first").value;
             console.log(address);
@@ -96,7 +99,7 @@ const main = Vue.createApp({
             myModal.show()
         },
 
-        submitfinalApplicationsecond(address, landlord){
+        submitfinalApplicationsecond(address, landlord) {
             offeredprice = document.getElementById("modal-price-second").value;
             console.log(address);
             console.log(landlord);
@@ -168,12 +171,27 @@ const main = Vue.createApp({
                     if (docSnap.exists()) {
                         console.log("Document data:", docSnap.data());
                         roomlist.push(docSnap.data());
+
+                        await getDownloadURL(ref(storage, "users/" + docSnap.data().landlordid))
+                            .then((url) => {
+
+                                // Or inserted into an <img> element
+                                // const img = document.getElementById("selectedphoto");
+                                // img.setAttribute('src', url);
+                                this.landlordimg.push(url)
+                            })
+                            .catch((error) => {
+                                // Handle any errors
+                            });
+
                     } else {
                         // doc.data() will be undefined in this case
                         console.log("No such document!");
                     }
 
                 }
+
+                console.log(this.landlordimg)
 
                 this.dataLoaded = true;
 
