@@ -99,12 +99,15 @@ const main = Vue.createApp({
 
                 }
 
-                this.dataLoaded = true;
+                
                 this.listings = roomlist;
 
                 console.log(this.listings)
                 console.log(this.favourites)
 
+
+                this.dataLoaded = true;
+                
                 // if user clicks logout, sign them out
                 document.getElementById("navbar_button_2").addEventListener("click", logOut);
 
