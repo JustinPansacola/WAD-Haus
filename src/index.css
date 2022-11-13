@@ -489,6 +489,14 @@ h6 {
     height: 100px;
 }
 
+.comparecard h3 {
+    color: #372028;
+    font-size: 20px;
+    line-height: 1.21053;
+    font-weight: 600;
+    letter-spacing: 0.012em;
+}
+
 
 @media (min-width: 576px){
     h1.page-title {
