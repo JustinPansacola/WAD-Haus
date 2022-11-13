@@ -77,7 +77,7 @@ const main = Vue.createApp({
                 const uid = user.uid;
                 console.log(user);
                 // window.location = "index.html";
-                window.history.back(); // redirects to previous page after login
+                window.location.href = 'index.html' // redirects to previous page after login
             } else {
                 // User is signed out
                 // ...
