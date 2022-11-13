@@ -232,29 +232,48 @@
                                                 <span class="visually-hidden">Next</span>
                                             </button>
                                         </div>
-                                        <a :href="'indivpage.html?id=' + id " class="stretched-link"
-                                        style="position: relative; text-decoration: none; color: black;">
-                                            <div class="card-body">
-                                                    <h5 class="card-title">{{details.listingAddress}}</h5>
-                                                    <p class="card-text">{{details.roomType}}</p>
-                                            </div>
-                                            <div class="card-body">
-                                                <p class="card-text"><img src="icons/mrt.png"
-                                                        style="height:30px; width:30px">
-                                                    <mark :class = "details.listingMrt">{{details.listingMrt}}</mark>
-                                                    {{details.listingArea}}
-                                                </p>
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{details.listingAddress}} 
+                                                <!-- <span v-if="details.favourites.includes(`/listings/${id}`)" style="float: right;">
+                                                    <input class="heart" :id="'heart' + id" type="checkbox" />
+                                                    <label class="heartlabel" :for="'heart' + id" @click="changeFavourite(id)" >❤</label>
+                                                </span> -->
+                                                <span style="float: right;" v-if="usercurrentfav.includes('/listings/' + id)">
+                                                    <input class="heart" :id="'heart' + id" type="checkbox" checked />
+                                                    <label class="heartlabel" :for="'heart' + id" @click="changeFavourite(id)" >❤</label>
+                                                </span>
+                                                <span style="float: right;" v-else>
+                                                    <input class="heart" :id="'heart' + id" type="checkbox" />
+                                                    <label class="heartlabel" :for="'heart' + id" @click="changeFavourite(id)" >❤</label>
+                                                </span>
 
-                                                        <p class="final-details" style="float: left;"><i
-                                                                style="font-size:10px" class="fa">&#xf06e;</i>
+                                                
+                                            </h5>
+
+                                        <a :href="'indivpage.html?id=' + id " class="stretched-link"
+                                            style="position: relative; text-decoration: none; color: black;">
+                                                <div class = "listingInfo">
+                                                    <p class="card-text">{{details.roomType}}</p>
+                                                    <img src = "icons/mrt.png" style="height:30px; width:30px">
+                                                        <mark :class="details.stationcode.substring(0, 2)">
+                                                            {{details.stationcode}}
+                                                        </mark>
+                                                        <span class = 'listingArea'>&nbsp{{details.listingArea}}</span>
+                                                        <br>
+                                                        <span class = "distance-details" style="float:right"><i
+                                                            style="font-size:10px" class="fas fa-walking"></i>
+                                                        {{details.distance}} min to MRT</span>
+                                                    </p>
+                                                    <p><i style="font-size:10px" class="fa">&#xf06e;</i>&nbsp
+                                                        <span class="number-of-views">
                                                             {{details.listingViews}} people viewed this
-                                                            <!-- <p style="float: left;"><img src="./images/eyeicon.png" alt="" width="25px"> 15 -->
-                                                            <span>
-                                                                <p class="listing-price" style="float: right;">
-                                                                    <sup>SGD</sup> {{details.price}} / mth
-                                                                </p>
-                                                            </span>
-                                                        </p>
+                                                        </span>
+                                                        <span class = "listing-price text-right" style = "float:right">
+                                                            <sup>SGD</sup> <span class = "details-price">{{details.price}}</span> / mth
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                                    <!-- <p style="float: left;"><img src="./images/eyeicon.png" alt="" width="25px"> 15 -->
                                             </div>
                                         </a>
                                     </div>
