@@ -114,7 +114,8 @@ onAuthStateChanged(auth, async (user) => {
 
             var infoWindow = new google.maps.InfoWindow({
                 content: '<div>'
-                    + '<p style="color:#000000">' + listing_details_map[key].listingAddress + '<p>'
+                    + '<p style="color:#000000; font-weight: bold;">' + listing_details_map[key].listingAddress + '<p>'
+                    + '<p style="color:#000000">SGD ' + listing_details_map[key].price + ' / mth<p>'
                     + '</div>'
             });
 
