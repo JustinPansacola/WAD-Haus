@@ -250,9 +250,14 @@
                     <div class="col-lg-6 order-lg-last col-md-12 col-sm-12 order-md-last order-sm-last col-sm-6 me-6">
                         <div class="row justify-content-center">
                             <div class="col-lg-5 col-md-5 col-sm-5 medium-box mx-4" id="MRTBOX">
-                                <div :class="listing_dict.listingMrt">
+                                <!-- <div :class="listing_dict.listingMrt">
                                     {{listing_dict.stationcode}}
-                                </div>
+                                </div> -->
+                                <h3 class="comparestation">
+                                    <mark :class="listing_dict.listingMrt">
+                                        {{listing_dict.stationcode}}
+                                    </mark>
+                                </h3>
                                 <div style="margin:auto; text-align:center; padding: 15px;">
                                     <img src="./icons/mrt.png" alt="" style="height:30px; width:30px;">
                                     <h7 style="margin:auto;  margin-left:5px; text-align: center; font-weight:bold;">
