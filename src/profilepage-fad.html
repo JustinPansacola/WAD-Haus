@@ -191,12 +191,24 @@
                                         </div>
                                         <!-- Form Group (school)-->
                                         <div class="mb-3">
-                                            <label class="small mb-1" for="inputSchool">School</label>
+                                            <!-- <label class="small mb-1" for="inputSchool">School</label>
                                             <input class="form-control" v-model="school" type="text"
-                                                placeholder="Enter your school" :value=school />
+                                                placeholder="Enter your school" :value=school /> -->
+                                            <select id="religion_input" class="form-control" name="religion"
+                                                style="width:100%" v-model="school" v-bind:value=school>
+                                                <option value="" selected="selected" disabled="disabled">-- select one
+                                                    --</option>
+                                                <option value="National University of Singapore">National University of Singapore</option>
+                                                <option value="Singapore Management University">Singapore Management University</option>
+                                                <option value="National Technological University">National Technological University</option>
+                                                <option value="Singapore University of Technology and Design">Singapore University of Technology and Design</option>
+                                                <option value="Singapore Insitute of Technology">Singapore Insitute of Technology</option>
+                                                <option value="Singapore University of Social Science">Singapore University of Social Science</option>
+                                                <option value="Singapore Institute of Management">Singapore Institute of Management</option>
+                                            </select>
                                         </div>
                                         <!-- Save changes button-->
-                                        <button class="btn" type="submit" style="background-color:#F8B709;">
+                                        <button class="btn" type="submit" style="background-color:#F8B709; margin: auto;">
                                             Save changes
                                         </button>
                                     </form>
