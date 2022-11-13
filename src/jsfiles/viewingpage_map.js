@@ -35,6 +35,7 @@ try {
             listings_dict[doc.id] = doc.data()
         })
         console.log(listings_latlng_dict)
+        console.log(listings_dict)
     }
 } catch (error) {
     console.log(error);
@@ -53,23 +54,35 @@ function initMap(parameter_data) {
         // The map, centered at location
         var map = new google.maps.Map(
             document.getElementById('map'), { zoom: 10, center: location });
-        // The marker, positioned at location
-        // var marker = new google.maps.Marker({ position: location, map: map });
 
+        var listing_details_map = {}
         for (const [key, value] of Object.entries(listings_latlng_dict)) {
-            // console.log(key, value)
-            // console.log(value.lat)
-            // var marker = new google.maps.Marker({ position: { lat: value.lat, lng: value.lng }, map: map });
-            // addMarker({ lat: Number(value.lat), lng: Number(value.lng) }, map)
-            new google.maps.Marker({
-                position: { lat: Number(value.lat), lng: Number(value.lng) },
-                label: key,
-                map: map,
+
+            for (const [listing_id, listings_details] of Object.entries(listings_dict)){
+                console.log(listing_id)
+                console.log(listings_details)
+
+                if (listings_details.lat == value.lat && listings_details.lng == value.lng) {
+                    listing_details_map[key] = listings_details
+                }
+            }
+
+            console.log(listing_details_map[key].listingAddress)
+
+            var infoWindow = new google.maps.InfoWindow({
+                content: '<div>'
+                    + '<p style="color:#000000">' + listing_details_map[key].listingAddress + '<p>'
+                    + '</div>'
             });
+
+            addMarker(key, value, map, infoWindow)
         }
+
         console.log(initMap);
 
     } else {
+        console.log(parameter_data)
+
         // JS API is loaded and available
         var location = { lat: 1.290270, lng: 103.851959 };
         // The map, centered at location
@@ -78,19 +91,44 @@ function initMap(parameter_data) {
         // The marker, positioned at location
         // var marker = new google.maps.Marker({ position: location, map: map });
 
+        var listing_details_map = {}
         for (const [key, value] of Object.entries(parameter_data)) {
-            // console.log(key, value)
-            // console.log(value.lat)
-            // var marker = new google.maps.Marker({ position: { lat: value.lat, lng: value.lng }, map: map });
-            // addMarker({ lat: Number(value.lat), lng: Number(value.lng) }, map)
-            new google.maps.Marker({
-                position: { lat: Number(value.lat), lng: Number(value.lng) },
-                label: key,
-                map: map,
+            for (const [listing_id, listings_details] of Object.entries(listings_dict)){
+                console.log(listing_id)
+                console.log(listings_details)
+
+                if (listings_details.lat == value.lat && listings_details.lng == value.lng) {
+                    listing_details_map[key] = listings_details
+                }
+            }
+
+            console.log(listing_details_map[key].listingAddress)
+
+            var infoWindow = new google.maps.InfoWindow({
+                content: '<div>'
+                    + '<p style="color:#000000">' + listing_details_map[key].listingAddress + '<p>'
+                    + '</div>'
             });
+            
+            addMarker(key, value, map, infoWindow)
         }
     }
 };
+
+function addMarker(key, value, map, infoWindow) {
+    var marker = new google.maps.Marker({
+        position: { lat: Number(value.lat), lng: Number(value.lng) },
+        // label: key,
+        map: map,
+    });
+
+    marker.addListener("click", () => {
+        infoWindow.open({
+            anchor: marker,
+            map: map,
+        });
+    });
+}
 
 window.initMap = initMap
 // Append the 'script' element to 'head'
