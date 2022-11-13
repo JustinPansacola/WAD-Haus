@@ -243,18 +243,18 @@ body {
     color: #eee9d2;
 }
 
-#indivpageprice {
+.page-price {
     text-align: center;
     padding-top: 30px;
+    padding-bottom: 30px;
     font-weight: bolder;
     text-shadow: 0px 2px, 2px 0px, 2px 2px;
     letter-spacing: 1px;
     color: #eee9d2;
 }
 
-#indivpageprice span {
+.page-price span {
     text-align: center;
-    padding-top: 30px;
     font-size: 50px;
     font-weight: bolder;
     text-shadow: 0px 2px, 2px 0px, 2px 2px;
@@ -268,11 +268,15 @@ body {
     text-shadow: 0px 1px, 1px 0px, 1px 1px;
 }
 
-#amenitieslist {
+.amenitieslist {
     list-style: none;
     padding: 0;
     text-align: left;
     margin-left: 30px;
+}
+
+.amenitieslist li{
+    margin-bottom: 15px;
 }
 
 .medium-box h3,
@@ -281,6 +285,25 @@ body {
     margin: 10px;
     font-weight: bolder;
     text-shadow: 0px 1px, 1px 0px, 1px 1px;
+}
+
+/* comparelistings.html */
+.compare-address {
+    color: #EEE9D2; 
+    font-weight: 800;
+    text-shadow: 0px 1px, 1px 0px, 1px 1px;
+}
+
+.comparecard{
+    background-color:  #eee9d2;
+    border-radius: 20px;
+    border: 0px;
+}
+
+.comparecard h3 {
+    color: #372028;
+    font-weight: bolder;
+    text-shadow: 1px 0px;
 }
 
 /* colors */
@@ -362,42 +385,42 @@ body {
     border-radius: 10%;
 }
 
-#listings-box .NSL {
+#listings-box .NSL, .comparestation .NS {
     background-color: lightcoral;
     color: white;
     font-weight: bolder;
     text-shadow: 0px 1px, 1px 0px, 1px 1px;
 }
 
-#listings-box .EWL {
+#listings-box .EWL, .comparestation .EW {
     background-color: lightgreen;
     color: white;
     font-weight: bolder;
     text-shadow: 1px 0px;
 }
 
-#listings-box .CCL {
+#listings-box .CCL, .comparestation .CC {
     background-color: yellow;
     color: white;
     font-weight: bolder;
     text-shadow: 1px 0px;
 }
 
-#listings-box .NEL {
+#listings-box .NEL, .comparestation .NE {
     background-color: plum;
     color: white;
     font-weight: bolder;
     text-shadow: 1px 0px;
 }
 
-#listings-box .DTL {
+#listings-box .DTL, .comparestation .DT {
     background-color: #1e90ff;
     color: white;
     font-weight: bolder;
     text-shadow: 1px 0px;
 }
 
-#listings-box .TEL {
+#listings-box .TEL, .comparestation .TE {
     background-color: brown;
     color: white;
     font-weight: bolder;
@@ -528,8 +551,4 @@ h1.page-title {
     17.5% {
         font-size: 0;
     }
-}
-
-.comparecard{
-    background-color:  #eee9d2;
 }
