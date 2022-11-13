@@ -462,6 +462,15 @@ body {
     transition: color 0.2s ease-in-out;
 }
 
+.compareheart {
+    color: #aab8c2;
+    cursor: pointer;
+    font-size: 3em;
+    align-self: center;
+    transition: color 0.2s ease-in-out;
+}
+
+
 .heartlabel :hover {
     color: grey;
 }
