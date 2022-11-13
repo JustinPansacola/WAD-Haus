@@ -25,21 +25,7 @@ const docsSnap = await getDocs(colRef);
 
 
 let listings_latlng_dict = {}
-// let listings_dict = {}
-
-// try {
-//     const docsSnap = await getDocs(colRef);
-
-//     if (docsSnap.docs.length > 0) {
-//         docsSnap.forEach(doc => {
-//             listings_latlng_dict[doc.id] = { "lat": doc.data().lat, "lng": doc.data().lng }
-//             listings_dict[doc.id] = doc.data()
-//         })
-//         console.log(listings_latlng_dict)
-//     }
-// } catch (error) {
-//     console.log(error);
-// }
+let fav_listings_dict = {}
 
 onAuthStateChanged(auth, async (user) => {
     if (user) {
@@ -81,6 +67,8 @@ onAuthStateChanged(auth, async (user) => {
 
             if (docSnap.exists()) {
                 console.log("Document data:", docSnap.data());
+
+                fav_listings_dict[counter] = docSnap.data()
                 console.log(docSnap.data().lat)
                 console.log(docSnap.data().lng)
                 listings_latlng_dict[counter] = { "lat": docSnap.data().lat, "lng": docSnap.data().lng }
@@ -112,18 +100,42 @@ onAuthStateChanged(auth, async (user) => {
         // The marker, positioned at location
         // var marker = new google.maps.Marker({ position: location, map: map });
 
+        var listing_details_map = {}
         for (const [key, value] of Object.entries(listings_latlng_dict)) {
-            // console.log(key, value)
-            // console.log(value.lat)
-            // var marker = new google.maps.Marker({ position: { lat: value.lat, lng: value.lng }, map: map });
-            // addMarker({ lat: Number(value.lat), lng: Number(value.lng) }, map)
-            new google.maps.Marker({
-                position: { lat: Number(value.lat), lng: Number(value.lng) },
-                label: key,
-                map: map,
+            for (const [listing_id, listings_details] of Object.entries(fav_listings_dict)) {
+                console.log(listing_id)
+                console.log(listings_details)
+
+                if (listings_details.lat == value.lat && listings_details.lng == value.lng) {
+                    listing_details_map[key] = listings_details
+                }
+            }
+            console.log(listing_details_map[key].listingAddress)
+
+            var infoWindow = new google.maps.InfoWindow({
+                content: '<div>'
+                    + '<p style="color:#000000">' + listing_details_map[key].listingAddress + '<p>'
+                    + '</div>'
             });
+
+            addMarker(key, value, map, infoWindow)
         }
     };
+
+    function addMarker(key, value, map, infoWindow) {
+        var marker = new google.maps.Marker({
+            position: { lat: Number(value.lat), lng: Number(value.lng) },
+            label: key,
+            map: map,
+        });
+
+        marker.addListener("click", () => {
+            infoWindow.open({
+                anchor: marker,
+                map: map,
+            });
+        });
+    }
 
     window.initMap = initMap
     // Append the 'script' element to 'head'
