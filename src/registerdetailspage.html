@@ -43,17 +43,10 @@
     <div class="side-navbar d-flex justify-content-between flex-wrap flex-column" id="sidebar">
         <ul class="nav flex-column text-white w-100">
             <li class="nav-link sidelink">
-                <span class="mx-2"><a href="viewingpage.html" style="text-decoration: none; color: black;">browse
-                        listings</a></span>
+                <span class="mx-2"><a href="viewingpage.html" hidden>browse listings</a></span>
             </li>
             <li class="nav-link sidelink">
-                <span class="mx-2"><a href="favouritespage.html" style="text-decoration: none; color: black;">favourites</a></span>
-            </li>
-            <!-- <li class="nav-link sidelink">
-                <span class="mx-2"><a href="#" style="text-decoration: none; color: black;">chat</a></span>
-            </li>
-            <li class="nav-link sidelink">
-                <span class="mx-2"><a href="#" style="text-decoration: none; color: black;">contract</a></span> -->
+                <span class="mx-2"><a href="favouritespage.html" hidden>favourites</a></span>
             </li>
             <li href="#" class="nav-link sidelink">
                 <span class="mx-2"></span>
@@ -66,7 +59,6 @@
 
 
         <div id = "loginbox" class="container">
-            <!-- add your stuff here :D -->
 
             <div class="container" style="padding: 20px">
 
@@ -79,22 +71,17 @@
                     </div>
                     <div class="mb-3">
                         <label for="religion" class="form-label">your religion</label>
-                        <!-- <input v-model="religion" type="text" class="form-control" id="religion"
-                            aria-describedby="religion" required> -->
                         <select v-model="religion" class = "form-control" id="religion" required>
                             <option v-for="(reli, index) in religion_list" :value = "reli">{{reli}}</option>
                         </select>
                     </div>
                     <div class="mb-3">
                         <label for="nationality" class="form-label">your nationality</label>
-                        <!-- <input v-model="nationality" type="text" class="form-control" id="nationality" required> -->
                         <select v-model="nationality" class = "form-control" id="nationality" required>
                             <option v-for="(nation, index) in nationality_list" :value = "nation">{{nation}}</option>
                         </select>
                     </div>
                     <div class="mb-3">
-                        <!-- <label for="school" class="form-label">your school in Singapore</label>
-                        <input v-model="school" type="text" class="form-control" id="school" required> -->
                         <label for="nationality" class="form-label">your school</label>
                         <select v-model="school" class = "form-control" id="school" required>
                             <option v-for="sch in school_list" :value = "sch">{{sch}}</option>
