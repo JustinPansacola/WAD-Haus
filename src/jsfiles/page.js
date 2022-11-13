@@ -49,7 +49,8 @@ var content = Vue.createApp({
             uid: "",
             userfavs: [], 
             startingfavs: [],
-            usercurrentfav: []
+            usercurrentfav: [],
+            dataLoaded: false
         }
     },
 
@@ -231,6 +232,8 @@ var content = Vue.createApp({
         } catch (error) {
             console.log(error);
         }
+
+        this.dataLoaded = true;
     }
 })
 content.mount('#content')
