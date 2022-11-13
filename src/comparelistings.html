@@ -47,18 +47,10 @@
     <div class="side-navbar d-flex justify-content-between flex-wrap flex-column" id="sidebar">
         <ul class="nav flex-column text-white w-100">
             <li class="nav-link sidelink">
-                <span class="mx-2"><a href="viewingpage.html" style="text-decoration: none; color: black;">browse
-                        listings</a></span>
+                <span class="mx-2"><a href="viewingpage.html">browse listings</a></span>
             </li>
             <li class="nav-link sidelink">
-                <span class="mx-2"><a href="favouritespage.html"
-                        style="text-decoration: none; color: black;">favourites</a></span>
-            </li>
-            <!-- <li class="nav-link sidelink">
-                <span class="mx-2"><a href="#" style="text-decoration: none; color: black;">chat</a></span>
-            </li>
-            <li class="nav-link sidelink">
-                <span class="mx-2"><a href="#" style="text-decoration: none; color: black;">contract</a></span> -->
+                <span class="mx-2"><a href="favouritespage.html">favourites</a></span>
             </li>
             <li href="#" class="nav-link sidelink">
                 <span class="mx-2"></span>
@@ -283,17 +275,6 @@
                                         <div class="card h-100 comparecard" style="border-radius:20px">
                                             <div class="card-body d-flex align-items-center justify-content-center">
                                                 <p class="card-text">
-                                                    Card Placeholder for Google Maps
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="col">
-                                        <div class="card h-100 comparecard" style="border-radius:20px">
-                                            <div class="card-body d-flex align-items-center justify-content-center">
-                                                <p class="card-text">
                                                 <div class="d-flex flex-column">
                                                     <div class="p-2"><a style="text-decoration: none; color: black;"
                                                             :href="'userprofilepage.html?user=' + listings[firstselected].landlordid + '&name=' + listings[firstselected].landlord ">
@@ -436,8 +417,9 @@
                                             <div class="card-body d-flex align-items-center justify-content-center">
                                                 <p class="card-text">
                                                 <h3 class="comparestation">
-                                                    <mark
-                                                        :class="listings[secondselected].stationcode.substring(0, 2)">{{listings[secondselected].stationcode}}</mark>
+                                                    <mark :class="listings[secondselected].stationcode.substring(0, 2)">
+                                                        {{listings[secondselected].stationcode}}
+                                                    </mark>
                                                 </h3>
                                                 </p>
                                                 &nbsp
@@ -561,17 +543,7 @@
 
                                     </div>
                                 </div>
-                                <div class="row mb-3">
-                                    <div class="col">
-                                        <div class="card h-100 comparecard" style="border-radius:20px">
-                                            <div class="card-body d-flex align-items-center justify-content-center">
-                                                <p class="card-text">
-                                                    Card Placeholder for Google Maps
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                               
                                 <div class="row mb-3">
                                     <div class="col">
                                         <div class="card h-100 comparecard" style="border-radius:20px">
