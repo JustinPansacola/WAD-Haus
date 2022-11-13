@@ -50,7 +50,8 @@ const main = Vue.createApp({
 
     methods: {
 
-        sendfirstApplication(landlord, listingaddress, price){
+        sendfirstApplication(landlord, listingaddress, price) {
+
             var myModal = new bootstrap.Modal(document.getElementById("firstapplication"), { keyboard: false })
 
             let finalhtml = ``;
@@ -59,31 +60,36 @@ const main = Vue.createApp({
 
             console.log(price);
             document.getElementById("modal-body-first").innerHTML = finalhtml;
-            
+
             document.getElementById("modal-price-first").setAttribute("placeholder", price);
 
             myModal.show()
         },
 
-        submitfinalApplication(address, landlord){
+        submitfinalApplication(address, landlord) {
 
             let offeredprice = document.getElementById("modal-price-first").value;
             console.log(address);
             console.log(landlord);
 
+            if (offeredprice == "") {
+                offeredprice = "0";
+            }
+
             var myModal = new bootstrap.Modal(document.getElementById("finalapplication"), { keyboard: false })
-            // var firstmyModal = new bootstrap.Modal(document.getElementById("firstapplication"), {keyboard: false})
+                // var firstmyModal = new bootstrap.Modal(document.getElementById("firstapplication"), {keyboard: false})
 
-            // firstmyModal.hide()
+                // firstmyModal.hide()
 
-            // document.getElementById("firstapplication").remove();
+                // document.getElementById("firstapplication").remove();
 
-            document.getElementById("modal-body-final").innerHTML = `Listing Address: ${address} <br> Landlord: ${landlord} <br> Your offer: $${offeredprice}`;
+                document.getElementById("modal-body-final").innerHTML = `Listing Address: ${address} <br> Landlord: ${landlord} <br> Your offer: $${offeredprice}`;
 
-            myModal.show()
+                myModal.show()
+
         },
 
-        async changeFavourite(ele){
+        async changeFavourite(ele) {
             console.log(ele)
             console.log(this.uid)
             let current = document.getElementById(`heart`).checked
@@ -91,19 +97,18 @@ const main = Vue.createApp({
             console.log(current)
             let userfav_scoped = []
 
-            const docRef = doc(db,"users", this.uid)
+            const docRef = doc(db, "users", this.uid)
             console.log(docRef)
             const docSnap = await getDoc(docRef);
             let race = ""
             let religion = ""
-            let school= ""
+            let school = ""
             let nationality = ""
 
             if (docSnap.exists()) {
                 const data = docSnap.data()
                 userfav_scoped = data.favourites
-                if(userfav_scoped === undefined)
-                {
+                if (userfav_scoped === undefined) {
                     userfav_scoped = [];
                 }
                 console.log(userfav_scoped)
@@ -112,11 +117,11 @@ const main = Vue.createApp({
                 religion = data.religion
                 school = data.school
                 nationality = data.nationality
-                
+
             }
 
-            if(userfav_scoped.includes(`/listings/${ele}`)){
-                if (current === true){
+            if (userfav_scoped.includes(`/listings/${ele}`)) {
+                if (current === true) {
                     let ind = userfav_scoped.indexOf(`/listings/${ele}`)
                     console.log(ind)
                     userfav_scoped.splice(ind, 1)
@@ -124,8 +129,8 @@ const main = Vue.createApp({
                 }
             }
 
-            else if(!userfav_scoped.includes(`/listings/${ele}`)){
-                if (current === false){
+            else if (!userfav_scoped.includes(`/listings/${ele}`)) {
+                if (current === false) {
                     userfav_scoped.push(`/listings/${ele}`)
                     console.log(userfav_scoped)
                 }
@@ -146,12 +151,12 @@ const main = Vue.createApp({
             });
 
             var checkBox = document.getElementById("heart");
-        // Get the output text
+            // Get the output text
             var text = document.getElementById("favouritetext");
 
             console.log(checkBox)
             // If the checkbox is checked, display the output text
-            if (checkBox.checked == true){
+            if (checkBox.checked == true) {
                 text.innerText = "added to favourites"
             } else {
                 text.innerText = "not added to favourites";
@@ -182,16 +187,15 @@ const main = Vue.createApp({
                 this.uid = user.uid;
                 const docSnap = await getDoc(docRef);
                 // const pathReference = ref(storage, '');
-                
+
                 // pull favourite listings from db
                 const userRef = doc(db, "users", user.uid);
                 const userSnap = await getDoc(userRef);
 
                 if (userSnap.exists()) {
-                    
+
                     this.usercurrentfav = userSnap.data().favourites;
-                    if(this.usercurrentfav === undefined)
-                    {
+                    if (this.usercurrentfav === undefined) {
                         this.usercurrentfav = [];
                     }
 
