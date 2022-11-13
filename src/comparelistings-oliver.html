@@ -257,7 +257,7 @@
                                     <div class="col-3 text-center">
                                         <span>
                                             <h6 style="color:#EEE9D2">
-                                                /mo
+                                                /mth
                                             </h6>
                                         </span>
                                     </div>
@@ -285,7 +285,7 @@
                                     <div class="col-3 text-center">
                                         <span>
                                             <h6 style="color:#EEE9D2">
-                                                /mo
+                                                /mth
                                             </h6>
                                         </span>
                                     </div>
@@ -307,30 +307,19 @@
                                     <div class="row gap-3">
                                         <!-- First MRT -->
                                         <div class="col">
-                                            <div class="card h-100" style="border-radius:20px; background-color: #EEE9D2;">
-                                                <div class="card-body d-flex align-items-center justify-content-center">
-                                                    <p class="card-text">
-                                                    <h1 class="page-bold" v-if="listings[firstselected].listingMrt == 'NSL'"
-                                                        style="color:#FF6449">
-                                                        {{listings[firstselected].listingMrt}}</h1>
-                                                    <h1 class="page-bold" v-if="listings[firstselected].listingMrt == 'NEL'"
-                                                        style="color:#A477BB">
-                                                        {{listings[firstselected].listingMrt}}</h1>
-                                                    <h1 class="page-bold"  v-if="listings[firstselected].listingMrt == 'EWL'"
-                                                        style="color:#6FB752">
-                                                        {{listings[firstselected].listingMrt}}</h1>
-                                                    <h1 class="page-bold" v-if="listings[firstselected].listingMrt == 'CCL'"
-                                                        style="color:#FEC946">
-                                                        {{listings[firstselected].listingMrt}}</h1>
-                                                    <h1 class="page-bold" v-if="listings[firstselected].listingMrt == 'DTL'"
-                                                        style="color:#4F83C4">
-                                                        {{listings[firstselected].listingMrt}}</h1>
-                                                    <h1 class="page-bold" v-if="listings[firstselected].listingMrt == 'TEL'"
-                                                        style="color:#86502F">
-                                                        {{listings[firstselected].listingMrt}}</h1>
-                                                    </p>
-                                                </div>
+                                            <div id="mrt-1" class="card h-100 comparecard" style="border-radius:20px">
+                                            <div class="card-body d-flex align-items-center justify-content-center">
+                                                <p class="card-text">
+                                                    <h3 class = "comparestation">
+                                                        <mark :class="listings[firstselected].stationcode.substring(0, 2)">{{listings[firstselected].stationcode}}</mark>
+                                                    </h3>
+                                                </p>
+                                                &nbsp
+                                                <p class="card-text">
+                                                    <h3>{{listings[firstselected].listingArea}}</h3>
+                                                </p>
                                             </div>
+                                        </div>
                                         </div>
                                         <!-- First MRT Ends -->
 
@@ -361,32 +350,21 @@
                                     <div class="row gap-3">
                                         <!-- Second MRT Starts -->
                                         <div class="col">
-                                            <div class="card h-100" style="border-radius:20px; background-color: #EEE9D2;">
+                                            <div id="mrt-2" class="card h-100 comparecard" style="border-radius:20px">
                                                 <div class="card-body d-flex align-items-center justify-content-center">
                                                     <p class="card-text">
-                                                    <h1 class="page-bold" v-if="listings[secondselected].listingMrt == 'NSL'"
-                                                        style="color:#FF6449">
-                                                        {{listings[secondselected].listingMrt}}</h1>
-                                                    <h1 class="page-bold" v-if="listings[secondselected].listingMrt == 'NEL'"
-                                                        style="color:#A477BB">
-                                                        {{listings[secondselected].listingMrt}}</h1>
-                                                    <h1 class="page-bold"  v-if="listings[secondselected].listingMrt == 'EWL'"
-                                                        style="color:#6FB752">
-                                                        {{listings[secondselected].listingMrt}}</h1>
-                                                    <h1 class="page-bold" v-if="listings[secondselected].listingMrt == 'CCL'"
-                                                        style="color:#FEC946">
-                                                        {{listings[secondselected].listingMrt}}</h1>
-                                                    <h1 class="page-bold" v-if="listings[secondselected].listingMrt == 'DTL'"
-                                                        style="color:#4F83C4">
-                                                        {{listings[secondselected].listingMrt}}</h1>
-                                                    <h1 class="page-bold" v-if="listings[secondselected].listingMrt == 'TEL'"
-                                                        style="color:#86502F">
-                                                        {{listings[secondselected].listingMrt}}</h1>
+                                                        <h3 class = "comparestation">
+                                                            <mark :class="listings[secondselected].stationcode.substring(0, 2)">{{listings[secondselected].stationcode}}</mark>
+                                                        </h3>
+                                                    </p>
+                                                    &nbsp
+                                                    <p class="card-text">
+                                                        <h3>{{listings[secondselected].listingArea}}</h3>
                                                     </p>
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- Second MRT Starts -->
+                                        <!-- Second MRT Ends -->
 
                                         <!-- Second Favourite Starts -->
                                         <div class="col">
