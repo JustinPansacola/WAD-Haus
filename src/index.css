@@ -401,10 +401,10 @@ body {
 }
 
 #listings-box .CCL, .comparestation .CC {
-    background-color: yellow;
-    color: black;
-    font-weight: bolder;
-    text-shadow: 1px 0px;
+    background-color: #FEC946;
+    color: #eee9d2;
+    font-weight: 600;
+    /* text-shadow: 1px 0px; */
 }
 
 #listings-box .NEL, .comparestation .NE {
