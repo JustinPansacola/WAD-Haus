@@ -387,42 +387,42 @@ body {
 
 #listings-box .NSL, .comparestation .NS {
     background-color: lightcoral;
-    color: white;
-    font-weight: bolder;
-    text-shadow: 0px 1px, 1px 0px, 1px 1px;
+    color: black;
+    /* font-weight: bolder; */
+    /* text-shadow: 0px 1px, 1px 0px, 1px 1px; */
 }
 
 #listings-box .EWL, .comparestation .EW {
     background-color: lightgreen;
-    color: white;
+    color: black;
     font-weight: bolder;
     text-shadow: 1px 0px;
 }
 
 #listings-box .CCL, .comparestation .CC {
     background-color: yellow;
-    color: white;
+    color: black;
     font-weight: bolder;
     text-shadow: 1px 0px;
 }
 
 #listings-box .NEL, .comparestation .NE {
     background-color: plum;
-    color: white;
+    color: black;
     font-weight: bolder;
     text-shadow: 1px 0px;
 }
 
 #listings-box .DTL, .comparestation .DT {
     background-color: #1e90ff;
-    color: white;
+    color: black;
     font-weight: bolder;
     text-shadow: 1px 0px;
 }
 
 #listings-box .TEL, .comparestation .TE {
     background-color: brown;
-    color: white;
+    color: black;
     font-weight: bolder;
     text-shadow: 1px 0px;
 }
