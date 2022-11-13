@@ -186,6 +186,8 @@ const main = Vue.createApp({
                     console.log("No such document!");
                 }
 
+                console.log(this.listing_dict.landlordid)
+
                 // get landlord profile picture
                 getDownloadURL(ref(storage, "users/" + this.listing_dict.landlordid))
                     .then((url) => {
