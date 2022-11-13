@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-analytics.js";
-import { doc, getDoc, collection, getDocs, getFirestore, updateDoc } from 'https://www.gstatic.com/firebasejs/9.12.1/firebase-firestore.js';
+import { doc, getDoc, setDoc, collection, getDocs, getFirestore, updateDoc } from 'https://www.gstatic.com/firebasejs/9.12.1/firebase-firestore.js';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-auth.js";
 import { getStorage, ref, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-storage.js";
 
@@ -41,7 +41,10 @@ const main = Vue.createApp({
             images: [],
             dataLoaded: false,
             landlordimg: "",
-            tenantsimg: []
+            tenantsimg: [],
+            usercurrentfav: [],
+            listingid: "",
+            uid: ""
         }
     },
 
@@ -78,6 +81,70 @@ const main = Vue.createApp({
             document.getElementById("modal-body-final").innerHTML = `Listing Address: ${address} <br> Landlord: ${landlord} <br> Your offer: $${offeredprice}`;
 
             myModal.show()
+        },
+
+        async changeFavourite(ele){
+            console.log(ele)
+            console.log(this.uid)
+            let current = document.getElementById(`heart${ele}`).checked
+
+            console.log(current)
+            let userfav_scoped = []
+
+            const docRef = doc(db,"users", this.uid)
+            console.log(docRef)
+            const docSnap = await getDoc(docRef);
+            let race = ""
+            let religion = ""
+            let school= ""
+            let nationality = ""
+
+            if (docSnap.exists()) {
+                const data = docSnap.data()
+                userfav_scoped = data.favourites
+                if(userfav_scoped === undefined)
+                {
+                    userfav_scoped = [];
+                }
+                console.log(userfav_scoped)
+
+                race = data.race
+                religion = data.religion
+                school = data.school
+                nationality = data.nationality
+                
+            }
+
+            if(userfav_scoped.includes(`/listings/${ele}`)){
+                if (current === true){
+                    let ind = userfav_scoped.indexOf(`/listings/${ele}`)
+                    console.log(ind)
+                    userfav_scoped.splice(ind, 1)
+                    console.log(userfav_scoped)
+                }
+            }
+
+            else if(!userfav_scoped.includes(`/listings/${ele}`)){
+                if (current === false){
+                    userfav_scoped.push(`/listings/${ele}`)
+                    console.log(userfav_scoped)
+                }
+            }
+
+            this.userfavs = userfav_scoped
+            console.log(typeof this.userfavs)
+            console.log(docRef)
+            console.log(docSnap)
+
+            await setDoc(doc(db, "users", auth.currentUser.uid), {
+                race: race,
+                nationality: nationality,
+                religion: religion,
+                school: school,
+                favourites: this.userfavs
+
+            });
+
         }
 
     },
@@ -96,13 +163,36 @@ const main = Vue.createApp({
                 // https://firebase.google.com/docs/reference/js/firebase.User
                 let params = (new URL(document.location)).searchParams
                 let id = params.get("id")
+                console.log(user.uid)
                 console.log(id)
                 const docRef = doc(db, "listings", id);
+                this.listingid = id;
+                this.uid = user.uid;
                 const docSnap = await getDoc(docRef);
                 // const pathReference = ref(storage, '');
+                
+                // pull favourite listings from db
+                const userRef = doc(db, "users", user.uid);
+                const userSnap = await getDoc(userRef);
+
+                if (userSnap.exists()) {
+                    
+                    this.usercurrentfav = userSnap.data().favourites;
+                    if(this.usercurrentfav === undefined)
+                    {
+                        this.usercurrentfav = [];
+                    }
+
+                    console.log(this.usercurrentfav)
+
+                } else {
+                    // doc.data() will be undefined in this case
+                }
 
                 if (docSnap.exists()) {
-                    this.listing_dict = docSnap.data()
+                    this.listing_dict = docSnap.data();
+
+                    console.log(this.usercurrentfav)
 
                     for (let i = 0; i < 3; i++) {
                         getDownloadURL(ref(storage, `listings/${id}/${i + 1}.jpeg`))

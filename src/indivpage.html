@@ -267,7 +267,15 @@
                             </div>
                             <div class="col-lg-5 col-md-5 col-sm-5 medium-box mx-4 "
                                 style="text-align: center;display:flex; align-items: center; justify-content: center;">
-                                <h3><u>{{listing_dict.distance}}</u> minutes to MRT</h3>
+                                <!-- <h3><u>{{listing_dict.distance}}</u> minutes to MRT</h3> -->
+                                <span  v-if="usercurrentfav.includes('/listings/' + listingid)">
+                                    <input class="heart" :id="'heart' + listingid" type="checkbox" checked/>
+                                    <label class="heartlabel" :for="'heart' + listingid" @click="changeFavourite(listingid)" >❤</label>
+                                </span>
+                                <span  v-else>
+                                    <input class="heart" :id="'heart' + listingid" type="checkbox"/>
+                                    <label class="heartlabel" :for="'heart' + listingid" @click="changeFavourite(listingid)" >❤</label>
+                                </span>
                             </div>
                         </div>
                         <div class="row justify-content-center text-center">
