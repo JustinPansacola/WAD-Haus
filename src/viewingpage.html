@@ -117,7 +117,7 @@
                     <div id="listings-box">
                         <div class="container" v-if="search_filter == false">
                             <div class="row">
-                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-4 mt-3" v-for="(details, id) in listings_dict">
+                                <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6 mt-2" v-for="(details, id) in listings_dict">
                                     <div class="card h-100 mx-auto mt-2" style = "width: 240px">
                                         <div :id="'carouselControls' + id" class="carousel slide"
                                             data-bs-ride="carousel">
@@ -199,8 +199,8 @@
 
                         <div class="container-fluid" v-else>
                             <div class="row">
-                                <div class="col-6" v-for="(details, id) in filtered_listings_dict">
-                                    <div class="card m-1">
+                                <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-4 mt-2" v-for="(details, id) in filtered_listings_dict">
+                                    <div class="card h-100 mx-auto mt-2" style = "width: 240px">
                                         <div :id="'carouselControls' + id" class="carousel slide"
                                             data-bs-ride="carousel">
                                             <div class="carousel-inner">
