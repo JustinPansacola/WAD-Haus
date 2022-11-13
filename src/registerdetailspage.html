@@ -47,7 +47,7 @@
                         listings</a></span>
             </li>
             <li class="nav-link sidelink">
-                <span class="mx-2"><a href="comparelistings.html" style="text-decoration: none; color: black;">favourites</a></span>
+                <span class="mx-2"><a href="favouritespage.html" style="text-decoration: none; color: black;">favourites</a></span>
             </li>
             <!-- <li class="nav-link sidelink">
                 <span class="mx-2"><a href="#" style="text-decoration: none; color: black;">chat</a></span>
@@ -93,8 +93,12 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="school" class="form-label">your school in Singapore</label>
-                        <input v-model="school" type="text" class="form-control" id="school" required>
+                        <!-- <label for="school" class="form-label">your school in Singapore</label>
+                        <input v-model="school" type="text" class="form-control" id="school" required> -->
+                        <label for="nationality" class="form-label">your school</label>
+                        <select v-model="school" class = "form-control" id="school" required>
+                            <option v-for="sch in school_list" :value = "sch">{{sch}}</option>
+                        </select>
                     </div>
                     <div class="text-center">
                         <button type="submit" class="btn btn-lg btn-warning">confirm</button>
