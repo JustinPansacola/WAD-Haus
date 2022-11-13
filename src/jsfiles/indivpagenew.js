@@ -44,22 +44,7 @@ const main = Vue.createApp({
         goChat(val) {
             console.log(val);
             window.location = "chat.html?address=" + val;
-        },
-
-        sendfirstApplication(landlord) {
-            var myModal = new bootstrap.Modal(document.getElementById("firstapplication"), { keyboard: false })
-
-            
-
-            document.getElementById("modal-body").innerHTML = `<p>${landlord}</p>`
-            myModal.show()
-        },
-
-        sendsecondApplication(landlord) {
-            var myModal = new bootstrap.Modal(document.getElementById("secondapplication"), { keyboard: false })
-            document.getElementById("modal-body-2nd").innerHTML = `<p>${landlord}</p>`
-            myModal.show()
-        },
+        }
 
     },
 
@@ -85,7 +70,7 @@ const main = Vue.createApp({
                 const docSnap = await getDoc(docRef);
 
                 if (docSnap.exists()) {
-
+                    
                     this.favourites = docSnap.data().favourites;
 
                     console.log(this.favourites)
@@ -95,7 +80,8 @@ const main = Vue.createApp({
                         window.location = "nofavouritespage.html";
                     }
 
-                    if (this.favourites.length < 2) {
+                    if(this.favourites.length < 2)
+                    {
                         window.location = "notenoughfavourites.html";
                     }
 

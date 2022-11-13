@@ -311,12 +311,6 @@ body {
     border: 0px;
 }
 
-.comparecard h3 {
-    color: #372028;
-    font-weight: bolder;
-    text-shadow: 1px 0px;
-}
-
 /* colors */
 #MRTBOX .NSL {
     background-color: lightcoral;
@@ -397,45 +391,46 @@ body {
 }
 
 #listings-box .NSL, .comparestation .NS {
-    background-color: lightcoral;
-    color: white;
-    font-weight: bolder;
-    text-shadow: 0px 1px, 1px 0px, 1px 1px;
+
+    background-color: #FF6449;
+    color: #EEE9D2;
+    font-weight: 600;
+    /* text-shadow: 0px 1px, 1px 0px, 1px 1px; */
 }
 
 #listings-box .EWL, .comparestation .EW {
-    background-color: lightgreen;
-    color: white;
-    font-weight: bolder;
-    text-shadow: 1px 0px;
+    background-color: #6FB752;
+    color: #EEE9D2;
+    font-weight: 600;
+    /* text-shadow: 1px 0px; */
 }
 
 #listings-box .CCL, .comparestation .CC {
-    background-color: yellow;
-    color: white;
-    font-weight: bolder;
-    text-shadow: 1px 0px;
+    background-color: #FEC946;
+    color: #eee9d2;
+    font-weight: 600;
+    /* text-shadow: 1px 0px; */
 }
 
 #listings-box .NEL, .comparestation .NE {
-    background-color: plum;
-    color: white;
-    font-weight: bolder;
-    text-shadow: 1px 0px;
+    background-color: #A477BB;
+    color: #eee9d2;
+    font-weight: 600;
+    /* text-shadow: 1px 0px; */
 }
 
 #listings-box .DTL, .comparestation .DT {
-    background-color: #1e90ff;
-    color: white;
-    font-weight: bolder;
-    text-shadow: 1px 0px;
+    background-color: #4F83C4;
+    color: #eee9d2;
+    font-weight: 600;
+    /* text-shadow: 1px 0px; */
 }
 
 #listings-box .TEL, .comparestation .TE {
-    background-color: brown;
-    color: white;
-    font-weight: bolder;
-    text-shadow: 1px 0px;
+    background-color: #86502F;
+    color: #eee9d2;
+    font-weight: 600;
+    /* text-shadow: 1px 0px; */
 }
 
 .heart {
@@ -471,20 +466,57 @@ body {
     animation: heart 1s cubic-bezier(0.17, 0.89, 0.32, 1.49);
 }
 
+/* Compare Page CSS */
+
 h1.page-title {
-    font-size: 40px;
+    font-size: 48px;
     line-height: 1.0625;
     font-weight: 600;
     letter-spacing: -0.009em;
     font-family: "Montserrat", sans-serif;
 }
 
+h1.page-bold {
+    font-size: 24px;
+    line-height: 1.0625;
+    font-weight: 600;
+    font-family: "Montserrat", sans-serif;
+}
+
+h6 {
+    font-size: 16px;
+    line-height: 1.21053;
+    font-weight: 500;
+    letter-spacing: 0.012em;
+}
+
+.carousel-inner > .carousel-item > img {
+    height: 100px;
+}
+
+.comparecard h3 {
+    color: #372028;
+    font-size: 20px;
+    line-height: 1.21053;
+    font-weight: 600;
+    letter-spacing: 0.012em;
+}
+
+
 @media (min-width: 576px){
+    h1.page-title {
+        font-size: 48px;
+    }
+
     h1.page-bold {
-        font-size: 24px;
+        font-size: 30px;
         line-height: 1.0625;
         font-weight: 600;
         font-family: "Montserrat", sans-serif;
+    }
+
+    .comparecard h3 {
+        font-size: 20px;
     }
 
     h6 {
@@ -493,17 +525,25 @@ h1.page-title {
         font-weight: 500;
         letter-spacing: 0.012em;
     }
+
+    .carousel-inner > .carousel-item > img {
+        height: 100px;
+    }
 }
 
 @media (min-width: 768px) {
     h1.page-title {
-        font-size: 40px;
+        font-size: 48px;
     }
 
     h1.page-bold {
         font-size: 30px;
     }
 
+    .comparecard h3 {
+        font-size: 20px;
+    }
+
     .form-select {
         font-size: 17px;
     }
@@ -511,23 +551,35 @@ h1.page-title {
     h6 {
         font-size: 17px;
     }
+
+    .carousel-inner > .carousel-item > img {
+        height: 200px;
+    }
 }
 
 @media (min-width: 992px) {
     h1.page-title {
-        font-size: 48px;
+        font-size: 64px;
     }
 
     h1.page-bold {
         font-size: 32px;
     }
 
+    .comparecard h3 {
+        font-size: 24px;
+    }
+
     .form-select {
         font-size: 18px;
     }
 
     h6 {
         font-size: 18px;
+    }
+
+    .carousel-inner > .carousel-item > img {
+        height: 300px;
     }
 }
 @media (min-width: 1200px) {
@@ -539,12 +591,20 @@ h1.page-title {
         font-size: 40px;
     }
 
+    .comparecard h3 {
+        font-size: 24px;
+    }
+
     .form-select {
         font-size: 19px;
     }
 
     h6 {
         font-size: 19px;
+    }
+
+    .carousel-inner > .carousel-item > img {
+        height: 400px;
     }
 }
 
