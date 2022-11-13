@@ -422,10 +422,10 @@ body {
 }
 
 #listings-box .TEL, .comparestation .TE {
-    background-color: brown;
-    color: black;
-    font-weight: bolder;
-    text-shadow: 1px 0px;
+    background-color: #86502F;
+    color: #eee9d2;
+    font-weight: 600;
+    /* text-shadow: 1px 0px; */
 }
 
 .heart {
