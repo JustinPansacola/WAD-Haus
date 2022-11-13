@@ -178,90 +178,56 @@
 
                         <!-- First Image Carousel Starts -->
                         <div class="col-6">
-                            <div class="container-fluid" style="margin: auto">
-                                <div id="carousel-2" class="carousel slide" data-bs-ride="true">
-                                    <div class="carousel-indicators">
-                                        <button type="button" data-bs-target="#carousel-2"
-                                            data-bs-slide-to="0" class="active" aria-current="true"
-                                            aria-label="Slide 1"></button>
-                                        <button type="button" data-bs-target="#carousel-2"
-                                            data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                        <button type="button" data-bs-target="#carousel-2"
-                                            data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            <div id="carouselExampleControls" class="carousel slide my-2" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img :src="listings[firstselected].image1" class="d-block w-100 rounded-4" alt="..." style="height:400px">
                                     </div>
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active">
-                                            <img id="carou2-1" src="./images/sleek-bedroom.jpeg"
-                                                class="d-block w-100 image-fluid" alt="..."
-                                                style="border-radius:20px; height: 300px;">
-                                        </div>
-                                        <div class="carousel-item">
-                                            <img id="carou2-2" src="./images/teen-bedroom.jpg" 
-                                                class="d-block w-100 image-fluid" alt="..."
-                                                style="border-radius:20px; height: 300px;">
-                                        </div>
-                                        <div class="carousel-item">
-                                            <img id="carou2-3" src="./images/livingroom.jpg"
-                                                class="d-block w-100 image-fluid" alt="..."
-                                                style="border-radius:20px; height: 300px;">
-                                        </div>
+                                    <div class="carousel-item">
+                                        <img :src="listings[firstselected].image2" class="d-block w-100 rounded-4" alt="..." style="height:400px">
                                     </div>
-                                    <button class="carousel-control-prev" type="button"
-                                        data-bs-target="#carousel-2" data-bs-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                        <span class="visually-hidden">Previous</span>
-                                    </button>
-                                    <button class="carousel-control-next" type="button"
-                                        data-bs-target="#carousel-2" data-bs-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                        <span class="visually-hidden">Next</span>
-                                    </button>
+                                    <div class="carousel-item">
+                                        <img :src="listings[firstselected].image3" class="d-block w-100 rounded-4" alt="..." style="height:400px">
+                                    </div>
                                 </div>
+                                <button class="carousel-control-prev" type="button"
+                                    data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button"
+                                    data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
                             </div>
                         </div>
                         <!-- First Image Carousel Ends -->
 
                         <!-- Second Image Carousel Starts -->
                         <div class="col-6">
-                            <div class="container-fluid" style="margin: auto">
-                                <div id="carousel-2" class="carousel slide" data-bs-ride="true">
-                                    <div class="carousel-indicators">
-                                        <button type="button" data-bs-target="#carousel-2"
-                                            data-bs-slide-to="0" class="active" aria-current="true"
-                                            aria-label="Slide 1"></button>
-                                        <button type="button" data-bs-target="#carousel-2"
-                                            data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                        <button type="button" data-bs-target="#carousel-2"
-                                            data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            <div id="carouselExampleControls2" class="carousel slide my-2" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img :src="listings[secondselected].image1" class="d-block w-100 rounded-4" alt="..." style="height:400px">
                                     </div>
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active">
-                                            <img id="carou2-1" src="./images/sleek-bedroom.jpeg"
-                                                class="d-block w-100 image-fluid" alt="..."
-                                                style="border-radius:20px; height: 300px;">
-                                        </div>
-                                        <div class="carousel-item">
-                                            <img id="carou2-2" src="./images/teen-bedroom.jpg" 
-                                                class="d-block w-100 image-fluid" alt="..."
-                                                style="border-radius:20px; height: 300px;">
-                                        </div>
-                                        <div class="carousel-item">
-                                            <img id="carou2-3" src="./images/livingroom.jpg"
-                                                class="d-block w-100 image-fluid" alt="..."
-                                                style="border-radius:20px; height: 300px;">
-                                        </div>
+                                    <div class="carousel-item">
+                                        <img :src="listings[secondselected].image2" class="d-block w-100 rounded-4" alt="..."style="height:400px">
                                     </div>
-                                    <button class="carousel-control-prev" type="button"
-                                        data-bs-target="#carousel-2" data-bs-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                        <span class="visually-hidden">Previous</span>
-                                    </button>
-                                    <button class="carousel-control-next" type="button"
-                                        data-bs-target="#carousel-2" data-bs-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                        <span class="visually-hidden">Next</span>
-                                    </button>
+                                    <div class="carousel-item">
+                                        <img :src="listings[secondselected].image3" class="d-block w-100 rounded-4" alt="..."style="height:400px">
+                                    </div>
                                 </div>
+                                <button class="carousel-control-prev" type="button"
+                                    data-bs-target="#carouselExampleControls2" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button"
+                                    data-bs-target="#carouselExampleControls2" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
                             </div>
                         </div>
                         <!-- Second Image Carousel Ends -->
