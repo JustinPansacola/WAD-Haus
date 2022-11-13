@@ -25,6 +25,8 @@ const analytics = getAnalytics(app);
 const db = getFirestore();
 const auth = getAuth();
 
+let offeredprice = "";
+
 // Vue instance
 const main = Vue.createApp({
 
@@ -46,20 +48,70 @@ const main = Vue.createApp({
             window.location = "chat.html?address=" + val;
         },
 
-        sendfirstApplication(landlord) {
+        sendfirstApplication(landlord, listingaddress, price) {
             var myModal = new bootstrap.Modal(document.getElementById("firstapplication"), { keyboard: false })
 
+            let finalhtml = ``;
+
+            finalhtml += `Landlord: ${landlord} <br> Address: ${listingaddress}`;
+
+            console.log(price);
+            document.getElementById("modal-body-first").innerHTML = finalhtml;
             
+            document.getElementById("modal-price-first").setAttribute("placeholder", price);
 
-            document.getElementById("modal-body").innerHTML = `<p>${landlord}</p>`
             myModal.show()
         },
 
-        sendsecondApplication(landlord) {
-            var myModal = new bootstrap.Modal(document.getElementById("secondapplication"), { keyboard: false })
-            document.getElementById("modal-body-2nd").innerHTML = `<p>${landlord}</p>`
+        sendsecondApplication(landlord, listingaddress, price) {
+            var myModal = new bootstrap.Modal(document.getElementById("secondApplication"), { keyboard: false })
+
+            let finalhtml = ``;
+
+            finalhtml += `Landlord: ${landlord} <br> Address: ${listingaddress}`;
+
+            console.log(price);
+            document.getElementById("modal-body-second").innerHTML = finalhtml;
+            
+            document.getElementById("modal-price-second").setAttribute("placeholder", price);
+
             myModal.show()
         },
+
+        submitfinalApplication(address, landlord){
+
+            offeredprice = document.getElementById("modal-price-first").value;
+            console.log(address);
+            console.log(landlord);
+
+            var myModal = new bootstrap.Modal(document.getElementById("finalapplication"), { keyboard: false })
+            // var firstmyModal = new bootstrap.Modal(document.getElementById("firstapplication"), {keyboard: false})
+
+            // firstmyModal.hide()
+
+            // document.getElementById("firstapplication").remove();
+
+            document.getElementById("modal-body-final").innerHTML = `Listing Address: ${address} <br> Landlord: ${landlord} <br> Your offer: $${offeredprice}`;
+
+            myModal.show()
+        },
+
+        submitfinalApplicationsecond(address, landlord){
+            offeredprice = document.getElementById("modal-price-second").value;
+            console.log(address);
+            console.log(landlord);
+
+            var myModal = new bootstrap.Modal(document.getElementById("finalapplicationsecond"), { keyboard: false })
+            // var firstmyModal = new bootstrap.Modal(document.getElementById("firstapplication"), {keyboard: false})
+
+            // firstmyModal.hide()
+
+            // document.getElementById("firstapplication").remove();
+
+            document.getElementById("modal-body-final-second").innerHTML = `Listing Address: ${address} <br> Landlord: ${landlord} <br> Your offer: $${offeredprice}`;
+
+            myModal.show()
+        }
 
     },
 

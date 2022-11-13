@@ -45,7 +45,42 @@ const main = Vue.createApp({
         }
     },
 
-    methods: {},
+    methods: {
+
+        sendfirstApplication(landlord, listingaddress, price){
+            var myModal = new bootstrap.Modal(document.getElementById("firstapplication"), { keyboard: false })
+
+            let finalhtml = ``;
+
+            finalhtml += `Landlord: ${landlord} <br> Address: ${listingaddress}`;
+
+            console.log(price);
+            document.getElementById("modal-body-first").innerHTML = finalhtml;
+            
+            document.getElementById("modal-price-first").setAttribute("placeholder", price);
+
+            myModal.show()
+        },
+
+        submitfinalApplication(address, landlord){
+
+            let offeredprice = document.getElementById("modal-price-first").value;
+            console.log(address);
+            console.log(landlord);
+
+            var myModal = new bootstrap.Modal(document.getElementById("finalapplication"), { keyboard: false })
+            // var firstmyModal = new bootstrap.Modal(document.getElementById("firstapplication"), {keyboard: false})
+
+            // firstmyModal.hide()
+
+            // document.getElementById("firstapplication").remove();
+
+            document.getElementById("modal-body-final").innerHTML = `Listing Address: ${address} <br> Landlord: ${landlord} <br> Your offer: $${offeredprice}`;
+
+            myModal.show()
+        }
+
+    },
 
     // created method to call db and store all the data before mounting to vue
     async created() {
