@@ -162,28 +162,31 @@
                                                     </span>
 
                                                     
-                                            </h5>
+                                                </h5>
 
                                             <a :href="'indivpage.html?id=' + id " class="stretched-link"
                                             style="position: relative; text-decoration: none; color: black;">
-                                                
-                                                <p class="card-text">{{details.roomType}}</p>
-                                                <img src = "icons/mrt.png" style="height:30px; width:30px">
-                                                    <mark :class = 'details.listingMrt'>{{details.listingMrt}}</marK>
-                                                    <span class = 'listingArea'>&nbsp{{details.listingArea}}</span>
-                                                    <br>
-                                                    <span class = "distance-details" style="float:right"><i
-                                                        style="font-size:10px" class="fas fa-walking"></i>
-                                                    {{details.distance}} min to MRT</span>
-                                                </p>
-                                                <p><i style="font-size:10px" class="fa">&#xf06e;</i>&nbsp
-                                                    <span class="number-of-views">
-                                                        {{details.listingViews}} people viewed this
-                                                    </span>
-                                                    <span class = "listing-price text-right" style = "float:right">
-                                                        <sup>SGD</sup> <span class = "details-price">{{details.price}}</span> / mth
-                                                    </span>
-                                                </p>
+                                                <div class = "listingInfo">
+                                                    <p class="card-text">{{details.roomType}}</p>
+                                                    <img src = "icons/mrt.png" style="height:30px; width:30px">
+                                                        <mark :class="details.stationcode.substring(0, 2)">
+                                                            {{details.stationcode}}
+                                                        </mark>
+                                                        <span class = 'listingArea'>&nbsp{{details.listingArea}}</span>
+                                                        <br>
+                                                        <span class = "distance-details" style="float:right"><i
+                                                            style="font-size:10px" class="fas fa-walking"></i>
+                                                        {{details.distance}} min to MRT</span>
+                                                    </p>
+                                                    <p><i style="font-size:10px" class="fa">&#xf06e;</i>&nbsp
+                                                        <span class="number-of-views">
+                                                            {{details.listingViews}} people viewed this
+                                                        </span>
+                                                        <span class = "listing-price text-right" style = "float:right">
+                                                            <sup>SGD</sup> <span class = "details-price">{{details.price}}</span> / mth
+                                                        </span>
+                                                    </p>
+                                                </div>
                                                     <!-- <p style="float: left;"><img src="./images/eyeicon.png" alt="" width="25px"> 15 -->
                                             </div>
                                         </a>

@@ -407,46 +407,46 @@ body {
     border-radius: 10%;
 }
 
-#listings-box .NSL, .comparestation .NS {
+#listings-box .NSL, .comparestation .NS, .listingInfo .NS {
     background-color: lightcoral;
-    color: white;
+    color: black;
     font-weight: bolder;
     text-shadow: 0px 1px, 1px 0px, 1px 1px;
 }
 
-#listings-box .EWL, .comparestation .EW {
+#listings-box .EWL, .comparestation .EW, .listingInfo .EW {
     background-color: lightgreen;
-    color: white;
+    color: black;
     font-weight: bolder;
-    text-shadow: 1px 0px;
+    text-shadow: 0px 1px, 1px 0px, 1px 1px;
 }
 
-#listings-box .CCL, .comparestation .CC {
+#listings-box .CCL, .comparestation .CC, .listingInfo .CC {
     background-color: yellow;
-    color: white;
+    color: black;
     font-weight: bolder;
-    text-shadow: 1px 0px;
+    text-shadow: 0px 1px, 1px 0px, 1px 1px;
 }
 
-#listings-box .NEL, .comparestation .NE {
+#listings-box .NEL, .comparestation .NE, .listingInfo .NE {
     background-color: plum;
-    color: white;
+    color: black;
     font-weight: bolder;
-    text-shadow: 1px 0px;
+    text-shadow: 0px 1px, 1px 0px, 1px 1px;
 }
 
-#listings-box .DTL, .comparestation .DT {
+#listings-box .DTL, .comparestation .DT, .listingInfo .DT {
     background-color: #1e90ff;
-    color: white;
+    color: black;
     font-weight: bolder;
-    text-shadow: 1px 0px;
+    text-shadow: 0px 1px, 1px 0px, 1px 1px;
 }
 
-#listings-box .TEL, .comparestation .TE {
+#listings-box .TEL, .comparestation .TE, .listingInfo .TE {
     background-color: brown;
-    color: white;
+    color: black;
     font-weight: bolder;
-    text-shadow: 1px 0px;
+    text-shadow: 0px 1px, 1px 0px, 1px 1px;
 }
 
 .heart {

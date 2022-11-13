@@ -46,18 +46,12 @@
     <div class="side-navbar d-flex justify-content-between flex-wrap flex-column" id="sidebar">
         <ul class="nav flex-column text-white w-100">
             <li class="nav-link sidelink">
-                <span class="mx-2"><a href="viewingpage.html" style="text-decoration: none; color: black;">browse
+                <span class="mx-2"><a href="viewingpage.html">browse
                         listings</a></span>
             </li>
             <li class="nav-link sidelink">
-                <span class="mx-2"><a href="favouritespage.html" style="text-decoration: none; color: black;">favourites</a></span>
+                <span class="mx-2"><a href="favouritespage.html">favourites</a></span>
             </li>
-            <!-- <li class="nav-link sidelink">
-                <span class="mx-2"><a href="#" style="text-decoration: none; color: black;">chat</a></span>
-            </li>
-            <li class="nav-link sidelink">
-                <span class="mx-2"><a href="#" style="text-decoration: none; color: black;">contract</a></span>
-            </li> -->
             <li href="#" class="nav-link sidelink">
                 <span class="mx-2"></span>
             </li>
@@ -157,11 +151,13 @@
                                         </div>
                                         <a :href="'indivpage.html?id=' + id " class="stretched-link"
                                             style="position: relative; text-decoration: none; color: black;">
-                                            <div class="card-body">
+                                            <div class="card-body listingInfo">
                                                 <h5 class="card-title">{{listing.listingAddress}}</h5>
                                                 <p class="card-text">{{listing.roomType}}</p>
                                                 <p class="text-start"><img src = "icons/mrt.png" style="height:30px; width:30px">
-                                                    <mark :class = "listing.listingMrt">{{listing.listingMrt}}</mark>
+                                                    <mark :class="listing.stationcode.substring(0, 2)">
+                                                        {{listing.stationcode}}
+                                                    </mark>
                                                     {{listing.listingArea}}
                                                     <p class="text-end distance">
                                                         <span class="badge rounded-pill text-bg-primary w-1 ms-5"><i
