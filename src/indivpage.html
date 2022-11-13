@@ -296,7 +296,7 @@
         </div>
     </div>
     <div class="container-fluid m-auto mt-5" id="mapbox"
-        style="outline: 1px black solid; text-align:center; height: 300px; width: 75%">
+        style="outline: 1px black solid; text-align:center; height: 300px; width: 75%; display: none;">
         <div id="map" style="height: 100%; height: 100%; margin: auto;"></div>
     </div>
     </div>
@@ -365,8 +365,12 @@
         }
     </script>
 
-
-
+    <script>
+        function showElement() {
+            document.getElementById("mapbox").style.display = "block";
+        }
+        setTimeout("showElement()", 2000); 
+    </script>
 
 </body>
 
