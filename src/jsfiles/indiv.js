@@ -86,7 +86,7 @@ const main = Vue.createApp({
         async changeFavourite(ele){
             console.log(ele)
             console.log(this.uid)
-            let current = document.getElementById(`heart${ele}`).checked
+            let current = document.getElementById(`heart`).checked
 
             console.log(current)
             let userfav_scoped = []
@@ -144,6 +144,18 @@ const main = Vue.createApp({
                 favourites: this.userfavs
 
             });
+
+            var checkBox = document.getElementById("heart");
+        // Get the output text
+            var text = document.getElementById("favouritetext");
+
+            console.log(checkBox)
+            // If the checkbox is checked, display the output text
+            if (checkBox.checked == true){
+                text.innerText = "added to favourites"
+            } else {
+                text.innerText = "not added to favourites";
+            }
 
         }
 
