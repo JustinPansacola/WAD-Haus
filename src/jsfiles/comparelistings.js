@@ -87,6 +87,10 @@ const main = Vue.createApp({
             console.log(address);
             console.log(landlord);
 
+            if (offeredprice == "") {
+                offeredprice = "0";
+            }
+
             var myModal = new bootstrap.Modal(document.getElementById("finalapplication"), { keyboard: false })
             // var firstmyModal = new bootstrap.Modal(document.getElementById("firstapplication"), {keyboard: false})
 
@@ -103,6 +107,10 @@ const main = Vue.createApp({
             offeredprice = document.getElementById("modal-price-second").value;
             console.log(address);
             console.log(landlord);
+
+            if (offeredprice == "") {
+                offeredprice = "0";
+            }
 
             var myModal = new bootstrap.Modal(document.getElementById("finalapplicationsecond"), { keyboard: false })
             // var firstmyModal = new bootstrap.Modal(document.getElementById("firstapplication"), {keyboard: false})
