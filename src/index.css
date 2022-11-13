@@ -4,12 +4,12 @@
     margin: 0;
     font-family: "Montserrat";
 }
- 
+
 body {
     font-family: "Montserrat";
     background-color: #eee9d2;
 }
- 
+
 #landingbody {
     background: url("images/mainbg.jpeg") no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -17,7 +17,7 @@ body {
     -o-background-size: cover;
     background-size: cover;
 }
- 
+
 .navbar {
     background-color: #372028;
     z-index: 1000;
@@ -26,7 +26,7 @@ body {
     top: 0;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
- 
+
 .side-navbar {
     /* border-right: 2px solid black; */
     width: 180px;
@@ -42,7 +42,7 @@ body {
 .side-navbar li {
     background-color: #eee9d2;
 }
- 
+
 .nav-link,
 .nav-link:active,
 .nav-link:focus,
@@ -50,7 +50,7 @@ body {
     background-color: #ffffff26;
     color: black;
 }
- 
+
 /* index.html */
 .team-image {
     border-radius: 50%;
@@ -67,23 +67,23 @@ body {
     font-family: "Playfair Display";
     color: #f8b709;
 }
- 
+
 #hauscontainer span {
     color: #f8b709;
 }
 .formbox {
     background-color: rgb(211, 211, 211, 0.5);
 }
- 
+
 .sidelink {
     margin-top: 40px;
 }
- 
+
 .sidelink a {
     text-decoration: none; 
     color: black
 }
- 
+
 .my-container {
     transition: 0.4s;
 }
@@ -94,7 +94,7 @@ body {
 .active-cont {
     margin-left: 180px;
 }
- 
+
 .large-box {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 15px;
     padding: 10px;
@@ -112,7 +112,7 @@ body {
     border-radius: 10px;
     background-color: #eee9d2;
 }
- 
+
 .amenities-box {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 15px;
     padding: 10px;
@@ -121,13 +121,13 @@ body {
     height: 95%;
     background-color: #eee9d2;
 }
- 
+
 .searchbg {
     width: 100%;
     background-color: #86502f;
     padding: 10px;
 }
- 
+
 /* for login.html and register.html*/
 #loginbody {
     background: url("images/mainbg.jpeg") no-repeat center center fixed;
@@ -136,31 +136,31 @@ body {
     -o-background-size: cover;
     background-size: cover;
 }
- 
+
 #loginbox {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 90vh;
 }
- 
+
 #loginbox > div {
     width: 40%;
     background-color: rgb(55, 32, 40);
     border-radius: 20px;
     color: #e7e4ca;
 }
- 
+
 .sidelink a {
     text-decoration: none; 
     color: black
 }
- 
+
 #loginbox button {
     font-weight: bold;
     text-align: center;
 }
- 
+
 #loginbox .activedot {
     height: 25px;
     width: 25px;
@@ -168,7 +168,7 @@ body {
     border-radius: 50%;
     display: inline-block;
 }
- 
+
 #loginbox .inactivedot {
     height: 25px;
     width: 25px;
@@ -176,60 +176,60 @@ body {
     border-radius: 50%;
     display: inline-block;
 }
- 
+
 #loginbox .form-control {
     background-color: #eee9d2;
 }
- 
+
 #registerhere {
     text-decoration: none; 
     color: #EEE9D2; 
 }
- 
+
 #errormessage p, #errormessage h5{
     color: black;
 }
- 
+
 /* for viewingpage.html */
 .card {
     border-radius: 20px;
 }
- 
+
 .cardimage {
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 }
- 
+
 .card-title {
     font-weight: 900;
     font-size: 18px;
     text-shadow: 0px 1px, 1px 0px, 1px 1px;
     color: #372028;
 }
- 
+
 .card-text {
     font-size: 12px;
     font-weight: 700;
     text-shadow: 1px 0px;
     color: #666666;
 }
- 
+
 .distance {
     font-size: 10px;
     font-weight: 700;
     color: #666666;
 }
- 
+
 .distance-details, .number-of-views {
     font-size: 8px;
     font-weight: 700;
     color: #666666;
 }
- 
+
 .listing-price {
     color: #372028;
 }
- 
+
 .typography-headline-elevated {
     font-size: 64px;
     line-height: 1.0625;
@@ -238,22 +238,22 @@ body {
     font-family: "Montserrat", "Helvetica Neue", "Helvetica", "Arial",
         sans-serif;
 }
- 
+
 #selection select {
     width: 200px;
 }
- 
+
 .listingArea {
     color: rgb(55, 32, 40);
     text-transform: uppercase;
 }
- 
+
 .details-price {
     font-size: 20px;
     font-weight: bolder;
     text-shadow: 1px 0px;
 }
- 
+
 /* indivpage.html */
 #indivpageaddress {
     margin-top: 20px;
@@ -264,7 +264,7 @@ body {
     letter-spacing: 1px;
     color: #eee9d2;
 }
- 
+
 .page-price {
     text-align: center;
     padding-top: 30px;
@@ -274,7 +274,7 @@ body {
     letter-spacing: 1px;
     color: #eee9d2;
 }
- 
+
 .page-price span {
     text-align: center;
     font-size: 50px;
@@ -283,24 +283,24 @@ body {
     letter-spacing: 1px;
     color: #eee9d2;
 }
- 
+
 .amenities-box h4 {
     margin: 10px;
     font-weight: bolder;
     text-shadow: 0px 1px, 1px 0px, 1px 1px;
 }
- 
+
 .amenitieslist {
     list-style: none;
     padding: 0;
     text-align: left;
     margin-left: 30px;
 }
- 
+
 .amenitieslist li{
     margin-bottom: 15px;
 }
- 
+
 .medium-box h3,
 #tenantsCarousel h4 {
     text-align: center;
@@ -308,26 +308,26 @@ body {
     font-weight: bolder;
     text-shadow: 0px 1px, 1px 0px, 1px 1px;
 }
- 
+
 /* comparelistings.html */
 .compare-address {
     color: #EEE9D2; 
     font-weight: 800;
     text-shadow: 0px 1px, 1px 0px, 1px 1px;
 }
- 
+
 .comparecard{
     background-color:  #eee9d2;
     border-radius: 20px;
     border: 0px;
 }
- 
+
 .comparecard h3 {
     color: #372028;
     font-weight: bolder;
     text-shadow: 1px 0px;
 }
- 
+
 /* colors */
 #MRTBOX .NSL {
     background-color: lightcoral;
@@ -341,7 +341,7 @@ body {
     justify-content: center;
     border-radius: 10%;
 }
- 
+
 #MRTBOX .EWL {
     background-color: lightgreen;
     margin: auto;
@@ -354,7 +354,7 @@ body {
     justify-content: center;
     border-radius: 10%;
 }
- 
+
 #MRTBOX .CCL {
     background-color: yellow;
     margin: auto;
@@ -367,7 +367,7 @@ body {
     justify-content: center;
     border-radius: 10%;
 }
- 
+
 #MRTBOX .NEL {
     background-color: plum;
     margin: auto;
@@ -380,7 +380,7 @@ body {
     justify-content: center;
     border-radius: 10%;
 }
- 
+
 #MRTBOX .DTL {
     background-color: #1e90ff;
     margin: auto;
@@ -393,7 +393,7 @@ body {
     justify-content: center;
     border-radius: 10%;
 }
- 
+
 #MRTBOX .TEL {
     background-color: brown;
     margin: auto;
@@ -406,54 +406,54 @@ body {
     justify-content: center;
     border-radius: 10%;
 }
- 
+
 #listings-box .NSL, .comparestation .NS {
     background-color: lightcoral;
     color: white;
     font-weight: bolder;
     text-shadow: 0px 1px, 1px 0px, 1px 1px;
 }
- 
+
 #listings-box .EWL, .comparestation .EW {
     background-color: lightgreen;
     color: white;
     font-weight: bolder;
     text-shadow: 1px 0px;
 }
- 
+
 #listings-box .CCL, .comparestation .CC {
     background-color: yellow;
     color: white;
     font-weight: bolder;
     text-shadow: 1px 0px;
 }
- 
+
 #listings-box .NEL, .comparestation .NE {
     background-color: plum;
     color: white;
     font-weight: bolder;
     text-shadow: 1px 0px;
 }
- 
+
 #listings-box .DTL, .comparestation .DT {
     background-color: #1e90ff;
     color: white;
     font-weight: bolder;
     text-shadow: 1px 0px;
 }
- 
+
 #listings-box .TEL, .comparestation .TE {
     background-color: brown;
     color: white;
     font-weight: bolder;
     text-shadow: 1px 0px;
 }
- 
+
 .heart {
     position: absolute;
     left: -100vw;
 }
- 
+
 .heartlabel {
     color: #aab8c2;
     cursor: pointer;
@@ -461,27 +461,27 @@ body {
     align-self: center;
     transition: color 0.2s ease-in-out;
 }
- 
+
 .heartlabel :hover {
     color: grey;
 }
- 
+
 .heartlabel ::selection {
     color: none;
     background: transparent;
 }
- 
+
 .heartlabel ::moz-selection {
     color: none;
     background: transparent;
 }
- 
+
 .heart:checked + label {
     color: #e2264d;
     will-change: font-size;
     animation: heart 1s cubic-bezier(0.17, 0.89, 0.32, 1.49);
 }
- 
+
 h1.page-title {
     font-size: 40px;
     line-height: 1.0625;
@@ -489,7 +489,7 @@ h1.page-title {
     letter-spacing: -0.009em;
     font-family: "Montserrat", sans-serif;
 }
- 
+
 @media (min-width: 576px){
     h1.page-bold {
         font-size: 24px;
@@ -497,7 +497,7 @@ h1.page-title {
         font-weight: 600;
         font-family: "Montserrat", sans-serif;
     }
- 
+
     h6 {
         font-size: 16px;
         line-height: 1.21053;
@@ -505,38 +505,38 @@ h1.page-title {
         letter-spacing: 0.012em;
     }
 }
- 
+
 @media (min-width: 768px) {
     h1.page-title {
         font-size: 40px;
     }
- 
+
     h1.page-bold {
         font-size: 30px;
     }
- 
+
     .form-select {
         font-size: 17px;
     }
- 
+
     h6 {
         font-size: 17px;
     }
 }
- 
+
 @media (min-width: 992px) {
     h1.page-title {
         font-size: 48px;
     }
- 
+
     h1.page-bold {
         font-size: 32px;
     }
- 
+
     .form-select {
         font-size: 18px;
     }
- 
+
     h6 {
         font-size: 18px;
     }
@@ -545,20 +545,20 @@ h1.page-title {
     h1.page-title {
         font-size: 64px;
     }
- 
+
     h1.page-bold {
         font-size: 40px;
     }
- 
+
     .form-select {
         font-size: 19px;
     }
- 
+
     h6 {
         font-size: 19px;
     }
 }
- 
+
 .form-select {
     font-size: 16px;
     line-height: 1.21053;
@@ -567,11 +567,10 @@ h1.page-title {
     color: #372028;
     text-align: left;
 }
- 
+
 @keyframes heart {
     0%,
     17.5% {
         font-size: 0;
     }
 }
- 
