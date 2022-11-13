@@ -47,18 +47,11 @@
     <div class="side-navbar d-flex justify-content-between flex-wrap flex-column" id="sidebar">
         <ul class="nav flex-column text-white w-100">
             <li class="nav-link sidelink">
-                <span class="mx-2"><a href="viewingpage.html" style="text-decoration: none; color: black;">browse
+                <span class="mx-2"><a href="viewingpage.html">browse
                         listings</a></span>
             </li>
             <li class="nav-link sidelink">
-                <span class="mx-2"><a href="favouritespage.html"
-                        style="text-decoration: none; color: black;">favourites</a></span>
-            </li>
-            <!-- <li class="nav-link sidelink">
-                <span class="mx-2"><a href="#" style="text-decoration: none; color: black;">chat</a></span>
-            </li>
-            <li class="nav-link sidelink">
-                <span class="mx-2"><a href="#" style="text-decoration: none; color: black;">contract</a></span> -->
+                <span class="mx-2"><a href="favouritespage.html">favourites</a></span>
             </li>
             <li href="#" class="nav-link sidelink">
                 <span class="mx-2"></span>
@@ -79,7 +72,6 @@
         <div v-if="dataLoaded">
             <h1 id="indivpageaddress">{{listing_dict.listingAddress}}</h1>
             <h6 style="text-align: center; color: #EEE9D2;">{{listing_dict.roomType}}</h6>
-            <hr style="width:100px; margin: auto;" />
 
             <div class="container text-center">
                 <div class="row justify-content-center">
@@ -112,7 +104,7 @@
                                     </div>
                                 </div>
                                 <button class="carousel-control-prev" type="button"
-                                    data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                    data-bs-target="#carouselExampleIndicators" data-bs-slide="prev" style="filter:invert">
                                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                     <span class="visually-hidden">Previous</span>
                                 </button>
