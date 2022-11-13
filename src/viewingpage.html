@@ -53,12 +53,6 @@
             <li class="nav-link sidelink">
                 <span class="mx-2"><a href="favouritespage.html">favourites</a></span>
             </li>
-            <!-- <li class="nav-link sidelink">
-                <span class="mx-2"><a href="#" style="text-decoration: none; color: black;">chat</a></span>
-            </li>
-            <li class="nav-link sidelink">
-                <span class="mx-2"><a href="#" style="text-decoration: none; color: black;">contract</a></span>
-            </li> -->
             <li href="#" class="nav-link sidelink">
                 <span class="mx-2"></span>
             </li>
@@ -121,7 +115,7 @@
             <div class="row">
                 <div class="col-lg-6" id="listings-box-id" v-if="dataLoaded">
                     <div id="listings-box">
-                        <div id="viewingpage-dimensions" class="container" v-if="search_filter == false">
+                        <div class="container" v-if="search_filter == false">
                             <div class="row">
                                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-4 mt-3" v-for="(details, id) in listings_dict">
                                     <div class="card h-100 mx-auto mt-2" style = "width: 240px">
