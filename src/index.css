@@ -461,6 +461,7 @@ body {
     animation: heart 1s cubic-bezier(0.17, 0.89, 0.32, 1.49);
 }
 
+/* Compare Page CSS */
 
 h1.page-title {
     font-size: 48px;
