@@ -267,11 +267,11 @@
                             </div>
                         </div>
                         <div class="row justify-content-center text-center">
-                            <div class="col-lg-11 col-md-11 col-sm-11 large-box">
+                            <div class="col-lg-11 col-md-11 col-sm-11 large-box p-4">
                                 <img class="img-account-profile rounded-circle" v-bind:src="landlordimg" alt=""
                                     style="width:75px ;height:75px;">
                                 <h5>{{listing_dict.landlord}}</h5>
-                                <button type="button" class="btn btn-primary" @click="sendfirstApplication(listing_dict.landlord, listing_dict.listingAddress, listing_dict.price)">Send application</button>
+                                <button type="button" class="btn rounded-pill w-50 mb-3" style="border: 2px #86502F solid; color: #86502F; text-shadow: 0.5px 0px;" @click="sendfirstApplication(listing_dict.landlord, listing_dict.listingAddress, listing_dict.price)">Send application</button>
                             </div>
                         </div>
                     </div>
@@ -296,7 +296,7 @@
                                       </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @click="submitfinalApplication(listing_dict.listingAddress, listing_dict.landlord)">Submit Application</button>
+                                    <button type="button" class="btn rounded-pill w-50 mb-3" style="border: 2px #86502F solid; color: #86502F; text-shadow: 0.5px 0px;" data-bs-dismiss="modal" @click="submitfinalApplication(listing_dict.listingAddress, listing_dict.landlord)">Submit Application</button>
                                 </div>
                             </div>
                         </div>
@@ -316,7 +316,7 @@
                                     <p>Modal body text goes here.</p>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Confirm</button>
+                                    <button type="button" class="btn rounded-pill w-50 mb-3" style="border: 2px #86502F solid; color: #86502F; text-shadow: 0.5px 0px;" data-bs-dismiss="modal">Confirm</button>
                                 </div>
                             </div>
                         </div>
