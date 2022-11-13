@@ -127,7 +127,7 @@
                 </div>
             </div>
 
-            <h3 id="indivpageprice">SGD <span>{{listing_dict.price}}</span> / mth</h3>
+            <h3 class="page-price">SGD <span>{{listing_dict.price}}</span> / mth</h3>
             <!-- <div class="container-fluid" style="width:50%; margin: auto">
                 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
                     <div class="carousel-indicators">
@@ -169,8 +169,8 @@
                     <div class="col-lg-3 col-md-6 order-md-2 col-sm-6">
                         <div class="amenities-box text-center">
                             <h4>amenities list</h4>
-                            <ul id="amenitieslist">
-                                <li v-for="amen in listing_dict.amenities" style="margin-bottom:15px;">
+                            <ul class="amenitieslist">
+                                <li v-for="amen in listing_dict.amenities">
                                     <img v-bind:src="'./icons/' + amen + '.png' " alt=""
                                         style="width: 20px; height: 20px;">
                                     &nbsp {{amen}}
