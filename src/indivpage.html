@@ -172,22 +172,35 @@
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 order-md-3 col-sm-6">
-                        <div v-if="listing_dict.cookingallowed === true" class="medium-box">
+                        <div v-if="listing_dict.visitorsallowed === true" class="medium-box text-center" style="background-color:#EEE9D2">
                             <h3 style="text-align: center; margin-top: 25px;">
-                                Cooking Allowed
-                                <br>
-
-                                <img src="./icons/cooking.png" alt=""
-                                    style="width: 50px; height: 50px; margin-top: 20px;">
+                                visitors ARE allowed
                             </h3>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="50"
+                                    height="50" fill="#372028"
+                                    class="bi bi-people-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                                    <path fill-rule="evenodd"
+                                        d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z" />
+                                    <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" />
+                                </svg>
+                           
                         </div>
-                        <div v-else class="medium-box">
-                            <h3>
-                                Cooking Not Allowed
-                                <br>
-                                <img src="./icons/nocooking.png" alt=""
-                                    style="width: 50px; height: 50px; margin-top: 20px;">
+                        <div v-else class="medium-box text-center" style="background-color:#86502F; color:#EEE9D2;">
+                            <h3 style="text-align: center; margin-top: 25px;">
+                                visitors ARE NOT allowed
                             </h3>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="50"
+                                    height="50" fill="#eee9d2"
+                                    class="bi bi-people-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                                    <path fill-rule="evenodd"
+                                        d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z" />
+                                    <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" />
+                                </svg>
+                           
                         </div>
                         <div class="medium-box" style="text-align: center; padding: 10px;">
 
