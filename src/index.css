@@ -460,17 +460,41 @@ body {
     animation: heart 1s cubic-bezier(0.17, 0.89, 0.32, 1.49);
 }
 
+
 h1.page-title {
-    font-size: 40px;
+    font-size: 48px;
     line-height: 1.0625;
     font-weight: 600;
     letter-spacing: -0.009em;
     font-family: "Montserrat", sans-serif;
 }
 
+h1.page-bold {
+    font-size: 24px;
+    line-height: 1.0625;
+    font-weight: 600;
+    font-family: "Montserrat", sans-serif;
+}
+
+h6 {
+    font-size: 16px;
+    line-height: 1.21053;
+    font-weight: 500;
+    letter-spacing: 0.012em;
+}
+
+.carousel-inner > .carousel-item > img {
+    height: 100px;
+}
+
+
 @media (min-width: 576px){
+    h1.page-title {
+        font-size: 48px;
+    }
+
     h1.page-bold {
-        font-size: 24px;
+        font-size: 30px;
         line-height: 1.0625;
         font-weight: 600;
         font-family: "Montserrat", sans-serif;
@@ -482,11 +506,15 @@ h1.page-title {
         font-weight: 500;
         letter-spacing: 0.012em;
     }
+
+    .carousel-inner > .carousel-item > img {
+        height: 100px;
+    }
 }
 
 @media (min-width: 768px) {
     h1.page-title {
-        font-size: 40px;
+        font-size: 48px;
     }
 
     h1.page-bold {
@@ -500,11 +528,15 @@ h1.page-title {
     h6 {
         font-size: 17px;
     }
+
+    .carousel-inner > .carousel-item > img {
+        height: 200px;
+    }
 }
 
 @media (min-width: 992px) {
     h1.page-title {
-        font-size: 48px;
+        font-size: 64px;
     }
 
     h1.page-bold {
@@ -517,6 +549,10 @@ h1.page-title {
 
     h6 {
         font-size: 18px;
+    }
+
+    .carousel-inner > .carousel-item > img {
+        height: 300px;
     }
 }
 @media (min-width: 1200px) {
@@ -534,6 +570,10 @@ h1.page-title {
 
     h6 {
         font-size: 19px;
+    }
+
+    .carousel-inner > .carousel-item > img {
+        height: 400px;
     }
 }
 
