@@ -145,7 +145,7 @@ body {
 }
 
 #loginbox > div {
-    width: 40%;
+    width: 400px;
     background-color: rgb(55, 32, 40);
     border-radius: 20px;
     color: #e7e4ca;
