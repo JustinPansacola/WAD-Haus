@@ -47,7 +47,7 @@ var content = Vue.createApp({
             filtered_listings_dict: {},
             search_filter: false,
             uid: "",
-            userfavs: [], 
+            userfavs: [],
             startingfavs: [],
             usercurrentfav: [],
             dataLoaded: false
@@ -66,63 +66,68 @@ var content = Vue.createApp({
             let occupancy_selected = this.occupancy_selected_v.toLowerCase()
             let price_selected = (this.price_selected_v).replace(/\D/g, '')
 
+            console.log(location_selected)
+            console.log(roomtype_selected)
+            console.log(occupancy_selected)
+            console.log(location_selected)
+
             let listings_arr = Object.entries(this.listings_dict)
             console.log(listings_arr)
-            console.log(price_selected)
-            for(let i = 0; i < listings_arr.length; i++) {
-                let details = listings_arr[i][1];
-                let search_valid = 0;
-                if(location_selected == "location"){
-                    search_valid += 1
+
+            let location_query = ""
+            let roomtype_query = ""
+            let occupancy_query = ""
+            let price_query = ""
+
+
+            for (let i = 0; i < listings_arr.length; i++) {
+                console.log(listings_arr[i])
+                let details = listings_arr[i][1]
+
+
+                if (location_selected == "location") {
+                    location_query = true
+                } else {
+                    location_query = details.location.toLowerCase() == location_selected
                 }
-                else if(details.location.toLowerCase() == location_selected){
-                    search_valid += 1
+
+
+                if (roomtype_selected == "room type") {
+                    roomtype_query = true
+                } else {
+                    roomtype_query = details.roomType.toLowerCase() == roomtype_selected
                 }
-                if(roomtype_selected == "room type"){
-                    search_valid += 1
+
+
+                if (occupancy_selected == "occupancy") {
+                    occupancy_query = true
+                } else {
+                    occupancy_query = details.roomOccupancy.toLowerCase() == occupancy_selected
                 }
-                else if(details.roomType.toLowerCase() == roomtype_selected){
-                    search_valid += 1
+
+
+                if (price_selected == "") {
+                    price_query = true
+                } else {
+                    price_query = Number(details.price) <= Number(price_selected)
                 }
-                if(occupancy_selected == "occupancy"){
-                    search_valid += 1
-                }
-                else if(details.roomOccupancy.toLowerCase() == occupancy_selected){
-                    search_valid += 1
-                }
-                if(price_selected == ""){
-                    search_valid += 1
-                }
-                else if(Number(details.price) <= Number(price_selected)){
-                    search_valid += 1
-                }
-                if(search_valid == 4){
+
+                let final_query = location_query && roomtype_query && occupancy_query && price_query
+                console.log(final_query)
+
+
+                if (final_query) {
                     this.filtered_listings_dict[listings_arr[i][0]] = details
+                    console.log(details)
                 }
-                console.log(details)
-                console.log(search_valid)
             }
 
-            // for (let i = 0; i < listings_arr.length; i++) {
-            //     console.log(listings_arr[i])
-            //     let details = listings_arr[i][1]
 
-            //     if (details.location.toLowerCase() == location_selected.toLowerCase() &&
-            //         details.roomType.toLowerCase() == roomtype_selected.toLowerCase() &&
-            //         details.roomOccupancy.toLowerCase() == occupancy_selected.toLowerCase() &&
-            //         Number(details.price) <= Number(price_selected)) {
-                    
-            //         this.filtered_listings_dict[listings_arr[i][0]] = details
-            //         console.log(details)
-            //     }
-            // }
-
-
-            
             console.log(this.filtered_listings_dict)
-            //this.listings_dict = this.filtered_listings_dict
+            // this.listings_dict = this.filtered_listings_dict
+
         },
-        async changeFavourite(ele){
+        async changeFavourite(ele) {
             console.log(ele)
             console.log(this.uid)
             let current = document.getElementById(`heart${ele}`).checked
@@ -130,19 +135,18 @@ var content = Vue.createApp({
             console.log(current)
             let userfav_scoped = []
 
-            const docRef = doc(db,"users", this.uid)
+            const docRef = doc(db, "users", this.uid)
             console.log(docRef)
             const docSnap = await getDoc(docRef);
             let race = ""
             let religion = ""
-            let school= ""
+            let school = ""
             let nationality = ""
 
             if (docSnap.exists()) {
                 const data = docSnap.data()
                 userfav_scoped = data.favourites
-                if(userfav_scoped === undefined)
-                {
+                if (userfav_scoped === undefined) {
                     userfav_scoped = [];
                 }
                 console.log(userfav_scoped)
@@ -151,11 +155,11 @@ var content = Vue.createApp({
                 religion = data.religion
                 school = data.school
                 nationality = data.nationality
-                
+
             }
 
-            if(userfav_scoped.includes(`/listings/${ele}`)){
-                if (current === true){
+            if (userfav_scoped.includes(`/listings/${ele}`)) {
+                if (current === true) {
                     let ind = userfav_scoped.indexOf(`/listings/${ele}`)
                     console.log(ind)
                     userfav_scoped.splice(ind, 1)
@@ -163,8 +167,8 @@ var content = Vue.createApp({
                 }
             }
 
-            else if(!userfav_scoped.includes(`/listings/${ele}`)){
-                if (current === false){
+            else if (!userfav_scoped.includes(`/listings/${ele}`)) {
+                if (current === false) {
                     userfav_scoped.push(`/listings/${ele}`)
                     console.log(userfav_scoped)
                 }
@@ -197,11 +201,11 @@ var content = Vue.createApp({
         //         this.startingfavs = data.favourites
         //         console.log(startingfavs)
         //         console.log("HI")
-                
+
         //     }
 
         // }
-        
+
     },
     // mounted: function() {
     //     this.loadhearts() // Calls the method before page loads
@@ -225,12 +229,11 @@ var content = Vue.createApp({
                 const docRef = doc(db, "users", uid);
                 const docSnap = await getDoc(docRef);
 
-                
+
                 if (docSnap.exists()) {
-                    
+
                     this.usercurrentfav = docSnap.data().favourites;
-                    if(this.usercurrentfav === undefined)
-                    {
+                    if (this.usercurrentfav === undefined) {
                         this.usercurrentfav = [];
                     }
 
@@ -241,13 +244,12 @@ var content = Vue.createApp({
                 }
 
             }
-            else
-            {
+            else {
                 document.getElementById("navbar_button_1").innerHTML = `<a class="nav-link text-dark text-white" style="background-color:rgb(55, 32, 40);" href="login-fad.html">login</a>`
                 document.getElementById("navbar_button_2").innerHTML = `<a class="nav-link text-dark text-white" style="background-color:rgb(55, 32, 40);" href="register-fad.html">register</a>`
 
             }
-            });
+        });
 
         const colRef = collection(db, "listings");
         // const docsSnap = await getDocs(colRef);
