@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -231,26 +232,28 @@
                                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                                 <span class="visually-hidden">Next</span>
                                             </button>
+
                                         </div>
-                                        <div class="card-body">
-                                            <h5 class="card-title">{{details.listingAddress}} 
-                                                <!-- <span v-if="details.favourites.includes(`/listings/${id}`)" style="float: right;">
-                                                    <input class="heart" :id="'heart' + id" type="checkbox" />
-                                                    <label class="heartlabel" :for="'heart' + id" @click="changeFavourite(id)" >❤</label>
-                                                </span> -->
-                                                <span style="float: right;" v-if="usercurrentfav.includes('/listings/' + id)">
-                                                    <input class="heart" :id="'heart' + id" type="checkbox" checked />
-                                                    <label class="heartlabel" :for="'heart' + id" @click="changeFavourite(id)" >❤</label>
-                                                </span>
-                                                <span style="float: right;" v-else>
-                                                    <input class="heart" :id="'heart' + id" type="checkbox" />
-                                                    <label class="heartlabel" :for="'heart' + id" @click="changeFavourite(id)" >❤</label>
-                                                </span>
+                                        
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{details.listingAddress}} 
+                                                    <!-- <span v-if="details.favourites.includes(`/listings/${id}`)" style="float: right;">
+                                                        <input class="heart" :id="'heart' + id" type="checkbox" />
+                                                        <label class="heartlabel" :for="'heart' + id" @click="changeFavourite(id)" >❤</label>
+                                                    </span> -->
+                                                    <span style="float: right;" v-if="usercurrentfav.includes('/listings/' + id)">
+                                                        <input class="heart" :id="'heart' + id" type="checkbox" checked />
+                                                        <label class="heartlabel" :for="'heart' + id" @click="changeFavourite(id)" >❤</label>
+                                                    </span>
+                                                    <span style="float: right;" v-else>
+                                                        <input class="heart" :id="'heart' + id" type="checkbox" />
+                                                        <label class="heartlabel" :for="'heart' + id" @click="changeFavourite(id)" >❤</label>
+                                                    </span>
 
-                                                
-                                            </h5>
+                                                    
+                                                </h5>
 
-                                        <a :href="'indivpage.html?id=' + id " class="stretched-link"
+                                            <a :href="'indivpage.html?id=' + id " class="stretched-link"
                                             style="position: relative; text-decoration: none; color: black;">
                                                 <div class = "listingInfo">
                                                     <p class="card-text">{{details.roomType}}</p>
@@ -355,30 +358,83 @@
     <script>
         function updateMap() {
             // console.log(listings)
-            let location_selected = document.getElementById('inlineFormSelectLocation').value
-            let roomtype_selected = document.getElementById('inlineFormSelectRoomType').value
-            let occupancy_selected = document.getElementById('inlineFormSelectOccupancy').value
+            let location_selected = (document.getElementById('inlineFormSelectLocation').value).toLowerCase()
+            let roomtype_selected = (document.getElementById('inlineFormSelectRoomType').value).toLowerCase()
+            let occupancy_selected = (document.getElementById('inlineFormSelectOccupancy').value).toLowerCase()
             let price_selected = (document.getElementById('inlineFormSelectPrice').value).replace(/\D/g, '')
 
             let listings_arr = Object.entries(listings)
 
             let filtered_listings = {}
+            // for (let i = 0; i < listings_arr.length; i++) {
+            //     console.log(listings_arr[i][1])
+            //     let details = listings_arr[i][1]
+
+            //     if (details.location.toLowerCase() == location_selected.toLowerCase() &&
+            //         details.roomType.toLowerCase() == roomtype_selected.toLowerCase() &&
+            //         details.roomOccupancy.toLowerCase() == occupancy_selected.toLowerCase() &&
+            //         Number(details.price) <= Number(price_selected)) {
+
+            //         let current_lat = details.lat
+            //         let current_lng = details.lng
+            //         console.log(current_lat + " " + current_lng)
+
+            //         filtered_listings[i+1] = { "lat": current_lat, "lng": current_lng }
+            //     }
+            // }
+
+            let location_query = ""
+            let roomtype_query = ""
+            let occupancy_query = ""
+            let price_query = ""
+
             for (let i = 0; i < listings_arr.length; i++) {
-                console.log(listings_arr[i][1])
+                console.log(listings_arr[i])
                 let details = listings_arr[i][1]
 
-                if (details.location.toLowerCase() == location_selected.toLowerCase() &&
-                    details.roomType.toLowerCase() == roomtype_selected.toLowerCase() &&
-                    details.roomOccupancy.toLowerCase() == occupancy_selected.toLowerCase() &&
-                    Number(details.price) <= Number(price_selected)) {
 
+                if (location_selected == "location") {
+                    location_query = true
+
+                } else {
+                    location_query = details.location.toLowerCase() == location_selected.toLowerCase()
+                }
+
+
+                if (roomtype_selected == "room type") {
+                    roomtype_query = true
+
+                } else {
+                    roomtype_query = details.roomType.toLowerCase() == roomtype_selected.toLowerCase()
+                }
+
+
+                if (occupancy_selected == "occupancy") {
+                    occupancy_query = true
+                } else {
+                    occupancy_query = details.roomOccupancy.toLowerCase() == occupancy_selected.toLowerCase()
+                }
+
+
+                if (price_selected == "") {
+                    price_query = true
+                } else {
+                    price_query = Number(details.price) <= Number(price_selected)
+                }
+
+                let final_query = location_query && roomtype_query && occupancy_query && price_query
+                console.log(final_query)
+
+
+                if (final_query) {
                     let current_lat = details.lat
                     let current_lng = details.lng
-                    console.log(current_lat + " " + current_lng)
+                    // console.log(current_lat + " " + current_lng)
 
-                    filtered_listings[i+1] = { "lat": current_lat, "lng": current_lng }
+                    filtered_listings[i + 1] = { "lat": current_lat, "lng": current_lng }
                 }
             }
+
 
             initMap(filtered_listings)
         }
